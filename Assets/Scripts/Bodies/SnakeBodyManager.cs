@@ -18,8 +18,8 @@ public class SnakeBodyManager : MonoBehaviour
     }
     private void Start()
     {
-        Init();
-        
+         Init();
+        // AddBody(); //temp
     }
     private void Update()
     {
@@ -42,17 +42,32 @@ public class SnakeBodyManager : MonoBehaviour
     }
     public void Init()
     {
-        for(int i = 0; i <= maxBodyCount; i++)
+        for(int i = 0; i < maxBodyCount; i++)
         {
-            GameObject newGO = Instantiate(prefBody, transform);
-            if(i == 0)
-                newGO.transform.position = SnakeHead.instance.transform.position + Vector3.down;
+            GameObject newGO;
+            if (bodiesGO[i] == null)
+            {
+                newGO = Instantiate(prefBody, transform);
+                if (i == 0)
+                    newGO.transform.position = SnakeHead.instance.transform.position + Vector3.down;
+                else
+                    newGO.transform.position = bodiesGO[i - 1].transform.position + Vector3.down;
+                bodiesGO.Add(newGO);
+                bodies.Add(newGO.GetComponent<SnakeBody>());
+                if (i < bodyCount)
+                    bodies[i].Activate();
+            }
             else
-                newGO.transform.position = bodiesGO[bodiesGO.Count - 1].transform.position + Vector3.down;
-            bodiesGO.Add(newGO);
-            bodies.Add(newGO.GetComponent<SnakeBody>());
-            if (i < bodyCount)
-                bodies[i].Activate();
+            {
+                newGO = bodiesGO[i];
+                if (i == 0)
+                    newGO.transform.position = SnakeHead.instance.transform.position + Vector3.down;
+                else
+                    newGO.transform.position = bodiesGO[i - 1].transform.position + Vector3.down;
+                bodies.Add(newGO.GetComponent<SnakeBody>());
+                if (i < bodyCount)
+                    bodies[i].Activate();
+            }
         }
         
     }

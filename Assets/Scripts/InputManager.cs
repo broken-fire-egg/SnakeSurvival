@@ -14,8 +14,11 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
-        CheckTouch();
-        CheckTouchPos();
+        if (SnakeHead.instance)
+        {
+            CheckTouch();
+            CheckTouchPos();
+        }
     }
 
 
