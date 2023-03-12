@@ -8,7 +8,7 @@ public class BodyClass : MonoBehaviour
     public GameObject bulletpref;
     public float shoottime;
     public float cooltime;
-    protected void Start()
+    protected virtual void Start()
     {
         snakeBody = GetComponent<SnakeBody>();
     }

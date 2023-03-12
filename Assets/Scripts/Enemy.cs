@@ -17,7 +17,10 @@ public class Enemy : MonoBehaviour
     {
         Player = GameObject.Find("Head");
     }
+    public void Hit(float damage)
+    {
 
+    }
     private void Update()
     {
         if (test)
