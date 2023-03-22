@@ -11,6 +11,7 @@ public class SnakeBody : MonoBehaviour
     public SnakeHead.Direction dir = SnakeHead.Direction.up;
     public float maxHP;
     public float HP;
+    public bool faint;
     private void Start()
     {
         dir = SnakeHead.Direction.up;
