@@ -9,6 +9,7 @@ public class ChainLightning : BodyClass
     public int maxchaincount;
     int chaincount;
     LineRenderer lineRenderer;
+    public float damage;
     float Effect;
     private void Awake()
     {
@@ -67,6 +68,10 @@ public class ChainLightning : BodyClass
 
         Vector3[] poslist = new Vector3[AttackList.Count + 1];
 
+        foreach (GameObject go in AttackList)
+        {
+            go.GetComponent<Enemy>().Hit(damage);
+        }
 
         poslist[0] = transform.position;
         for (int i=1;i< poslist.Length; i++)

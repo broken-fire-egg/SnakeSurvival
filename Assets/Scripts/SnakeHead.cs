@@ -28,7 +28,8 @@ public class SnakeHead : MonoBehaviour
     public enum Direction { right, down, left, up }
     public float speed;
     public float Speed { get { return speed * SPEEDMULTIPLY; } }
-
+    public float maxHP;
+    public float HP;
     static public Direction GetOppositeDir(Direction dir)
     {
         if (dir == Direction.right || dir == Direction.down)

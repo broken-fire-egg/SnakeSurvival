@@ -21,7 +21,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            collision.transform.GetComponent<Enemy>().hp -= damage;
+            var enemy = collision.transform.GetComponent<Enemy>();
+            enemy.hp -= damage;
+            enemy.CheckDead();
             if (!pene)
                 gameObject.SetActive(false);
         }
