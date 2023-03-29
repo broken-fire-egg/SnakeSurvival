@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static EXPManager;
 
 public class Enemy : MonoBehaviour
 {
+    public float maxhp;
     public float hp;
     public GameObject Player;
 
@@ -16,6 +16,21 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Head");
+    }
+    public void Hit(float damage)
+    {
+        hp -= damage;
+        CheckDead();
+    }
+
+
+    public void CheckDead()
+    {
+        if (hp <= 0)
+        {
+            EXPManager.instance.itemOP.GetRestingPoolObject().SetPositionAndActive(transform.position);
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -30,11 +45,6 @@ public class Enemy : MonoBehaviour
     {
         if(collision.transform.CompareTag("Player"))
             Destroy(collision.gameObject);
-        if (hp <= 0)
-        {
-            EXPManager.instance.itemOP.GetRestingPoolObject().SetPositionAndActive(transform.position);
-            Destroy(gameObject);
-        }
     }
 
     void CheckWidth()

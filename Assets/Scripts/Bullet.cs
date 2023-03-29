@@ -5,15 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
-    public bool pene;
+    public bool pene;   //°üÅë
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            collision.transform.GetComponent<Enemy>().hp -= damage;
-            if(!pene)
-                gameObject.SetActive(false);
+            collision.transform.GetComponent<Enemy>().Hit(damage);
+            gameObject.SetActive(pene);
         }
     }
 
@@ -21,7 +20,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            collision.transform.GetComponent<Enemy>().hp -= damage;
+            var enemy = collision.transform.GetComponent<Enemy>();
+            enemy.hp -= damage;
+            enemy.CheckDead();
             if (!pene)
                 gameObject.SetActive(false);
         }
