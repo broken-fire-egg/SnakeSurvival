@@ -31,7 +31,7 @@ public class SnakeHead : MonoBehaviour
     public float Speed { get { return speed * SPEEDMULTIPLY; } }
     public float maxHP;
     public float HP;
-
+    protected SpriteRenderer sr;
     SpriteResolver spriteResolver;
 
     static public Direction GetOppositeDir(Direction dir)
@@ -49,14 +49,20 @@ public class SnakeHead : MonoBehaviour
             instance = this;
         
     }
-
-    // Start is called before the first frame update
-    void Start()
+    protected void Init()
     {
         posHistories = new List<PosHistory>();
         dir = Direction.right;
         ChangeDirection(Direction.up);
         spriteResolver = GetComponent<SpriteResolver>();
+        sr = GetComponent<SpriteRenderer>();
+        Debug.Log("SH Init");
+    }
+
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {
+        Init();
     }
     private void FixedUpdate()
     {
@@ -72,7 +78,7 @@ public class SnakeHead : MonoBehaviour
             lastPH.nextPH = newPH;
         lastPH = newPH;
         posHistories.Add(lastPH);
-
+        ChangeAttackDirection(_dir);
         SnakeBodyManager.instance.AlertNewPH(newPH);
     }
     void Move()
@@ -93,11 +99,13 @@ public class SnakeHead : MonoBehaviour
                 break;
         }
     }
-
-
+    protected virtual void ChangeAttackDirection(Direction dir)
+    {
+        Debug.Log("parentCAD");
+    }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         Move();
     }
