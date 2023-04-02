@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class SnakeHead : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class SnakeHead : MonoBehaviour
     public float Speed { get { return speed * SPEEDMULTIPLY; } }
     public float maxHP;
     public float HP;
+
+    SpriteResolver spriteResolver;
+
     static public Direction GetOppositeDir(Direction dir)
     {
         if (dir == Direction.right || dir == Direction.down)
@@ -52,6 +56,7 @@ public class SnakeHead : MonoBehaviour
         posHistories = new List<PosHistory>();
         dir = Direction.right;
         ChangeDirection(Direction.up);
+        spriteResolver = GetComponent<SpriteResolver>();
     }
     private void FixedUpdate()
     {
