@@ -31,6 +31,9 @@ public class SnakeHead : MonoBehaviour
     public float Speed { get { return speed * SPEEDMULTIPLY; } }
     public float maxHP;
     public float HP;
+
+    protected float attackCT;   //현재 남은 쿨타임
+    protected float attackDT;   //전체 쿨타임
     protected SpriteRenderer sr;
     SpriteResolver spriteResolver;
 
