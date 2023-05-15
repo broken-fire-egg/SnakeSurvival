@@ -20,7 +20,7 @@ public class SnakeHead : MonoBehaviour
 
     public static SnakeHead instance;
     public List<PosHistory> posHistories;
-
+    public GameObject WeaponObject;
     PosHistory lastPH;
 
     [SerializeField]
@@ -111,5 +111,17 @@ public class SnakeHead : MonoBehaviour
     protected virtual void Update()
     {
         Move();
+        if (CheckAttack())
+            Attack();
+        
+    }
+    protected virtual bool CheckAttack()
+    {
+        attackCT -= Time.deltaTime;
+        return attackCT <= 0;
+    }
+    protected virtual void Attack()
+    {
+        Debug.Log("parentAttack");
     }
 }

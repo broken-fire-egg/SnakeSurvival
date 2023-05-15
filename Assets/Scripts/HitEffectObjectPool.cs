@@ -10,4 +10,9 @@ public class HitEffectObjectPool : ObjectPooling<GameObject>
         if(instance == null)
             instance = this;
     }
+
+    public void PlayEffect(Vector3 pos, Quaternion rot)
+    {
+
+    }
 }
