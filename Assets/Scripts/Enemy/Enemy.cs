@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject enemyGet;
+
     public float maxhp;
     public float hp;
     public GameObject Player;
@@ -15,13 +18,15 @@ public class Enemy : MonoBehaviour
 
     public Direction dir;
     public bool test = false;
+    public bool MoveBool = true;
     public float Speed;
     GameObject testing;
     float time;
     void Start()
     {
         testing = GameObject.Find("Square");
-        Player = GameObject.Find("Head");
+        if(EnemyType != Type.healer)
+            Player = GameObject.Find("Head");
     }
     public void Hit(float damage)
     {
@@ -42,22 +47,27 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        if (test)
-            CheckLength();
-        else
-            CheckWidth();
+        if (Player != null)
+        {
+            if (test)
+                CheckLength();
+            else
+                CheckWidth();
+        }
+
         switch (EnemyType)
         {
             case Type.normal:
                 break;
             case Type.archer:
-                Self_Destruct();
+                ArcherClass();
                 break;
             case Type.ghost:
                 if (time >= 1f)
                     EnemyStealth();
                 break;
             case Type.explosion:
+                Self_Destruct();
                 break;
             case Type.horseman:
                 break;
@@ -68,6 +78,20 @@ public class Enemy : MonoBehaviour
                     Corrosion();
                     break;
             case Type.healer:
+                List<Tuple<float, GameObject>> list = new List<Tuple<float, GameObject>>();
+                for (int i = 0; i < gameObject.transform.parent.transform.childCount; i++)
+                    list.Add(new Tuple<float, GameObject>(Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(gameObject.transform.parent.GetChild(i).transform.position.x, gameObject.transform.parent.GetChild(i).transform.position.x)), gameObject.transform.parent.transform.GetChild(i).gameObject));
+                list.Sort();
+                if(Player == null)
+                    FindMob(list);
+                
+
+                if (Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(Player.transform.position.x, Player.transform.position.y)) <= 3)
+                {
+                    Player.GetComponent<Enemy>().hp += 3;
+                    if (Player.GetComponent<Enemy>().hp >= 8)
+                        FindMob(list);
+                }
                 break;
             default:
                 break;
@@ -81,28 +105,34 @@ public class Enemy : MonoBehaviour
 
     void CheckWidth()
     {
-        if (Mathf.Round(Player.transform.position.x) > Mathf.Round(transform.position.x))
-        //dir = Direction.right;
-            transform.Translate(new Vector3(1, 0) * Speed);
+        if (MoveBool == true)
+        {
+            if (Mathf.Round(Player.transform.position.x) > Mathf.Round(transform.position.x))
+                //dir = Direction.right;
+                transform.Translate(new Vector3(1, 0) * Speed);
 
-        else if (Mathf.Round(Player.transform.position.x) == Mathf.Round(transform.position.x))
-            test = true;
-        else
-            //dir = Direction.left;
-            transform.Translate(new Vector3(-1, 0) * Speed);
+            else if (Mathf.Round(Player.transform.position.x) == Mathf.Round(transform.position.x))
+                test = true;
+            else
+                //dir = Direction.left;
+                transform.Translate(new Vector3(-1, 0) * Speed);
+        }
     }
     void CheckLength()
     {
-        if (Mathf.Round(Player.transform.position.y) > Mathf.Round(transform.position.y))
-        //dir = Direction.up
-            transform.Translate(new Vector3(0, 1) * Speed);
+        if (MoveBool == true)
+        {
+            if (Mathf.Round(Player.transform.position.y) > Mathf.Round(transform.position.y))
+                //dir = Direction.up
+                transform.Translate(new Vector3(0, 1) * Speed);
 
-        else if (Mathf.Round(Player.transform.position.y) < Mathf.Round(transform.position.y))
-        //dir = Direction.down;
-            transform.Translate(new Vector3(0, -1) * Speed);
+            else if (Mathf.Round(Player.transform.position.y) < Mathf.Round(transform.position.y))
+                //dir = Direction.down;
+                transform.Translate(new Vector3(0, -1) * Speed);
 
-        else
-            test = false;
+            else
+                test = false;
+        }
     }
 
     void Move()
@@ -124,6 +154,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void ArcherClass()
+    {
+        if (Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(Player.transform.position.x, Player.transform.position.y)) <= 10)
+        {
+            MoveBool = false;
+        }
+        else
+        {
+            MoveBool = true;
+        }
+    }
     void EnemyStealth()
     {
         time = 0;
@@ -148,6 +189,15 @@ public class Enemy : MonoBehaviour
     {
         time = 0;
         Instantiate(testing, gameObject.transform.position, Quaternion.identity);
+    }
+
+    void FindMob(List<Tuple<float, GameObject>> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].Item2.GetComponent<Enemy>().hp < 8)
+                Player = list[i].Item2;
+        }
     }
 
 }
