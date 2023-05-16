@@ -122,6 +122,7 @@ public class SnakeHead : MonoBehaviour
     }
     protected virtual void Attack()
     {
+        attackCT = attackDT;
         Debug.Log("parentAttack");
     }
 }

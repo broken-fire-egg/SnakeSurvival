@@ -1529,7 +1529,7 @@ Transform:
   m_Children:
   - {fileID: 1959556803}
   m_Father: {fileID: 1480872459}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488779213
 GameObject:
@@ -1543,13 +1543,14 @@ GameObject:
   - component: {fileID: 488779216}
   - component: {fileID: 488779215}
   - component: {fileID: 488779217}
+  - component: {fileID: 488779218}
   m_Layer: 0
   m_Name: AttackEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &488779214
 Transform:
   m_ObjectHideFlags: 0
@@ -1557,13 +1558,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488779213}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1480872459}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!95 &488779215
 Animator:
@@ -1653,6 +1654,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 4, y: 4}
   m_Direction: 1
+--- !u!114 &488779218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488779213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2deba141a419f42b7a4a9cfdd21463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &503560933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,6 +1675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503560934}
+  - component: {fileID: 503560935}
   m_Layer: 0
   m_Name: CatWeaponObjectPool
   m_TagString: Untagged
@@ -1684,6 +1698,20 @@ Transform:
   m_Father: {fileID: 988863042}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &503560935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503560933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b3b20733d8ab2488d761692729e165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCap: 4
+  origin: {fileID: 488779213}
 --- !u!1 &514913585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,12 +3996,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af242d2022999844a82c23b568f06f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGet: {fileID: 0}
   maxhp: 8
   hp: 8
   Player: {fileID: 0}
   EnemyType: 0
   dir: 0
   test: 0
+  MoveBool: 1
   Speed: 0
 --- !u!1 &1064963654
 GameObject:
@@ -4006,7 +4036,7 @@ Transform:
   m_Children:
   - {fileID: 1337535686}
   m_Father: {fileID: 1480872459}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1064963656
 MonoBehaviour:
@@ -4150,12 +4180,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af242d2022999844a82c23b568f06f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGet: {fileID: 0}
   maxhp: 8
   hp: 8
   Player: {fileID: 0}
   EnemyType: 0
   dir: 0
   test: 0
+  MoveBool: 1
   Speed: 0
 --- !u!1 &1111593343
 GameObject:
@@ -4521,12 +4553,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af242d2022999844a82c23b568f06f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGet: {fileID: 0}
   maxhp: 8
   hp: 8
   Player: {fileID: 0}
   EnemyType: 0
   dir: 0
   test: 0
+  MoveBool: 1
   Speed: 0
 --- !u!1 &1200580663
 GameObject:
@@ -5607,12 +5641,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af242d2022999844a82c23b568f06f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGet: {fileID: 0}
   maxhp: 8
   hp: 8
   Player: {fileID: 0}
   EnemyType: 0
   dir: 0
   test: 0
+  MoveBool: 1
   Speed: 0
 --- !u!1 &1480872457
 GameObject:
@@ -5697,11 +5733,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480872457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.582, y: 0.555, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 488779214}
   - {fileID: 1064963655}
   - {fileID: 455217060}
   m_Father: {fileID: 0}
@@ -5815,17 +5850,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c1a7af81f4ecc4ab3ebf455612b77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponObject: {fileID: 488779213}
+  WeaponObject: {fileID: 0}
   sbManager: {fileID: 1958851921}
   speed: 0.79
   maxHP: 10
   HP: 10
   dir: 3
   offsets:
-  - {x: 1, y: 0, z: 0}
-  - {x: 0, y: -1, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: 0, y: 1, z: 0}
+  - {x: 1.5, y: 0, z: 0}
+  - {x: 0, y: -1.5, z: 0}
+  - {x: -1.5, y: 0, z: 0}
+  - {x: 0, y: 1.5, z: 0}
 --- !u!1 &1513027537
 GameObject:
   m_ObjectHideFlags: 0
@@ -6488,12 +6523,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af242d2022999844a82c23b568f06f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGet: {fileID: 0}
   maxhp: 8
   hp: 8
   Player: {fileID: 0}
   EnemyType: 0
   dir: 0
   test: 0
+  MoveBool: 1
   Speed: 0
 --- !u!1 &1708769530
 GameObject:

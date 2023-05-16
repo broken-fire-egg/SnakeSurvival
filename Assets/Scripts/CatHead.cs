@@ -7,14 +7,13 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class CatHead : SnakeHead
 {
-    public List<Vector3> offsets; //0right, 1down, 2left, 3up
-    
-    SpriteRenderer weaponsr;
+
+    public List<Vector3> offsets;//0right, 1down, 2left, 3up
     protected override void Start()
     {
-       // Debug.Log(handPivot.GetChild(0));
+        // Debug.Log(handPivot.GetChild(0));
         //hand = handPivot.GetChild(0);
-        weaponsr = WeaponObject.GetComponent<SpriteRenderer>();
+        attackDT = 2f;
         sr = GetComponent<SpriteRenderer>();
         base.Init();
     }
@@ -22,36 +21,32 @@ public class CatHead : SnakeHead
     {
         base.Update();
     }
-    protected override void ChangeAttackDirection(Direction dir)
+    protected override void Attack()
     {
-
+        base.Attack();
+        Debug.Log("attack");
+        int i = 0;
         switch (dir)
         {
             case Direction.right:
-                WeaponObject.transform.localPosition = offsets[0];
-                WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
-                weaponsr.flipX = false;
-                weaponsr.flipY = true;
+                i = 0;
                 break;
             case Direction.down:
-                WeaponObject.transform.localPosition = offsets[1];
-                WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
-                weaponsr.flipX = true;
-                weaponsr.flipY = false;
+                i = 1;
                 break;
             case Direction.left:
-                WeaponObject.transform.localPosition = offsets[2];
-                WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-                weaponsr.flipX = false;
-                weaponsr.flipY = false;
+                i = 2;
                 break;
             case Direction.up:
-                WeaponObject.transform.localPosition = offsets[3];
-                WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-                weaponsr.flipX = true;
-                weaponsr.flipY = true;
+                i = 3;
                 break;
         }
+        CatWeaponObjectPool.instance.SweepAttack(transform.position + offsets[i], dir);
+    }
+    protected override void ChangeAttackDirection(Direction dir)
+    {
+
+
                 //OLD CODE
 
                 //switch (dir)
