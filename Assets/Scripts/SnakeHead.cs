@@ -20,7 +20,7 @@ public class SnakeHead : MonoBehaviour
 
     public static SnakeHead instance;
     public List<PosHistory> posHistories;
-    public GameObject WeaponObject;
+    public WeaponRange weaponRange;
     PosHistory lastPH;
 
     [SerializeField]
@@ -71,7 +71,7 @@ public class SnakeHead : MonoBehaviour
     {
         //모바일 플랫폼 타겟 프레임 생각하면 이거 쓰면 안될듯
     }
-    public void ChangeDirection(Direction _dir)
+    public virtual void ChangeDirection(Direction _dir)
     {
         if (GetOppositeDir(dir) == _dir || dir == _dir)
             return;
@@ -82,6 +82,14 @@ public class SnakeHead : MonoBehaviour
         lastPH = newPH;
         posHistories.Add(lastPH);
         ChangeAttackDirection(_dir);
+
+        if(_dir == Direction.right)
+            sr.flipX = true;
+        else if(_dir == Direction.left)
+            sr.flipX = false;
+
+
+
         SnakeBodyManager.instance.AlertNewPH(newPH);
     }
     void Move()
@@ -118,10 +126,12 @@ public class SnakeHead : MonoBehaviour
     protected virtual bool CheckAttack()
     {
         attackCT -= Time.deltaTime;
-        return attackCT <= 0;
+        
+        return attackCT <= 0 && weaponRange.EnemySpoted;
     }
     protected virtual void Attack()
     {
+        attackCT = attackDT;
         Debug.Log("parentAttack");
     }
 }
