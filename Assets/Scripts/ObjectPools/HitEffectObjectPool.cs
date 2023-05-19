@@ -11,8 +11,10 @@ public class HitEffectObjectPool : ObjectPooling<GameObject>
             instance = this;
     }
 
-    public void PlayEffect(Vector3 pos, Quaternion rot)
+    public void PlayEffect(Vector3 pos)
     {
-
+        var po = GetRestingPoolObject();
+        po.gameObject.transform.rotation = Quaternion.Euler(0,0,Random.Range(0f,360f));
+        po.SetPositionAndActive(pos);
     }
 }

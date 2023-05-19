@@ -13,7 +13,8 @@ public class CatHead : SnakeHead
     {
         // Debug.Log(handPivot.GetChild(0));
         //hand = handPivot.GetChild(0);
-        attackDT = 2f;
+        attackDT = 4f/3f;
+        attackCT = attackDT;
         sr = GetComponent<SpriteRenderer>();
         base.Init();
     }
@@ -45,45 +46,45 @@ public class CatHead : SnakeHead
     }
     protected override void ChangeAttackDirection(Direction dir)
     {
+        weaponRange.transform.localPosition = offsets[(int)dir];
 
+        //OLD CODE
 
-                //OLD CODE
+        //switch (dir)
+        //{
+        //    case Direction.right:
+        //        hand.rotation = Quaternion.identity;
+        //        hand.localPosition = offsets[0];
+        //        handsr.flipX = true;
+        //        handsr.flipY = true;
+        //        sr.flipX = true;
+        //        handsr.sortingOrder = 0;
+        //        break;
+        //    case Direction.down:
+        //        hand.rotation = Quaternion.Euler(0, 0, 90);
+        //        hand.localPosition = offsets[1];
+        //        handsr.flipY = false;
+        //        handsr.flipX = false;
+        //        sr.flipX = false;
+        //        handsr.sortingOrder = 3;
+        //        break;
+        //    case Direction.left:
+        //        hand.rotation = Quaternion.identity;
+        //        hand.localPosition = offsets[2];
+        //        handsr.flipY = false;
+        //        handsr.flipX = false;
+        //        sr.flipX = false;
+        //        handsr.sortingOrder = 0;
+        //        break;
+        //    case Direction.up:
+        //        hand.rotation = Quaternion.Euler(0, 0, -90);
+        //        hand.localPosition = offsets[3];
+        //        handsr.flipY = false;
+        //        handsr.flipX = false;
+        //        sr.flipX = false;
+        //        handsr.sortingOrder = 0;
+        //        break;
+        //}
 
-                //switch (dir)
-                //{
-                //    case Direction.right:
-                //        hand.rotation = Quaternion.identity;
-                //        hand.localPosition = offsets[0];
-                //        handsr.flipX = true;
-                //        handsr.flipY = true;
-                //        sr.flipX = true;
-                //        handsr.sortingOrder = 0;
-                //        break;
-                //    case Direction.down:
-                //        hand.rotation = Quaternion.Euler(0, 0, 90);
-                //        hand.localPosition = offsets[1];
-                //        handsr.flipY = false;
-                //        handsr.flipX = false;
-                //        sr.flipX = false;
-                //        handsr.sortingOrder = 3;
-                //        break;
-                //    case Direction.left:
-                //        hand.rotation = Quaternion.identity;
-                //        hand.localPosition = offsets[2];
-                //        handsr.flipY = false;
-                //        handsr.flipX = false;
-                //        sr.flipX = false;
-                //        handsr.sortingOrder = 0;
-                //        break;
-                //    case Direction.up:
-                //        hand.rotation = Quaternion.Euler(0, 0, -90);
-                //        hand.localPosition = offsets[3];
-                //        handsr.flipY = false;
-                //        handsr.flipX = false;
-                //        sr.flipX = false;
-                //        handsr.sortingOrder = 0;
-                //        break;
-                //}
-        
     }
 }

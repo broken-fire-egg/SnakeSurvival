@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class CatWeaponObjectPool : ObjectPooling<CapsuleCollider2D>
 {
     public static CatWeaponObjectPool instance;
-    public void Start()
-    {
-        base.Start();
-    }
     private void Awake()
     {
         if (instance == null)
@@ -19,7 +15,6 @@ public class CatWeaponObjectPool : ObjectPooling<CapsuleCollider2D>
         var po = GetRestingPoolObject();
         var WeaponObject = po.gameObject;
         var weaponsr = po.spriteRenderer;
-        CapsuleCollider2D cc = po.component;
         switch (dir)
         {
             case SnakeHead.Direction.right:
@@ -27,28 +22,29 @@ public class CatWeaponObjectPool : ObjectPooling<CapsuleCollider2D>
                 WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
                 weaponsr.flipX = false;
                 weaponsr.flipY = true;
-                cc.offset = new Vector2();
+                
+                WeaponObject.transform.DOLocalMoveX(WeaponObject.transform.position.x + 2, 0.5f).SetEase(Ease.OutQuad);
                 break;
             case SnakeHead.Direction.down:
                 WeaponObject.transform.localPosition = pos;
                 WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
                 weaponsr.flipX = true;
                 weaponsr.flipY = false;
-                cc.offset = new Vector2();
+                WeaponObject.transform.DOLocalMoveY(WeaponObject.transform.position.y - 2, 0.5f).SetEase(Ease.OutQuad);
                 break;
             case SnakeHead.Direction.left:
                 WeaponObject.transform.localPosition = pos;
                 WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
                 weaponsr.flipX = false;
                 weaponsr.flipY = false;
-                cc.offset = new Vector2();
+                WeaponObject.transform.DOLocalMoveX(WeaponObject.transform.position.x - 2, 0.5f).SetEase(Ease.OutQuad);
                 break;
             case SnakeHead.Direction.up:
                 WeaponObject.transform.localPosition = pos;
                 WeaponObject.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
                 weaponsr.flipX = true;
                 weaponsr.flipY = true;
-                cc.offset = new Vector2();
+                WeaponObject.transform.DOLocalMoveY(WeaponObject.transform.position.y + 2, 0.5f).SetEase(Ease.OutQuad);
                 break;
         }
         po.SetPositionAndActive(pos);
