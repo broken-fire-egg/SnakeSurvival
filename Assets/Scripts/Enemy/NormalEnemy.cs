@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class NormalEnemy : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        MoveBool = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+            base.Update();
     }
 }
