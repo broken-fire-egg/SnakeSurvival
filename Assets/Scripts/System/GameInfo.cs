@@ -9,9 +9,11 @@ public class GameInfo : SingletonParent<GameInfo>
     public float maxHP;
     [HideInInspector]
     public float damageUnit;
+    public int fps;
     private void Start()
     {
         maxHP = 100;
         damageUnit = 1;
+        fps = Application.targetFrameRate = 30;
     }
 }

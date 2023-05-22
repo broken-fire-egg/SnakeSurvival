@@ -25,7 +25,7 @@ public class SnakeHead : MonoBehaviour
 
     [SerializeField]
     SnakeBodyManager sbManager;
-    const float SPEEDMULTIPLY = 0.025f;
+    const float SPEEDMULTIPLY = 0.15f;
     public enum Direction { right, down, left, up }
     public float speed;
     public float Speed { get { return speed * SPEEDMULTIPLY; } }
@@ -35,6 +35,7 @@ public class SnakeHead : MonoBehaviour
     protected float attackCT;   //현재 남은 쿨타임
     protected float attackDT;   //전체 쿨타임
     protected SpriteRenderer sr;
+
     SpriteResolver spriteResolver;
 
     static public Direction GetOppositeDir(Direction dir)
@@ -50,7 +51,6 @@ public class SnakeHead : MonoBehaviour
     {
         if(instance == null)
             instance = this;
-        
     }
     protected void Init()
     {
@@ -97,16 +97,16 @@ public class SnakeHead : MonoBehaviour
         switch (dir)
         {
             case Direction.right:
-                transform.Translate(new Vector3(1, 0) * Speed);
+                transform.Translate(new Vector3(1, 0) * Speed * Time.deltaTime * GameInfo.Instance.fps);
                 break;
             case Direction.down:
-                transform.Translate(new Vector3(0, -1) * Speed);
+                transform.Translate(new Vector3(0, -1) * Speed * Time.deltaTime * GameInfo.Instance.fps);
                 break;
             case Direction.left:
-                transform.Translate(new Vector3(-1, 0) * Speed);
+                transform.Translate(new Vector3(-1, 0) * Speed * Time.deltaTime * GameInfo.Instance.fps);
                 break;
             case Direction.up:
-                transform.Translate(new Vector3(0, 1) * Speed);
+                transform.Translate(new Vector3(0, 1) * Speed * Time.deltaTime * GameInfo.Instance.fps);
                 break;
         }
     }
