@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class AutoDisabler : MonoBehaviour
 {
-
+//REMOVE THIS SCRIPT
 }

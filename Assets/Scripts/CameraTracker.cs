@@ -6,7 +6,7 @@ public class CameraTracker : MonoBehaviour
 {
     public GameObject target;
 
-    private void Update()
+    private void LateUpdate()
     {
         if(target)
         transform.position = target.transform.position - new Vector3(0,0,10);

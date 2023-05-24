@@ -8,15 +8,8 @@ public class CatSkill : Skill
     public enum SkillType { tresureChest, };
     public SkillType skillType;
 
-    private void Start()
-    {
-        //PauseWorldForCutscene();
-    }
-    private void Update()
-    {
-    }
 
-    public override void ActivateSkill()
+    protected override void ActivateSkill()
     {
         base.ActivateSkill();
         switch (skillType)
@@ -30,7 +23,7 @@ public class CatSkill : Skill
     void TresureChest()
     {
         Vector3 offset = Vector2.zero;
-        int distance = 6;
+        int distance = 5;
         switch (CatHead.instance.dir)
         {
             case SnakeHead.Direction.right:
@@ -46,8 +39,8 @@ public class CatSkill : Skill
                 offset = Vector2.up * distance;
                 break;
         }
-
-
+        PauseWorldForCutscene();
+        SnakeHead.instance.animator.Play("SkillCat0");
         Instantiate(tresureChest, CatHead.instance.transform.position + offset, Quaternion.identity);
     }
 }

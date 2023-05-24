@@ -21,14 +21,16 @@ public class SnakeHead : MonoBehaviour
     public static SnakeHead instance;
     public List<PosHistory> posHistories;
     public WeaponRange weaponRange;
+    public Animator animator;
     PosHistory lastPH;
 
     [SerializeField]
     SnakeBodyManager sbManager;
-    const float SPEEDMULTIPLY = 0.15f;
+    const float SPEEDMULTIPLY = 0.033333f; //Don't Modify!
+
     public enum Direction { right, down, left, up }
     public float speed;
-    public float Speed { get { return speed * SPEEDMULTIPLY; } }
+    public float Speed { get { return speed * SPEEDMULTIPLY * Time.deltaTime * 30 * 1.666667f; } }
     public float maxHP;
     public float HP;
 
@@ -36,7 +38,6 @@ public class SnakeHead : MonoBehaviour
     protected float attackDT;   //ÀüÃ¼ ÄðÅ¸ÀÓ
     protected SpriteRenderer sr;
 
-    SpriteResolver spriteResolver;
 
     static public Direction GetOppositeDir(Direction dir)
     {
@@ -57,9 +58,8 @@ public class SnakeHead : MonoBehaviour
         posHistories = new List<PosHistory>();
         dir = Direction.right;
         ChangeDirection(Direction.up);
-        spriteResolver = GetComponent<SpriteResolver>();
         sr = GetComponent<SpriteRenderer>();
-        Debug.Log("SH Init");
+        animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -97,16 +97,16 @@ public class SnakeHead : MonoBehaviour
         switch (dir)
         {
             case Direction.right:
-                transform.Translate(new Vector3(1, 0) * Speed * Time.deltaTime * GameInfo.Instance.fps);
+                transform.Translate(new Vector3(1, 0) * Speed);
                 break;
             case Direction.down:
-                transform.Translate(new Vector3(0, -1) * Speed * Time.deltaTime * GameInfo.Instance.fps);
+                transform.Translate(new Vector3(0, -1) * Speed);
                 break;
             case Direction.left:
-                transform.Translate(new Vector3(-1, 0) * Speed * Time.deltaTime * GameInfo.Instance.fps);
+                transform.Translate(new Vector3(-1, 0) * Speed);
                 break;
             case Direction.up:
-                transform.Translate(new Vector3(0, 1) * Speed * Time.deltaTime * GameInfo.Instance.fps);
+                transform.Translate(new Vector3(0, 1) * Speed);
                 break;
         }
     }
@@ -132,6 +132,5 @@ public class SnakeHead : MonoBehaviour
     protected virtual void Attack()
     {
         attackCT = attackDT;
-        Debug.Log("parentAttack");
     }
 }

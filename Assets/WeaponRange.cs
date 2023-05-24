@@ -12,7 +12,6 @@ public class WeaponRange : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Enemycount);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

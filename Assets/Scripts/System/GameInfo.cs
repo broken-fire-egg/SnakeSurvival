@@ -14,6 +14,11 @@ public class GameInfo : SingletonParent<GameInfo>
     {
         maxHP = 100;
         damageUnit = 1;
+        
+        Invoke("ChangeFPS", 1f);
+    }
+    void ChangeFPS()
+    {
         fps = Application.targetFrameRate = 30;
     }
 }
