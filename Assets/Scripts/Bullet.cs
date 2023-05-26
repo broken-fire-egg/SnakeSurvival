@@ -20,11 +20,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            var enemy = collision.transform.GetComponent<Enemy>();
-            enemy.hp -= damage;
-            enemy.CheckDead();
-            if (!pene)
-                gameObject.SetActive(false);
+            collision.transform.GetComponent<Enemy>().Hit(damage);
+            gameObject.SetActive(pene);
         }
     }
 }

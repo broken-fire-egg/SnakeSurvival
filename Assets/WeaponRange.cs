@@ -10,9 +10,6 @@ public class WeaponRange : MonoBehaviour
     {
         Enemycount = 0;
     }
-    private void Update()
-    {
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Enemy"))

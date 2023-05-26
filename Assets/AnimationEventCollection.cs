@@ -8,4 +8,10 @@ public class AnimationEventCollection : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void PhysicSimulate()
+    {
+        Physics2D.simulationMode = SimulationMode2D.Script;
+        Physics2D.Simulate(0.001f);
+        Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
+    }
 }
