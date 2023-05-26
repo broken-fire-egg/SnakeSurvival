@@ -8,6 +8,10 @@ public class AnimationEventCollection : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void EnableSibling(int targetNumber)
+    {
+        transform.parent.GetChild(targetNumber).gameObject.SetActive(true);
+    }
     public void PhysicSimulate()
     {
         Physics2D.simulationMode = SimulationMode2D.Script;
