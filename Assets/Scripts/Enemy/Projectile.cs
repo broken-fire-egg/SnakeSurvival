@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Translate(Vector2.up * 0.1f);
+        gameObject.transform.Translate(Vector2.up * 0.1f * Time.deltaTime * Application.targetFrameRate);
     }
 
 
