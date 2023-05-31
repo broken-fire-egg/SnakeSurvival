@@ -12,8 +12,10 @@ public class DamageTextObjectPool : ObjectPooling<TextMeshProUGUI>
             instance = this;
     }
 
-    public void SpawnText(float damage)
+    public void SpawnText(Vector3 pos, float damage)
     {
-
+        var newgo =  GetRestingPoolObject();
+        newgo.component.text = damage.ToString();
+        newgo.SetPositionAndActive(pos);
     }
 }

@@ -27,6 +27,8 @@ public class ObjectPooling<T> : MonoBehaviour
     public GameObject origin;
     public List<PoolObject> poolObjects;
     private bool alreadyInit;
+    public bool isUI;
+    public Transform UICanvas;
     public void Start()
     {
         if (alreadyInit)
@@ -35,7 +37,11 @@ public class ObjectPooling<T> : MonoBehaviour
         poolObjects = new List<PoolObject>();
         for (int i = 0; i < defaultCap; i++)
         {
-            var newgo = Instantiate(origin, gameObject.transform);
+            GameObject newgo;
+            if (isUI)
+                newgo = Instantiate(origin, UICanvas);
+            else 
+                newgo = Instantiate(origin, gameObject.transform);
             poolObjects.Add(new PoolObject(newgo.GetComponent<T>(), newgo.gameObject));
         }
     }
