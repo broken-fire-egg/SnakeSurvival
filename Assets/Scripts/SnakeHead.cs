@@ -21,21 +21,23 @@ public class SnakeHead : MonoBehaviour
     public static SnakeHead instance;
     public List<PosHistory> posHistories;
     public WeaponRange weaponRange;
+    public Animator animator;
     PosHistory lastPH;
 
     [SerializeField]
     SnakeBodyManager sbManager;
-    const float SPEEDMULTIPLY = 0.025f;
+    const float SPEEDMULTIPLY = 0.033333f; //Don't Modify!
+
     public enum Direction { right, down, left, up }
     public float speed;
-    public float Speed { get { return speed * SPEEDMULTIPLY; } }
+    public float Speed { get { return speed * SPEEDMULTIPLY * Time.deltaTime * 30 * 1.666667f; } }
     public float maxHP;
     public float HP;
 
     protected float attackCT;   //현재 남은 쿨타임
     protected float attackDT;   //전체 쿨타임
     protected SpriteRenderer sr;
-    SpriteResolver spriteResolver;
+
 
     static public Direction GetOppositeDir(Direction dir)
     {
@@ -50,16 +52,14 @@ public class SnakeHead : MonoBehaviour
     {
         if(instance == null)
             instance = this;
-        
     }
     protected void Init()
     {
         posHistories = new List<PosHistory>();
         dir = Direction.right;
         ChangeDirection(Direction.up);
-        spriteResolver = GetComponent<SpriteResolver>();
         sr = GetComponent<SpriteRenderer>();
-        Debug.Log("SH Init");
+        animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -132,6 +132,5 @@ public class SnakeHead : MonoBehaviour
     protected virtual void Attack()
     {
         attackCT = attackDT;
-        Debug.Log("parentAttack");
     }
 }

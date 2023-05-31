@@ -25,7 +25,6 @@ public class CatHead : SnakeHead
     protected override void Attack()
     {
         base.Attack();
-        Debug.Log("attack");
         int i = 0;
         switch (dir)
         {

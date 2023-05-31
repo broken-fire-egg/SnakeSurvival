@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d62aea701ace05b4088f29b1b9b4efdd
+guid: 88528d4d349df72498f099858c0b8f45
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_cat_eft_skill_fall_0
+      name: obj_chest_0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 133
-        height: 160
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 369e542b2578fa1488927f05aeb2cbb7
-      internalID: 1967334767
+      spriteID: 016657233ff9f484899a794a5bddf293
+      internalID: 1809292902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_eft_skill_fall_1
+      name: obj_chest_0_1
       rect:
         serializedVersion: 2
-        x: 133
+        x: 38
         y: 0
-        width: 133
-        height: 160
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a19b98264b876734cb3424234b0e3ffc
-      internalID: 692148574
+      spriteID: ed567546c843b4e46b7740703371ab51
+      internalID: 1124424791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_eft_skill_fall_2
+      name: obj_chest_0_2
       rect:
         serializedVersion: 2
-        x: 266
+        x: 76
         y: 0
-        width: 133
-        height: 160
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3883891962752a749a1ccb4bbf392262
-      internalID: -153937873
+      spriteID: ad9ac20217485bd4fb7d4d83cc2c7eaf
+      internalID: -857922796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_eft_skill_fall_3
+      name: obj_chest_0_3
       rect:
         serializedVersion: 2
-        x: 399
+        x: 114
         y: 0
-        width: 133
-        height: 160
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 650c2d97bc897934db42119eb92ab0af
-      internalID: 2075860007
+      spriteID: 2bcd01dd4bb65cc438e12a7aa8d89b8e
+      internalID: 1169851883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_chest_0_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63012878ae18f741b7dda75f337d05c
+      internalID: -2063926883
       vertices: []
       indices: 
       edges: []
@@ -211,10 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_eft_skill_fall_3: 2075860007
-      hero_cat_eft_skill_fall_1: 692148574
-      hero_cat_eft_skill_fall_0: 1967334767
-      hero_cat_eft_skill_fall_2: -153937873
+      obj_chest_0_4: -2063926883
+      obj_chest_0_1: 1124424791
+      obj_chest_0_3: 1169851883
+      obj_chest_0_0: 1809292902
+      obj_chest_0_2: -857922796
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
