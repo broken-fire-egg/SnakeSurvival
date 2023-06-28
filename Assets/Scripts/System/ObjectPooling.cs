@@ -28,7 +28,8 @@ public class ObjectPooling<T> : MonoBehaviour
     public List<PoolObject> poolObjects;
     private bool alreadyInit;
     public bool isUI;
-    public Transform UICanvas;
+    public bool hasPivot;
+    public RectTransform UICanvas;
     public void Start()
     {
         if (alreadyInit)
@@ -40,9 +41,14 @@ public class ObjectPooling<T> : MonoBehaviour
             GameObject newgo;
             if (isUI)
                 newgo = Instantiate(origin, UICanvas);
-            else 
+            else
                 newgo = Instantiate(origin, gameObject.transform);
-            poolObjects.Add(new PoolObject(newgo.GetComponent<T>(), newgo.gameObject));
+
+
+            if (hasPivot)
+                poolObjects.Add(new PoolObject(newgo.transform.GetChild(0).GetComponent<T>(), newgo.gameObject));
+            else
+                poolObjects.Add(new PoolObject(newgo.GetComponent<T>(), newgo.gameObject));
         }
     }
     public void SetValue(int defaultCap, GameObject origin)

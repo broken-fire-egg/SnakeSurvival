@@ -14,6 +14,7 @@ public class Sawer : BodyClass
         snakeBody = GetComponent<SnakeBody>();
         
     }
+    
     void Update()
     {
         active = snakeBody.activated;

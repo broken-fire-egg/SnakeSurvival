@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class GameInfo : SingletonParent<GameInfo>
 {
+    public SnakeBody[] Colleague;
+
+    public Item[] Items;
+
+
+
+
+    //인게임 정보 및 캐릭터 정보
     [HideInInspector]
     public float maxHP;
     [HideInInspector]

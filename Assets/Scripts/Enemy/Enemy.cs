@@ -94,7 +94,6 @@ public class Enemy : MonoBehaviour
                     WallMove();
                 else
                 {
-                    Debug.Log(dir);
                     DirectionSet();
                 }
             }

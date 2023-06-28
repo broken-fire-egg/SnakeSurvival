@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DamageTextObjectPool : ObjectPooling<TextMeshProUGUI>
+public class DamageTextObjectPool : ObjectPooling<TMP_Text>
 {
+    //TODO : Font Change
     public static DamageTextObjectPool instance;
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class DamageTextObjectPool : ObjectPooling<TextMeshProUGUI>
     {
         var newgo =  GetRestingPoolObject();
         newgo.component.text = damage.ToString();
-        newgo.SetPositionAndActive(pos);
+        Debug.Log(pos);
+        newgo.SetPositionAndActive(pos + Vector3.up);
     }
 }

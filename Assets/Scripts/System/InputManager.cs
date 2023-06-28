@@ -32,7 +32,6 @@ public class InputManager : MonoBehaviour
 
 #if UNITY_STANDALONE_WIN
 
-        print(clicked);
         if (Input.GetMouseButtonDown(0))
         {
             clicked++;

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class Shooter : BodyClass
 {
-    SnakeBody snakeBody;
-    public GameObject bulletpref;
     public GameObject enemies;
-    public float shoottime;
-    public float cooltime;
     public float power;
 
-    private void Start()
+    public override void SetBodyInfo()
+    {
+
+    }
+    private void Awake()
     {
         snakeBody = GetComponent<SnakeBody>();
     }

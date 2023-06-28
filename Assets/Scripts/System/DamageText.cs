@@ -5,6 +5,14 @@ using TMPro;
 
 public class DamageText : MonoBehaviour
 {
-    public TextMeshProUGUI textMeshPro;
-
+    Vector3 position;
+    
+    public void SetPosition(Vector3 position)
+    {
+        this.position = position;
+    }
+    private void Update()
+    {
+        transform.position = position;
+    }
 }
