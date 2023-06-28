@@ -37,7 +37,30 @@ public class Sawer : BodyClass
         }
 
     }
-
-
-
+    public override void SetBodyInfo()
+    {
+        bodyName = "비버 기계공";
+        bodyDescription = "강의 흐름을 동력으로 회전하는 톱날을 생성해 피해를 줍니다.\n\n<자신의 위와 아래에 ‘톱날’을 생성\n‘톱날’은 기계공에게 고정>";
+    }
+    public override void LevelUp()
+    {
+        level++;
+        switch(level)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+        }
+    }
 }

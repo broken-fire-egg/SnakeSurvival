@@ -17,6 +17,9 @@ public class SnakeHead : MonoBehaviour
         }
     }
 
+    public delegate void OnSomethingHandler();
+
+    public OnSomethingHandler OnHitHandler;
 
     public static SnakeHead instance;
     public List<PosHistory> posHistories;

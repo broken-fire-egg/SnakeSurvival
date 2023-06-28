@@ -26,4 +26,11 @@ public class Bomber : BodyClass
         cooltime = shoottime;
         Instantiate(bulletpref, transform.position, transform.rotation);
     }
+    public override void LevelUp()
+    {
+    }
+    public override void SetBodyInfo()
+    {
+
+    }
 }

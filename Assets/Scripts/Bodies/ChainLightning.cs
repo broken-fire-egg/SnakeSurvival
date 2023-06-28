@@ -9,7 +9,6 @@ public class ChainLightning : BodyClass
     public int maxchaincount;
     int chaincount;
     LineRenderer lineRenderer;
-    public float damage;
     float Effect;
     private void Awake()
     {
@@ -102,5 +101,12 @@ public class ChainLightning : BodyClass
             }
         }
         return res;
+    }
+    public override void LevelUp()
+    {
+    }
+    public override void SetBodyInfo()
+    {
+
     }
 }

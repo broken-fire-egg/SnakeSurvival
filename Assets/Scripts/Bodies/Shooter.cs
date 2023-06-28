@@ -6,11 +6,6 @@ public class Shooter : BodyClass
 {
     public GameObject enemies;
     public float power;
-
-    public override void SetBodyInfo()
-    {
-
-    }
     private void Awake()
     {
         snakeBody = GetComponent<SnakeBody>();
@@ -57,5 +52,12 @@ public class Shooter : BodyClass
             }
         }
         return res;
+    }
+    public override void LevelUp()
+    {
+    }
+    public override void SetBodyInfo()
+    {
+
     }
 }

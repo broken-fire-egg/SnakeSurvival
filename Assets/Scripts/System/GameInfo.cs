@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class GameInfo : SingletonParent<GameInfo>
 {
-    public SnakeBody[] Colleague;
-
-    public Item[] Items;
+    public PlayerInventory inventory;
 
 
 
@@ -22,7 +20,7 @@ public class GameInfo : SingletonParent<GameInfo>
     {
         maxHP = 100;
         damageUnit = 1;
-        
+        inventory = GetComponent<PlayerInventory>();
         Invoke("ChangeFPS", 1f);
     }
     void ChangeFPS()
