@@ -17,7 +17,6 @@ public class DamageTextObjectPool : ObjectPooling<TMP_Text>
     {
         var newgo =  GetRestingPoolObject();
         newgo.component.text = damage.ToString();
-        Debug.Log(pos);
         newgo.SetPositionAndActive(pos + Vector3.up);
     }
 }

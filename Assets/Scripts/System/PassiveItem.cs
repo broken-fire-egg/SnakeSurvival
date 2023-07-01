@@ -4,8 +4,11 @@ using UnityEngine;
 
 public abstract class PassiveItem : MonoBehaviour
 {
+    [HideInInspector]
     public string itemName;
+    [HideInInspector]
     public string itemDescription;
+
     public Sprite itemSprite;
     public int level;
 

@@ -50,6 +50,20 @@ public class SnakeHead : MonoBehaviour
             return dir - 2;
     }
 
+    public void Hit(GameObject from = null)
+    {
+        if(from)
+        {
+            //normal hit
+        }
+        // TODO : wall hit branch
+        // TODO : enemy hit branch
+        // TODO : bullet hit branch
+        // TODO : colleague hit branch
+    }
+
+
+
     public Direction dir;
     private void Awake()
     {

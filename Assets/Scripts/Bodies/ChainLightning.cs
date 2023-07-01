@@ -19,6 +19,8 @@ public class ChainLightning : BodyClass
     protected override void Start()
     {
         base.Start();
+
+        //snakeBody.Activate();
         //Shoot();
     }
     void SetAttackList()
@@ -55,9 +57,10 @@ public class ChainLightning : BodyClass
 
 
         if (Effect > 0)
-            Effect -= 0.01f;
+            Effect -= 0.08f;
         else
             Effect = 0;
+        lineRenderer.SetPosition(0, transform.position);
         lineRenderer.widthMultiplier = Effect;
     }
     void Shoot()
@@ -69,7 +72,10 @@ public class ChainLightning : BodyClass
 
         foreach (GameObject go in AttackList)
         {
-            go.GetComponent<Enemy>().Hit(damage);
+            var target = go.GetComponent<Enemy>();
+            target.Hit(damage);
+            DamageTextObjectPool.instance.SpawnText(target.transform.position, damage);
+
         }
 
         poslist[0] = transform.position;
@@ -104,6 +110,7 @@ public class ChainLightning : BodyClass
     }
     public override void LevelUp()
     {
+        level++;
     }
     public override void SetBodyInfo()
     {

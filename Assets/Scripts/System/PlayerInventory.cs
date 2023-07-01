@@ -10,8 +10,12 @@ public class PlayerInventory : MonoBehaviour
 
     public Image[] currentColleagueImages;
     public Image[] currentItemImages;
+
     public int currentColleagueCount;
     public int currentItemCount;
+
+    public PassiveItem[] currentItems;
+    public BodyClass[] currentColleagues;
 
 
     public static PlayerInventory instance;

@@ -19,8 +19,8 @@ public class Airbag : PassiveItem
         switch(level)
         {
             case 1:
+                activated = true;
                 break;
-
             case 2:
                 break;
 
@@ -44,6 +44,7 @@ public class Airbag : PassiveItem
 
     public override void SetItemInfo()
     {
+        //TODO : Alternate to Levelup
         itemName = "에어백";
         itemDescription = "<b>-[쿠션감]-</b>\n\n장애물 충돌 피해를 막아주는 보호막을 생성합니다\n\n<i><장애물 충돌 피해를 1번 막아주는 보호막 생성></i>";
     }
