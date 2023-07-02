@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class LevelUpManager : SingletonParent<LevelUpManager>
 {
@@ -44,7 +46,20 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
     public RectTransform expGage;
 
     public Image[] optionImages;
+    public TMPro.TMP_Text[] optionName;
     public TMPro.TMP_Text[] optionText;
+
+
+
+    [Serializable]
+    public class OptionArgs
+    {
+        public TMPro.TMP_Text[] args = new TMPro.TMP_Text[3];
+    }
+
+
+    public OptionArgs[] optionArgs;
+
     public GameObject LevelupUI;
     List<LevelUpOption> options;
     List<LevelUpOption> selectableOptions;
@@ -55,6 +70,7 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
     void OptionInit()
     {
         options = new List<LevelUpOption>();
+
         var inven = PlayerInventory.instance;
         
         foreach(var item in inven.items)
@@ -79,18 +95,25 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
             if(selectableOptions[i].isItem)
             {
                 optionImages[i].sprite = selectableOptions[i].passiveItem.itemSprite;
-                optionText[i].text = selectableOptions[i].passiveItem.itemName;
-                optionText[i].text += "\n\n";
-                optionText[i].text += selectableOptions[i].passiveItem.itemDescription;
+                optionName[i].text = selectableOptions[i].passiveItem.itemName;
+                //optionText[i].text += "\n\n";
+                optionText[i].text = selectableOptions[i].passiveItem.itemDescription;
+
+                //for(int j=0;j<3;j++)
+                    //optionArgs[i].args[j].text = selectableOptions[i].passiveItem;
+
             }
             else
             {
                 optionImages[i].sprite = selectableOptions[i].colleague.bodyIcon;
-                optionText[i].text = selectableOptions[i].colleague.bodyName;
-                optionText[i].text += "\n\n";
-                optionText[i].text += selectableOptions[i].colleague.bodyDescription;
+                optionName[i].text = selectableOptions[i].colleague.bodyName;
+                //optionText[i].text += "\n\n";
+                optionText[i].text = selectableOptions[i].colleague.bodyDescription;
+                for (int j = 0; j < 3; j++)
+                    optionArgs[i].args[j].text = selectableOptions[i].colleague.args[j];
+
             }
-            
+
         }
         LevelupUI.SetActive(true);
 

@@ -12,7 +12,7 @@ public abstract class PassiveItem : MonoBehaviour
     public Sprite itemSprite;
     public int level;
 
-    abstract public void SetItemInfo();
+    abstract public void SetItemInfo(params object[] args);
     abstract public void LevelUp();
 
 }

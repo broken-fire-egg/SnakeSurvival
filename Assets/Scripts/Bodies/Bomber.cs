@@ -30,7 +30,7 @@ public class Bomber : BodyClass
     {
         level++;
     }
-    public override void SetBodyInfo()
+    public override void SetBodyInfo(params object[] args)
     {
 
     }

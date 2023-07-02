@@ -42,7 +42,7 @@ public class Airbag : PassiveItem
         }
     }
 
-    public override void SetItemInfo()
+    public override void SetItemInfo(params object[] args)
     {
         //TODO : Alternate to Levelup
         itemName = "¿¡¾î¹é";

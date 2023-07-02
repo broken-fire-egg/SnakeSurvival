@@ -18,12 +18,15 @@ public abstract class BodyClass : MonoBehaviour
 
     public string bodyName;
     public string bodyDescription;
-
+    public string[] args;
 
     protected virtual void Start()
     {
         snakeBody = GetComponent<SnakeBody>();
+        args = new string[3];
+        for (int i = 0; i < args.Length; i++)
+            args[i] = "";
     }
-    public abstract void SetBodyInfo();
+    public abstract void SetBodyInfo(params object[] args);
     public abstract void LevelUp();
 }
