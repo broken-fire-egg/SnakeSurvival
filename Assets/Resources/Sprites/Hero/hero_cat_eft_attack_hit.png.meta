@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_cat_eft_attack_hit_0
+      name: hero_cat_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 30
-        height: 33
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd9540c9ff21369468d1d4b5c7e7c884
-      internalID: -24197362
+      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
+      internalID: -1814592372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_eft_attack_hit_1
+      name: hero_cat_attack_1
       rect:
         serializedVersion: 2
-        x: 30
+        x: 32
         y: 0
-        width: 30
-        height: 33
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 172369b7fe17f5047af4235084f486ff
-      internalID: 1749287265
+      spriteID: 59880767aab367b4087e1a58311087d0
+      internalID: -621166624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_eft_attack_hit_2
+      name: hero_cat_attack_2
       rect:
         serializedVersion: 2
-        x: 60
+        x: 64
         y: 0
-        width: 30
-        height: 33
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c1dcd7f5352b12448e967e0780f5976
-      internalID: 1085216094
+      spriteID: ff1f2de7965a97646baaa19f6ac68d14
+      internalID: 1415326770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_eft_attack_hit_3
+      name: hero_cat_attack_3
       rect:
         serializedVersion: 2
-        x: 90
+        x: 96
         y: 0
-        width: 30
-        height: 33
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 911bc6dd16d25064b8d3365b5739fb6d
-      internalID: 334355878
+      spriteID: f111007688c816649b91a9bc5b5533ee
+      internalID: 1468542235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f813b3b59892ac7459d8d13fbaa37410
+      internalID: 1330135104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
+      internalID: -1728348304
       vertices: []
       indices: 
       edges: []
@@ -211,10 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_eft_attack_hit_1: 1749287265
-      hero_cat_eft_attack_hit_3: 334355878
-      hero_cat_eft_attack_hit_0: -24197362
-      hero_cat_eft_attack_hit_2: 1085216094
+      hero_cat_attack_3: 1468542235
+      hero_cat_attack_4: 1330135104
+      hero_cat_attack_1: -621166624
+      hero_cat_attack_2: 1415326770
+      hero_cat_attack_5: -1728348304
+      hero_cat_attack_0: -1814592372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

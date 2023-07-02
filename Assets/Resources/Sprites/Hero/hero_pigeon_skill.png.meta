@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_pigeon_skill_0
+      name: hero_cat_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 93
-        height: 265
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b3ea82f2d6385d4cb7054cfaa88e6fa
-      internalID: -718360098
+      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
+      internalID: -1814592372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_pigeon_skill_1
+      name: hero_cat_attack_1
       rect:
         serializedVersion: 2
-        x: 93
+        x: 32
         y: 0
-        width: 93
-        height: 265
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc6edf33c87b91a4baab90bd3decd60e
-      internalID: 352413356
+      spriteID: 59880767aab367b4087e1a58311087d0
+      internalID: -621166624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_pigeon_skill_2
+      name: hero_cat_attack_2
       rect:
         serializedVersion: 2
-        x: 186
+        x: 64
         y: 0
-        width: 93
-        height: 265
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ee6e4becf7672429a27839454b9fe3
-      internalID: -1423973603
+      spriteID: ff1f2de7965a97646baaa19f6ac68d14
+      internalID: 1415326770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_pigeon_skill_3
+      name: hero_cat_attack_3
       rect:
         serializedVersion: 2
-        x: 279
+        x: 96
         y: 0
-        width: 93
-        height: 265
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a55fbd7aa1118947b93ee72764816dd
-      internalID: 1983683839
+      spriteID: f111007688c816649b91a9bc5b5533ee
+      internalID: 1468542235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_pigeon_skill_4
+      name: hero_cat_attack_4
       rect:
         serializedVersion: 2
-        x: 372
+        x: 128
         y: 0
-        width: 93
-        height: 265
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad5d1a9adb7997049a90e09915b50662
-      internalID: 22147091
+      spriteID: f813b3b59892ac7459d8d13fbaa37410
+      internalID: 1330135104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_pigeon_skill_5
+      name: hero_cat_attack_5
       rect:
         serializedVersion: 2
-        x: 465
+        x: 160
         y: 0
-        width: 93
-        height: 265
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,92 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67759055179ba204f9a5bd1dd1a4d17d
-      internalID: -1613538383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_pigeon_skill_6
-      rect:
-        serializedVersion: 2
-        x: 558
-        y: 0
-        width: 93
-        height: 265
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c63f45ea9085713498643c87819b1387
-      internalID: 618338432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_pigeon_skill_7
-      rect:
-        serializedVersion: 2
-        x: 651
-        y: 0
-        width: 93
-        height: 265
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e894c2dfabe2c494aa633712d1aff277
-      internalID: -1062504925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_pigeon_skill_8
-      rect:
-        serializedVersion: 2
-        x: 744
-        y: 0
-        width: 93
-        height: 265
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0209462fee90c64e804d454da7c8000
-      internalID: 696169206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_pigeon_skill_9
-      rect:
-        serializedVersion: 2
-        x: 837
-        y: 0
-        width: 93
-        height: 265
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64400e3be2f92ed44a8c24cbb8d8f1be
-      internalID: -440279489
+      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
+      internalID: -1728348304
       vertices: []
       indices: 
       edges: []
@@ -337,16 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_pigeon_skill_6: 618338432
-      hero_pigeon_skill_3: 1983683839
-      hero_pigeon_skill_2: -1423973603
-      hero_pigeon_skill_9: -440279489
-      hero_pigeon_skill_0: -718360098
-      hero_pigeon_skill_8: 696169206
-      hero_pigeon_skill_1: 352413356
-      hero_pigeon_skill_7: -1062504925
-      hero_pigeon_skill_4: 22147091
-      hero_pigeon_skill_5: -1613538383
+      hero_cat_attack_3: 1468542235
+      hero_cat_attack_4: 1330135104
+      hero_cat_attack_1: -621166624
+      hero_cat_attack_2: 1415326770
+      hero_cat_attack_5: -1728348304
+      hero_cat_attack_0: -1814592372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

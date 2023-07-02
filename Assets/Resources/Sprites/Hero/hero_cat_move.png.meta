@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 471a7089aab4c0b40afc6dfb26f519c5
-      internalID: -696315332
+      spriteID: 25f8dfed3b263bb45b8deb8b266e41d9
+      internalID: -35019950
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ca83696acec5942a3e5db3ccf07f5a
-      internalID: 90493565
+      spriteID: bd05564e58f06c44f89d3f11d9ab8678
+      internalID: 1113036068
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f046bb792447229488a7cfa3b241b736
-      internalID: 1904822762
+      spriteID: 4a6b260e14c05c042b0e8e40faa29752
+      internalID: -1337013016
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3584019208e4198449d6d89055e020f8
-      internalID: 456286598
+      spriteID: 6fb97f9cedb1e6e408f8788c6cb57afa
+      internalID: 1908621286
       vertices: []
       indices: 
       edges: []
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1971442bddaef4845ae8004df0163b6a
-      internalID: 1633511406
+      spriteID: 7c7370d360f422441bd08cafb27ce09b
+      internalID: -769455357
       vertices: []
       indices: 
       edges: []
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a08da3375d200a44a5d2f3395179ad8
-      internalID: 1706211979
+      spriteID: a855eec7c4e7c4646a05a2b2608f6973
+      internalID: 903232790
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_move_3: 456286598
-      hero_cat_move_5: 1706211979
-      hero_cat_move_0: -696315332
-      hero_cat_move_1: 90493565
-      hero_cat_move_4: 1633511406
-      hero_cat_move_2: 1904822762
+      hero_cat_move_3: 1908621286
+      hero_cat_move_5: 903232790
+      hero_cat_move_0: -35019950
+      hero_cat_move_1: 1113036068
+      hero_cat_move_4: -769455357
+      hero_cat_move_2: -1337013016
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

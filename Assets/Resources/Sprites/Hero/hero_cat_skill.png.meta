@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_cat_skill_0
+      name: hero_cat_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 23
-        height: 70
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5079818a4a555864ca70d50f77275798
-      internalID: 1006589534
+      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
+      internalID: -1814592372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_skill_1
+      name: hero_cat_attack_1
       rect:
         serializedVersion: 2
-        x: 23
+        x: 32
         y: 0
-        width: 23
-        height: 70
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b6e109c982f1c47a8b0a645240aec8
-      internalID: -1831188971
+      spriteID: 59880767aab367b4087e1a58311087d0
+      internalID: -621166624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_skill_2
+      name: hero_cat_attack_2
       rect:
         serializedVersion: 2
-        x: 46
+        x: 64
         y: 0
-        width: 23
-        height: 70
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 187856d94508e464bb78ffd386dac63d
-      internalID: 491694542
+      spriteID: ff1f2de7965a97646baaa19f6ac68d14
+      internalID: 1415326770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_skill_3
+      name: hero_cat_attack_3
       rect:
         serializedVersion: 2
-        x: 69
+        x: 96
         y: 0
-        width: 23
-        height: 70
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85eab2bf59685e4490718f94226db15
-      internalID: 1184058128
+      spriteID: f111007688c816649b91a9bc5b5533ee
+      internalID: 1468542235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_skill_4
+      name: hero_cat_attack_4
       rect:
         serializedVersion: 2
-        x: 92
+        x: 128
         y: 0
-        width: 23
-        height: 70
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +215,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 642262c636014334cb44c5702a9ace78
-      internalID: -710701421
+      spriteID: f813b3b59892ac7459d8d13fbaa37410
+      internalID: 1330135104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
+      internalID: -1728348304
       vertices: []
       indices: 
       edges: []
@@ -232,11 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_skill_2: 491694542
-      hero_cat_skill_0: 1006589534
-      hero_cat_skill_1: -1831188971
-      hero_cat_skill_4: -710701421
-      hero_cat_skill_3: 1184058128
+      hero_cat_attack_3: 1468542235
+      hero_cat_attack_4: 1330135104
+      hero_cat_attack_1: -621166624
+      hero_cat_attack_2: 1415326770
+      hero_cat_attack_5: -1728348304
+      hero_cat_attack_0: -1814592372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
