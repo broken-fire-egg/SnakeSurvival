@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +20,7 @@ public class ChainLightning : BodyClass
     protected override void Start()
     {
         base.Start();
-
-        //snakeBody.Activate();
-        //Shoot();
+        SetBodyInfo("<b>-[람쥐 썬더]- 적에게 전이되는 번개를 발사합니다<b>\n<i><공격 범위 내 적에게 번개를 발사\r\n번개는 공격 대상이 된 적에게 피해를 주고 대상 중심 4타일 원형 범위 내 번개 공격을 받은 대상이 아닌 가까운 적에게 전이 공격\n위 효과를 최대 4번까지 발동(총 적 5명 공격)></i>", "8타일", Math.Round(15 + GameInfo.Instance.damageUnit / 100 * 75, 2), "0.2/s");
     }
     void SetAttackList()
     {
@@ -111,9 +110,43 @@ public class ChainLightning : BodyClass
     public override void LevelUp()
     {
         level++;
-    }
-    public override void SetBodyInfo(params object[] args)
-    {
+        switch (level)
+        {
+            case 1:
 
+                SetBodyInfo("공격력이 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
+                break;
+            case 2:
+                SetBodyInfo("번개 전이 횟수가 증가합니다.", "", "", "");
+                break;
+            case 3:
+                SetBodyInfo("공격속도가 증가합니다.", "", "", "0.25/s");
+                break;
+            case 4:
+                SetBodyInfo("번개 전이 횟수가 증가하고 전이되는 범위가 증가합니다\n<i><대상 중심 5타일 원형 범위\r\n전이 최대 6번까지 발동></i>", "", "", "");
+                break;
+            case 5:
+                SetBodyInfo("공격력이 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
+                break;
+            case 6:
+                SetBodyInfo("공격 속도가 대폭 감소하고 공격에 맞은 적들의 움직임을 잠시 멈춥니다\n<i><번개에 맞은 적은 0.5초 동안 이동 불가></i>", "", "", "0.5/s");
+                break;
+        }
+    }
+    public override void SetBodyInfo(string discription, params object[] args)
+    {
+        bodyName = "다람쥐 번개술사";
+        bodyDescription = " <b>-[람쥐 썬더]-\r\n\r\n적에게 전이되는 번개를 발사합니다</b>\n\n<i><공격 범위 내 적에게 번개를 발사\n번개는 공격 대상이 된 적에게 피해를 주고 대상 중심 4타일 원형 범위 내 번개 공격을 받은 대상이 아닌 가까운 적에게 전이 공격\n위 효과를 최대 4번까지 발동(총 적 5명 공격)></i>";
+        if (discription != "")
+            levelupDescription = discription;
+        else
+            levelupDescription = bodyDescription;
+        for (int i = 0; i < 3; i++)
+        {
+            if (args[i] != null)
+                this.args[i] = args[i].ToString();
+            else
+                break;
+        }
     }
 }

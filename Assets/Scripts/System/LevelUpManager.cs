@@ -108,10 +108,15 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
                 optionImages[i].sprite = selectableOptions[i].colleague.bodyIcon;
                 optionName[i].text = selectableOptions[i].colleague.bodyName;
                 //optionText[i].text += "\n\n";
-                optionText[i].text = selectableOptions[i].colleague.bodyDescription;
+                optionText[i].text = selectableOptions[i].colleague.levelupDescription;
                 for (int j = 0; j < 3; j++)
+                {
+                    if (selectableOptions[i].colleague.args[j] != "" && selectableOptions[i].colleague.level != 0)
+                        optionArgs[i].args[j].color = Color.green;
+                    else
+                        optionArgs[i].args[j].color = Color.black;
                     optionArgs[i].args[j].text = selectableOptions[i].colleague.args[j];
-
+                }
             }
 
         }

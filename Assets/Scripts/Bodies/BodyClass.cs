@@ -19,6 +19,7 @@ public abstract class BodyClass : MonoBehaviour
     public string bodyName;
     public string bodyDescription;
     public string[] args;
+    public string levelupDescription;
 
     protected virtual void Start()
     {
@@ -27,6 +28,6 @@ public abstract class BodyClass : MonoBehaviour
         for (int i = 0; i < args.Length; i++)
             args[i] = "";
     }
-    public abstract void SetBodyInfo(params object[] args);
+    public abstract void SetBodyInfo(string discription, params object[] args);
     public abstract void LevelUp();
 }

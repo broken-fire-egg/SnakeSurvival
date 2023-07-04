@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,14 @@ public class Sawer : BodyClass
     bool prevActive;
     public GameObject saw;
     public float distance;
-    
+    protected override void Start()
+    {
+        base.Start();
+        SetBodyInfo("","1타일", Math.Round(1 + GameInfo.Instance.damageUnit / 100 * 5, 2), "5/s");
+    }
     private void Awake()
     {
         snakeBody = GetComponent<SnakeBody>();
-        
     }
     
     void Update()
@@ -37,10 +41,22 @@ public class Sawer : BodyClass
         }
 
     }
-    public override void SetBodyInfo(params object[] args)
+    public override void SetBodyInfo(string discription, params object[] args)
     {
         bodyName = "비버 기계공";
-        bodyDescription = " <b>-[수력 발전 전기 톱날]-\n\n강의 흐름을 동력으로 회전하는 톱날을 생성해 피해를 줍니다.</b>\n\n<i>자신의 위와 아래에 ‘톱날’을 생성\n‘톱날’은 기계공에게 고정</i>";
+        bodyDescription = " <b>-[수력 발전 전기 톱날]- 강의 흐름을 동력으로 회전하는 톱날을 생성해 피해를 줍니다.</b>\n\n<i>자신의 위와 아래에 ‘톱날’을 생성\n‘톱날’은 기계공에게 고정</i>";
+        if (discription != "")
+            levelupDescription = discription;
+        else
+            levelupDescription = bodyDescription;
+        for (int i = 0; i < 3; i++)
+        {
+            if (args[i] != null)
+                this.args[i] = args[i].ToString();
+            else
+                break;
+        }
+
     }
     public override void LevelUp()
     {
@@ -48,18 +64,22 @@ public class Sawer : BodyClass
         switch(level)
         {
             case 1:
+                SetBodyInfo("공격 범위가 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:
+                SetBodyInfo("공격력이 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10,2), "");
                 break;
             case 3:
+                SetBodyInfo("공격 속도가 증가합니다.", "", "", "6/s");
                 break;
             case 4:
+                SetBodyInfo("공격력과 공격 범위가 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:
+                SetBodyInfo("공격 범위와 공격속도가 증가합니다.", "2.5 타일", "", "7/s");
                 break;
             case 6:
-                break;
-            case 7:
+                SetBodyInfo("공격 범위가 무지막지하게 증가합니다.", "4 타일", "", "");
                 break;
         }
     }
