@@ -58,13 +58,19 @@ public class Shooter : BodyClass
         }
         return res;
     }
+    public void Activate()
+    {
+        snakeBody.Activate();
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+
     public override void LevelUp()
     {
         level++;
         switch (level)
         {
             case 1:
-                
+                Activate();
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(15 + GameInfo.Instance.damageUnit / 100 * 25, 2), "");
                 break;
             case 2:
@@ -74,20 +80,20 @@ public class Shooter : BodyClass
                 SetBodyInfo("공격력과 공격 범위가 증가합니다.", "8타일", "", "2/s");
                 break;
             case 4:
-                SetBodyInfo("확률적으로 추가타를 발사합니다. <i><공격 시 50% 확률로 공격 대상이 아닌 다음 대상을 향해 추가 공격\r\n기존 탄막 발사와 동시에 추가 탄막 발사></i>", "", "", "");
+                SetBodyInfo("확률적으로 추가타를 발사합니다.", "", "", "");
                 break;
             case 5:
                 SetBodyInfo("공격속도와 공격력이 증가합니다.", "", Math.Round(20 + GameInfo.Instance.damageUnit / 100 * 30, 2), "2.5/s");
                 break;
             case 6:
-                SetBodyInfo("공격 속도, 공격 범위가 증가하고 추가타 개수가 증가합니다\r\n<i><공격 시 50% 확률로 공격 대상 (기존 추가타 대상도 포함)이 아닌 다음 대상을 향해 추가 공격\r\n기존 탄막 발사와 동시에 추가 탄막 발사\r\n첫번째 추가타 확률과 별개로 확률 계산></i>", "9타일", "", "3/s");
+                SetBodyInfo("공격 속도, 공격 범위가 증가하고 추가타 개수가 증가합니다", "9타일", "", "3/s");
                 break;
         }
     }
     public override void SetBodyInfo(string discription, params object[] args)
     {
         bodyName = "두루미 총사";
-        bodyDescription = " <b>-[두루두루 사격]-자신 주변의 적을 빠르게 사격합니다</b>\n\n<i><공격 범위내에서 가장 가까운 적에게 탄막을 발사\n탄막에 맞은 적은 탄막의 진행 방향으로 0.2타일 넉백></i>";
+        bodyDescription = " <b>-[두루두루 사격]-\n\n자신 주변의 적을 빠르게 사격합니다</b>";
         if (discription != "")
             levelupDescription = discription;
         else

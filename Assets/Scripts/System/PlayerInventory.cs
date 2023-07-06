@@ -14,8 +14,8 @@ public class PlayerInventory : MonoBehaviour
     public int currentColleagueCount;
     public int currentItemCount;
 
-    public PassiveItem[] currentItems;
-    public BodyClass[] currentColleagues;
+    public List<PassiveItem> currentItems;
+    public List<BodyClass> currentColleagues;
 
 
     public static PlayerInventory instance;
@@ -24,6 +24,16 @@ public class PlayerInventory : MonoBehaviour
     {
         if(!instance)
             instance = this;
+        
+    }
+
+    public void AddItem(PassiveItem newItem)
+    {
+        currentItems.Add(newItem);
+    }
+    public void AddColleague(BodyClass newCol)
+    {
+        currentColleagues.Add(newCol);
     }
 
 

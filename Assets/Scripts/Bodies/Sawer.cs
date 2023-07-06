@@ -44,7 +44,7 @@ public class Sawer : BodyClass
     public override void SetBodyInfo(string discription, params object[] args)
     {
         bodyName = "비버 기계공";
-        bodyDescription = " <b>-[수력 발전 전기 톱날]- 강의 흐름을 동력으로 회전하는 톱날을 생성해 피해를 줍니다.</b>\n\n<i>자신의 위와 아래에 ‘톱날’을 생성\n‘톱날’은 기계공에게 고정</i>";
+        bodyDescription = " <b>-[수력 발전 전기 톱날]- \n\n강의 흐름을 동력으로 회전하는 톱날을 생성해 피해를 줍니다.</b>";
         if (discription != "")
             levelupDescription = discription;
         else
@@ -64,6 +64,7 @@ public class Sawer : BodyClass
         switch(level)
         {
             case 1:
+                snakeBody.Activate();
                 SetBodyInfo("공격 범위가 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:

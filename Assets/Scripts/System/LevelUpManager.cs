@@ -109,19 +109,20 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
                 optionName[i].text = selectableOptions[i].colleague.bodyName;
                 //optionText[i].text += "\n\n";
                 optionText[i].text = selectableOptions[i].colleague.levelupDescription;
-                for (int j = 0; j < 3; j++)
-                {
-                    if (selectableOptions[i].colleague.args[j] != "" && selectableOptions[i].colleague.level != 0)
-                        optionArgs[i].args[j].color = Color.green;
-                    else
-                        optionArgs[i].args[j].color = Color.black;
-                    optionArgs[i].args[j].text = selectableOptions[i].colleague.args[j];
-                }
+                //for (int j = 0; j < 3; j++)
+                //{
+                //    if (selectableOptions[i].colleague.args[j] != "" && selectableOptions[i].colleague.level != 0)
+                //        optionArgs[i].args[j].color = Color.green;
+                //    else
+                //        optionArgs[i].args[j].color = Color.black;
+                //    optionArgs[i].args[j].text = selectableOptions[i].colleague.args[j];
+                //}
             }
 
         }
         LevelupUI.SetActive(true);
-
+        SnakeHead.instance.animator.updateMode = AnimatorUpdateMode.Normal;
+        Time.timeScale = 0;
 
     }
 
@@ -158,7 +159,8 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
             selectableOptions[n].colleague.LevelUp();
         }
 
-
+        Time.timeScale = 1;
+        SnakeHead.instance.animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         LevelupUI.SetActive(false);
     }
 
@@ -172,7 +174,9 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
 
     void CheckLevelUp()
     {
-        if(exp >= expMax)
+        if (Time.timeScale == 0)
+            return;
+        if (exp >= expMax)
         {
             LevelUp();
             expMax += expMax / 2;
