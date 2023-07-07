@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnityEngine.GraphicsBuffer;
+
 public class Shooter : BodyClass
 {
     public GameObject enemies;
     public float power;
+    public Transform gunPoint;
+    public Animator gunflashAnimator;
+
+
     protected override void Start()
     {
         base.Start();
@@ -19,12 +25,29 @@ public class Shooter : BodyClass
     {
         if (!snakeBody.activated)
             return;
+
+        Aim();
+
        cooltime -= Time.deltaTime;
 
         if (cooltime < 0)
             Shoot();
 
+
+
     }
+
+    void Aim()
+    {
+        var nearestEnemy = FindNearestEnemy();
+        if (nearestEnemy)
+        {
+            Vector3 dir = nearestEnemy.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+            transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+
     void Shoot()
     {
 
@@ -33,10 +56,10 @@ public class Shooter : BodyClass
         {
             cooltime = shoottime;
             var newbullet = Instantiate(bulletpref);
-            newbullet.transform.position = transform.position;
+            newbullet.transform.position = gunPoint.position;
             newbullet.GetComponent<Rigidbody2D>().AddForce((nearestEnemy.transform.position - transform.position).normalized * power);
 
-
+            gunflashAnimator.gameObject.SetActive(true);
         }
 
     }

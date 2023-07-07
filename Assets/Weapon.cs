@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
                 new Vector3(Random.Range(-collision.bounds.extents.x, collision.bounds.extents.x),
                 Random.Range(-collision.bounds.extents.y, collision.bounds.extents.y)));
             //방어력 있을시 밑에 수정111111
-            DamageTextObjectPool.instance.SpawnText(collision.transform.position, GameInfo.Instance.damageUnit);
+            //DamageTextObjectPool.instance.SpawnText(collision.transform.position, GameInfo.Instance.damageUnit);
 
         }
     }
@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
             enemy.Hit(GameInfo.Instance.damageUnit);
             HitEffectObjectPool.instance.PlayEffect(collision.transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)));
             //방어력 있을시 밑에 수정222222
-            DamageTextObjectPool.instance.SpawnText(collision.transform.position, GameInfo.Instance.damageUnit);
+            //DamageTextObjectPool.instance.SpawnText(collision.transform.position, GameInfo.Instance.damageUnit);
         }
     }
 }
