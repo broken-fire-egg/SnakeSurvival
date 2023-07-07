@@ -20,6 +20,8 @@ public abstract class BodyClass : MonoBehaviour
 
     public string bodyName;
     public string bodyDescription;
+
+    //TODO : Remove this old variable
     public string[] args;
     public string levelupDescription;
 

@@ -70,6 +70,9 @@ public class Bomber : BodyClass
             levelupDescription = discription;
         else
             levelupDescription = bodyDescription;
+
+
+
         for (int i = 0; i < 3; i++)
         {
             if (args[i] != null)

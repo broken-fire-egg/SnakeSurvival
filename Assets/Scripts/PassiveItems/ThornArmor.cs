@@ -2,49 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Airbag : PassiveItem
+public class ThornArmor : PassiveItem
 {
 
 
-
-
-    float cooltime;
-    float waitedtime;
+    //TODO : 아이템 내용 수정
     private void Awake()
     {
-        SetItemInfo("<b>-[쿠션감]-</b>\n\n장애물 충돌 피해를 막아주는 보호막을 생성합니다");
-        maxlevel = 5;
-    
+        SetItemInfo("<b>-[제일 좋아하는 속도]-\n\n받는 피해가 감소하고 주변 적에게 반사 피해를 줍니다");
+        maxlevel = 4;
     }
-
     public override void LevelUp()
     {
         level++;
-        switch(level)
+        switch (level)
         {
             case 1:
                 activated = true;
-                itemDescription = "쿨타임이 감소합니다.";
+                itemDescription = "적과 접촉 시 받는 피해 감소 \n .";
                 break;
             case 2:
-                itemDescription = "쿨타임이 감소합니다.";
+                itemDescription = "이동속도와 공격속도가 상승합니다.";
                 break;
             case 3:
-                itemDescription = "쿨타임이 감소합니다.";
+                itemDescription = "이동속도와 공격속도가 상승합니다.";
                 break;
             case 4:
-                itemDescription = "쿨타임이 감소합니다.";
+                itemDescription = "이동속도와 공격속도가 상승합니다.";
                 break;
             case 5:
-
                 break;
+
         }
     }
 
     public override void SetItemInfo(string discription, params object[] args)
     {
-        //TODO : Alternate to Levelup
-        itemName = "에어백";
+        itemName = "질주본능";
         itemDescription = discription;
     }
 }

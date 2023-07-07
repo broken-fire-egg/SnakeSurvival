@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class LevelUpManager : SingletonParent<LevelUpManager>
 {
 
-
+    //NOTE TODO : 아이템 최대레벨은 각각 다 다름
     //Review : LevelupOption을 interface로 구현하는게 더 나았을것 같다.
     public class LevelUpOption
     {

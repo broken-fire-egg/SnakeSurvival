@@ -86,12 +86,5 @@ public class Healer : BodyClass
             levelupDescription = discription;
         else
             levelupDescription = bodyDescription;
-        for (int i = 0; i < 3; i++)
-        {
-            if (args[i] != null)
-                this.args[i] = args[i].ToString();
-            else
-                break;
-        }
     }
 }

@@ -6,12 +6,15 @@ using UnityEngine;
 public class Alchemist : BodyClass
 {
 
-    float amount =1 ;
-
+    float amount = 1;
+    BodyClass frontColleague;
+    BodyClass backColleague;
     protected override void Start()
     {
         base.Start();
         SetBodyInfo("");
+        frontColleague = null;
+        backColleague = null;
     }
 
     void Update()
@@ -21,31 +24,53 @@ public class Alchemist : BodyClass
         cooltime -= Time.deltaTime;
 
         if (cooltime < 0)
-            PlayAnimation();
+            ActiveRageSkill();
     }
 
     void PlayAnimation()
     {
-
     }
+
+    public void ActiveRageSkill()
+    {
+        if (frontColleague)
+            StartCoroutine(Rage(frontColleague));
+        if (backColleague)
+            StartCoroutine(Rage(backColleague));
+    }
+
+    IEnumerator Rage(BodyClass target)
+    {
+        while (true)
+        {
+
+
+            yield return null;
+        }
+    }
+
 
     void BuffColleagues()
     {
-        BodyClass frontColleague;
-        BodyClass backColleague;
+
         var colleagues = PlayerInventory.instance.currentColleagues;
 
-        if (colleagues.IndexOf(this) > 0)
-            frontColleague = colleagues[colleagues.IndexOf(this) - 1];
-        else
-            frontColleague = null;
-        if (colleagues.IndexOf(this) < colleagues.Count - 1)
-            backColleague = colleagues[colleagues.IndexOf(this) + 1] ?? null;
-        else
-            backColleague = null;
-        if(frontColleague)
+        if (!frontColleague)
+            if (colleagues.IndexOf(this) > 0)
+                frontColleague = colleagues[colleagues.IndexOf(this) - 1];
+            else
+                frontColleague = null;
+
+        if (!backColleague)
+            if (colleagues.IndexOf(this) < colleagues.Count - 1)
+                backColleague = colleagues[colleagues.IndexOf(this) + 1] ?? null;
+            else
+                backColleague = null;
+
+        if (frontColleague)
             frontColleague.bonusDamage = amount;
-        if(backColleague)
+
+        if (backColleague)
             backColleague.bonusDamage = amount;
 
     }
