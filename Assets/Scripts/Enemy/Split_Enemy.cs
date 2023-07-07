@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CorrosionEnemy : Enemy
+public class Split_Enemy : Enemy
 {
+    public GameObject SplitObject;
+    public int SplitCount;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -12,13 +14,20 @@ public class CorrosionEnemy : Enemy
     protected override void Update()
     {
         base.Update();
-        time += Time.deltaTime;
 
-        if (time >= 1f)
+        if(hp <= 0 && !DeadBool)
         {
-            time = 0;
+            DeadBool = true;
+            Split();
+        }
+    }
+
+    void Split()
+    {
+        for (int i = 0; i < SplitCount; i++)
+        {
             GameObject game = Instantiate(SelfRelatedObj, gameObject.transform.position, Quaternion.identity);
-            game.GetComponent<NewBehaviourScript>().MucusType = NewBehaviourScript.TypeMucus.sticky;
+            game.transform.parent = transform.parent;
         }
     }
 }

@@ -8,9 +8,11 @@ public class NewBehaviourScript : MonoBehaviour
     public enum TypeMucus
     {
         sticky,
-        corrosion
+        corrosion,
+        every
     }
     public TypeMucus MucusType;
+    public float MucusTime;
     float time;
     // Start is called before the first frame update
     void Start()
@@ -25,16 +27,16 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time >= 1.0f)
+        if (time >= MucusTime)
             Destroy(gameObject);
     }
 
     private void OnTriggerStay(Collider col)
     {
-        if (MucusType == TypeMucus.sticky)
-            col.GetComponent<SnakeHead>().speed = col.GetComponent<SnakeHead>().speed / 2f;
-        else if (MucusType == TypeMucus.corrosion)
+        if (MucusType != TypeMucus.sticky)
             col.GetComponent<SnakeHead>().HP--;
+        else if (MucusType != TypeMucus.corrosion)
+            col.GetComponent<SnakeHead>().speed = col.GetComponent<SnakeHead>().speed / 2f;
     }
 
 }

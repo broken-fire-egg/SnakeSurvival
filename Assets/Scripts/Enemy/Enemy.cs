@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
     public Animator Anim;
 
     float currentLerpTime = 0f;
+    public bool DeadBool;
 
     protected virtual void Start()
     {

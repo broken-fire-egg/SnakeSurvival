@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae5e15d8cbfc4348bba5bea8ae538c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MucusType: 0
+  MucusType: 1
 --- !u!95 &-2601968358240913471
 Animator:
   serializedVersion: 5

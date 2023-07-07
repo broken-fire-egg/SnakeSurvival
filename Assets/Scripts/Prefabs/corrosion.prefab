@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 201386660600655841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.83, y: 5.93, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   dontCrossCorner: 0
   MoveBool: 1
   Anim: {fileID: 0}
+  DeadBool: 0
 --- !u!61 &201386660600655850
 BoxCollider2D:
   m_ObjectHideFlags: 0
