@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CorrosionEnemy : Enemy
+public class CorreosionEnemy : Enemy
 {
     // Start is called before the first frame update
     protected override void Start()
@@ -17,8 +17,7 @@ public class CorrosionEnemy : Enemy
         if (time >= 1f)
         {
             time = 0;
-            GameObject game = Instantiate(SelfRelatedObj, gameObject.transform.position, Quaternion.identity);
-            game.GetComponent<NewBehaviourScript>().MucusType = NewBehaviourScript.TypeMucus.sticky;
+            Instantiate(SelfRelatedObj, gameObject.transform.position, Quaternion.identity);
         }
     }
 }

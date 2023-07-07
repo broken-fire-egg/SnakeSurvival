@@ -6,6 +6,7 @@ using System;
 public class HealerEnemy : Enemy
 {
     List<Tuple<float, GameObject>> list = new List<Tuple<float, GameObject>>();
+    Enemy Target;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -15,20 +16,27 @@ public class HealerEnemy : Enemy
     protected override void Update()
     {
         base.Update();
-        List<Tuple<float, GameObject>> list = new List<Tuple<float, GameObject>>();
-        for (int i = 0; i < gameObject.transform.parent.transform.childCount; i++)
-            list.Add(new Tuple<float, GameObject>(Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(gameObject.transform.parent.GetChild(i).transform.position.x, gameObject.transform.parent.GetChild(i).transform.position.x)), gameObject.transform.parent.transform.GetChild(i).gameObject));
-        list.Sort();
-        //if (Player == null)
-          //  FindMob(list);
+        if (Player == null)
+            FindMob();
+        else
+        {
+            if (Vector2.Distance(gameObject.transform.position, Player.transform.position) <= 3)
+            {
+                Target.hp++;
+            }
+        }
     }
 
-    void FindMob(List<Tuple<float, GameObject>> list)
+    void FindMob()
     {
-        for (int i = 0; i < list.Count; i++)
+        //print(gameObject.transform.parent.transform.name);
+        for (int i = 0; i < gameObject.transform.parent.transform.childCount; i++)
         {
-            if (list[i].Item2.GetComponent<Enemy>().hp < 8)
-                Player = list[i].Item2;
+            if (gameObject.transform.parent.transform.GetChild(i).gameObject.GetComponent<Enemy>().hp < 8 && gameObject.transform.parent.transform.GetChild(i).gameObject != gameObject)
+                list.Add(new Tuple<float, GameObject>(Vector2.Distance(gameObject.transform.position, gameObject.transform.parent.transform.GetChild(i).gameObject.transform.position), gameObject.transform.parent.transform.GetChild(i).gameObject));
         }
+        list.Sort((a, b) => a.Item1.CompareTo(b.Item1));
+        Player = list[0].Item2;
+        Target = Player.GetComponent<Enemy>();
     }
 }

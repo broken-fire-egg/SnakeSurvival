@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5338371217970482310}
   - component: {fileID: 5338371217970482311}
   - component: {fileID: 693929864602030502}
+  - component: {fileID: -2601968358240913471}
   m_Layer: 0
-  m_Name: balpan
+  m_Name: Enemy_Corrosion_Mucus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,3 +98,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae5e15d8cbfc4348bba5bea8ae538c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MucusType: 0
+--- !u!95 &-2601968358240913471
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338371217970482308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f3ab16bf8b281344813fb207588958a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

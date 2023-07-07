@@ -19,14 +19,7 @@ public class Enemy : MonoBehaviour
 {
 
 
-    public enum Direction
-    {
-        right,
-        down,
-        left,
-        up,
-        none
-    }
+    
 
     public enum Type
     {
@@ -59,10 +52,22 @@ public class Enemy : MonoBehaviour
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
+    Coroutine coroutine;
+
+    public Animator Anim;
+
+    float currentLerpTime = 0f;
 
     protected virtual void Start()
     {
+        Anim = GetComponent<Animator>();
+        coroutine = StartCoroutine(MyCoroutine());
+        coroutine = StartCoroutine(Move());
         Player = GameObject.Find("Head");
+
+        gameObject.transform.position = new Vector2((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
+        bottomLeft = new Vector2Int(-100, -100);
+        topRight = new Vector2Int(100, 100);
     }
 
     public void Hit(float damage)
@@ -76,21 +81,55 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            MoveBool = false;
             //EXPManager.instance.itemOP.GetRestingPoolObject().SetPositionAndActive(transform.position);
-            Destroy(gameObject);
+            Anim.SetBool("Die", true);
+            Invoke("ObjectDestroy", 0.35f);
         }
+    }
+
+    public void ObjectDestroy()
+    {
+        Destroy(gameObject);
     }
 
     protected virtual void Update()
     {
-        targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckDead();
+        }
+        if(Player != null)
+            targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
         startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
-        if (MoveBool)
-            Move();
+        
+    }
+
+    private IEnumerator MyCoroutine()
+    {
+        while(true)
+        {
+            if(Player != null)
+                AStarMove();
+            yield return new WaitForSeconds(1f); // 1초 대기
+        }
+    }
+
+    IEnumerator Move()
+    {
+        while (true)
+        {
+            if (MoveBool)
+            {
+                if(FinalNodeList.Count >= 2)
+                    transform.position = new Vector2(FinalNodeList[1].x, FinalNodeList[1].y);
+            }
+            yield return new WaitForSeconds(0.1f); // 1초 대기
+        }
     }
 
 
-    void Move()
+    void AStarMove()
     {
         sizeX = topRight.x - bottomLeft.x + 1;
         sizeY = topRight.y - bottomLeft.y + 1;
@@ -141,14 +180,40 @@ public class Enemy : MonoBehaviour
                 FinalNodeList.Add(StartNode);
                 FinalNodeList.Reverse();
 
-                for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
-
-                for (int i = 0; i < FinalNodeList.Count; i++)
-                {
-                    Instantiate(a, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity);
-                }
                 return;
             }
+
+           //for(int i = 0; i < FinalNodeList.Count; i++)//방향 확인
+           //{
+           //    if (i == 0)
+           //    {
+           //        if (FinalNodeList[i].x > (int)Mathf.Round(gameObject.transform.position.x))
+           //            FinalNodeList[i].MoveDirection = Node.Direction.left;
+           //
+           //        else if (FinalNodeList[i].x < (int)Mathf.Round(gameObject.transform.position.x))
+           //            FinalNodeList[i].MoveDirection = Node.Direction.left;
+           //
+           //        else if (FinalNodeList[i].y > (int)Mathf.Round(gameObject.transform.position.y))
+           //            FinalNodeList[i].MoveDirection = Node.Direction.up;
+           //
+           //        else if (FinalNodeList[i].y < (int)Mathf.Round(gameObject.transform.position.y))
+           //            FinalNodeList[i].MoveDirection = Node.Direction.down;
+           //    }
+           //    else
+           //    {
+           //        if (FinalNodeList[i].x > FinalNodeList[i- 1].x)
+           //            FinalNodeList[i].MoveDirection = Node.Direction.right;
+           //
+           //        else if (FinalNodeList[i].x < FinalNodeList[i - 1].x)
+           //            FinalNodeList[i].MoveDirection = Node.Direction.left;
+           //
+           //        else if (FinalNodeList[i].y > FinalNodeList[i - 1].y)
+           //            FinalNodeList[i].MoveDirection = Node.Direction.up;
+           //
+           //        else if (FinalNodeList[i].y < FinalNodeList[i - 1].y)
+           //            FinalNodeList[i].MoveDirection = Node.Direction.down;
+           //    }
+           //}
 
 
             // ↗↖↙↘
