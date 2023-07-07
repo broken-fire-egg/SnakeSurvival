@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EnemyMucus : MonoBehaviour
 {
     Animator Anim;
     public enum TypeMucus
@@ -27,7 +27,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time >= MucusTime)
+        if (time >= MucusTime)  
             Destroy(gameObject);
     }
 
