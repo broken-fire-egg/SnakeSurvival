@@ -6,13 +6,13 @@ public class SnakeBody : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer sr;
+    public Animator animator;
     public bool activated;
     public SnakeHead.PosHistory destination;
     public SnakeHead.Direction dir = SnakeHead.Direction.up;
     public float maxHP;
     public float HP;
     public bool faint;
-
 
     public virtual void SetBodyInfo()
     {
@@ -22,8 +22,23 @@ public class SnakeBody : MonoBehaviour
     {
         dir = SnakeHead.Direction.up;
         HP = maxHP;
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
     
+    public void Hit(float amount)
+    {
+        HP -= amount;
+        HPCheck();
+    }
+    void HPCheck()
+    {
+        if(HP > maxHP)
+            HP = maxHP;
+        if (HP <= 0)
+            Activate(false);
+    }
+
 
     public bool CheckOverMoved()
     {
@@ -66,12 +81,14 @@ public class SnakeBody : MonoBehaviour
         switch (dir)
         {
             case SnakeHead.Direction.right:
+                sr.flipX = true;
                 transform.Translate(new Vector3(1, 0) * SnakeHead.instance.Speed);
                 break;
             case SnakeHead.Direction.down:
                 transform.Translate(new Vector3(0, -1) * SnakeHead.instance.Speed);
                 break;
             case SnakeHead.Direction.left:
+                sr.flipX = false;
                 transform.Translate(new Vector3(-1, 0) * SnakeHead.instance.Speed);
                 break;
             case SnakeHead.Direction.up:
@@ -90,9 +107,9 @@ public class SnakeBody : MonoBehaviour
         dir = destination.dir;
         destination = null;
     }
-    public void Activate()
+    public void Activate(bool activate = true)
     {
-        sr.enabled = true;
-        activated = true;
+        sr.enabled = activate;
+        activated = activate;
     }
 }

@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_cat_attack_0
+      name: boss_corrosionload_mucus_0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 46
+        width: 56
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
-      internalID: -1814592372
+      spriteID: bb8d94a18b73c5b4bb83a28d5dea1ce0
+      internalID: 1005873909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_1
+      name: boss_corrosionload_mucus_0_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 56
         y: 0
-        width: 32
-        height: 46
+        width: 56
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59880767aab367b4087e1a58311087d0
-      internalID: -621166624
+      spriteID: ca1521a7b93928041a60014d2da95f39
+      internalID: -1261069632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_2
+      name: boss_corrosionload_mucus_0_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 0
-        width: 32
-        height: 46
+        width: 56
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff1f2de7965a97646baaa19f6ac68d14
-      internalID: 1415326770
+      spriteID: 97c81edc3e3f49f4d872acc9fe4e3420
+      internalID: -815506616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_3
+      name: boss_corrosionload_mucus_0_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 168
         y: 0
-        width: 32
-        height: 46
+        width: 56
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f111007688c816649b91a9bc5b5533ee
-      internalID: 1468542235
+      spriteID: 641af163a08a4294999644587568cb6e
+      internalID: -74357858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_4
+      name: boss_corrosionload_mucus_0_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 224
         y: 0
-        width: 32
-        height: 46
+        width: 56
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f813b3b59892ac7459d8d13fbaa37410
-      internalID: 1330135104
+      spriteID: 3cd99f9261005784b8fd1ce78155da66
+      internalID: 1408359974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_5
+      name: boss_corrosionload_mucus_0_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 280
         y: 0
-        width: 32
-        height: 46
+        width: 56
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
-      internalID: -1728348304
+      spriteID: 43af42c722d72234bb75c66f1d329243
+      internalID: -1099962976
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_attack_3: 1468542235
-      hero_cat_attack_4: 1330135104
-      hero_cat_attack_1: -621166624
-      hero_cat_attack_2: 1415326770
-      hero_cat_attack_5: -1728348304
-      hero_cat_attack_0: -1814592372
+      boss_corrosionload_mucus_0_2: -815506616
+      boss_corrosionload_mucus_0_5: -1099962976
+      boss_corrosionload_mucus_0_0: 1005873909
+      boss_corrosionload_mucus_0_3: -74357858
+      boss_corrosionload_mucus_0_1: -1261069632
+      boss_corrosionload_mucus_0_4: 1408359974
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -42,6 +42,10 @@ public class SnakeHead : MonoBehaviour
     protected SpriteRenderer sr;
 
 
+
+    public delegate void OnDirectionChanged(bool b);
+
+    public OnDirectionChanged DirectionChanged;
     static public Direction GetOppositeDir(Direction dir)
     {
         if (dir == Direction.right || dir == Direction.down)
@@ -100,11 +104,14 @@ public class SnakeHead : MonoBehaviour
         posHistories.Add(lastPH);
         ChangeAttackDirection(_dir);
 
-        if(_dir == Direction.right)
+        if (_dir == Direction.right)
+        {
             sr.flipX = true;
-        else if(_dir == Direction.left)
+        }
+        else if (_dir == Direction.left)
+        {
             sr.flipX = false;
-
+        }
 
 
         SnakeBodyManager.instance.AlertNewPH(newPH);

@@ -10,7 +10,7 @@ public class Airbag : PassiveItem
     float waitedtime;
     private void Awake()
     {
-        
+        SetItemInfo("<b>-[쿠션감]-</b>\n\n장애물 충돌 피해를 막아주는 보호막을 생성합니다");
     }
 
     public override void LevelUp()
@@ -42,10 +42,10 @@ public class Airbag : PassiveItem
         }
     }
 
-    public override void SetItemInfo(params object[] args)
+    public override void SetItemInfo(string discription, params object[] args)
     {
         //TODO : Alternate to Levelup
         itemName = "에어백";
-        itemDescription = "<b>-[쿠션감]-</b>\n\n장애물 충돌 피해를 막아주는 보호막을 생성합니다\n\n<i><장애물 충돌 피해를 1번 막아주는 보호막 생성></i>";
+        itemDescription = discription;
     }
 }

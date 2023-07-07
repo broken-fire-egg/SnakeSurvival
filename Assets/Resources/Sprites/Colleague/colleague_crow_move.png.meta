@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_cat_attack_0
+      name: colleague_crow_move_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 46
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
-      internalID: -1814592372
+      spriteID: 46c310c58007f5e42a6c7dd1c8d7c20d
+      internalID: 155071226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_1
+      name: colleague_crow_move_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 35
         y: 0
-        width: 32
-        height: 46
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59880767aab367b4087e1a58311087d0
-      internalID: -621166624
+      spriteID: 1d988bc6b86b4dd40a45e5cc9f467e7f
+      internalID: 816527327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_2
+      name: colleague_crow_move_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 70
         y: 0
-        width: 32
-        height: 46
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff1f2de7965a97646baaa19f6ac68d14
-      internalID: 1415326770
+      spriteID: 3350a9b18bffba34bbe55195d962c1c1
+      internalID: 676097125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_3
+      name: colleague_crow_move_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 105
         y: 0
-        width: 32
-        height: 46
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f111007688c816649b91a9bc5b5533ee
-      internalID: 1468542235
+      spriteID: 71e75723238d90240a22218e0ded67a7
+      internalID: -1615841807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_4
+      name: colleague_crow_move_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 140
         y: 0
-        width: 32
-        height: 46
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,29 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f813b3b59892ac7459d8d13fbaa37410
-      internalID: 1330135104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_cat_attack_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
-      internalID: -1728348304
+      spriteID: bcb7dae34f29d1344a9646b15c7b0183
+      internalID: -84005542
       vertices: []
       indices: 
       edges: []
@@ -253,12 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_attack_3: 1468542235
-      hero_cat_attack_4: 1330135104
-      hero_cat_attack_1: -621166624
-      hero_cat_attack_2: 1415326770
-      hero_cat_attack_5: -1728348304
-      hero_cat_attack_0: -1814592372
+      colleague_crow_move_2: 676097125
+      colleague_crow_move_4: -84005542
+      colleague_crow_move_3: -1615841807
+      colleague_crow_move_1: 816527327
+      colleague_crow_move_0: 155071226
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
