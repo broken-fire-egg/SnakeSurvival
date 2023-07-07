@@ -74,6 +74,8 @@ public class Enemy : MonoBehaviour
     public void Hit(float damage)
     {
         hp -= damage;
+        if(DamageTextObjectPool.instance)
+            DamageTextObjectPool.instance.SpawnText(transform.position, damage);
         CheckDead();
     }
 
