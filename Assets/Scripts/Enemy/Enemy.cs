@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     public float hp;
     public float Speed;
     public float time;
+    public float Attack;
 
     public GameObject a;
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
@@ -59,8 +60,11 @@ public class Enemy : MonoBehaviour
     float currentLerpTime = 0f;
     public bool DeadBool;
 
+
+    private int MoveNode = 1;
     protected virtual void Start()
     {
+        MoveBool = true;
         Anim = GetComponent<Animator>();
         coroutine = StartCoroutine(MyCoroutine());
         coroutine = StartCoroutine(Move());
@@ -69,6 +73,10 @@ public class Enemy : MonoBehaviour
         gameObject.transform.position = new Vector2((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
         bottomLeft = new Vector2Int(-100, -100);
         topRight = new Vector2Int(100, 100);
+        targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
+        startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
+        AStarMove();
+
     }
 
     public void Hit(float damage)
@@ -98,14 +106,14 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            hp = 0;
             CheckDead();
         }
-        if(Player != null)
-            targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
-        startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
-        
+        if (Player != null)
+            TargetReload();
+
     }
 
     private IEnumerator MyCoroutine()
@@ -114,7 +122,7 @@ public class Enemy : MonoBehaviour
         {
             if(Player != null)
                 AStarMove();
-            yield return new WaitForSeconds(1f); // 1초 대기
+            yield return new WaitForSeconds(8f); // 1초 대기
         }
     }
 
@@ -124,16 +132,36 @@ public class Enemy : MonoBehaviour
         {
             if (MoveBool)
             {
-                if(FinalNodeList.Count >= 2)
-                    transform.position = new Vector2(FinalNodeList[1].x, FinalNodeList[1].y);
+                if (FinalNodeList.Count >= 2)
+                {
+                    Debug.Log("Move" + new Vector2(FinalNodeList[MoveNode].x, FinalNodeList[MoveNode].y));
+                    transform.position = new Vector2(FinalNodeList[MoveNode].x, FinalNodeList[MoveNode].y);
+                    MoveNode++;
+                }
             }
-            yield return new WaitForSeconds(0.1f); // 1초 대기
+            yield return new WaitForSeconds(1f); // 1초 대기
         }
     }
 
+    void TargetReload()
+    {
+        targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
+        startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
+        if (targetPos.x > startPos.x)
+        {
+            bottomLeft = new Vector2Int(startPos.x, startPos.y);
+            topRight = new Vector2Int(targetPos.x, targetPos.y);
+        }
+        else
+        {
+            topRight = new Vector2Int(startPos.x, startPos.y);
+            bottomLeft = new Vector2Int(targetPos.x, targetPos.y);
+        }
+    }
 
     void AStarMove()
     {
+        MoveNode = 1;
         sizeX = topRight.x - bottomLeft.x + 1;
         sizeY = topRight.y - bottomLeft.y + 1;
         NodeArray = new Node[sizeX, sizeY];

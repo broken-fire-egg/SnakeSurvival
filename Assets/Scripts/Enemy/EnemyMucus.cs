@@ -31,12 +31,19 @@ public class EnemyMucus : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (MucusType != TypeMucus.corrosion)
+            col.GetComponent<SnakeHead>().HP--;
+        else if (MucusType != TypeMucus.sticky)
+            col.GetComponent<SnakeHead>().speed = col.GetComponent<SnakeHead>().speed * 0.25f;
+    }
+
+
+    private void OnTriggerExit2D(Collider2D col)
     {
         if (MucusType != TypeMucus.sticky)
-            col.GetComponent<SnakeHead>().HP--;
-        else if (MucusType != TypeMucus.corrosion)
-            col.GetComponent<SnakeHead>().speed = col.GetComponent<SnakeHead>().speed / 2f;
+            col.GetComponent<SnakeHead>().speed = col.GetComponent<SnakeHead>().speed * 1.25f;
     }
 
 }
