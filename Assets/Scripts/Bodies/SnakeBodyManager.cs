@@ -23,17 +23,28 @@ public class SnakeBodyManager : MonoBehaviour
     }
     private void Update()
     {
-        foreach (var body in bodies)
-        {
-            body.Move();
-            if(body.CheckOverMoved())
-                body.SetDestination();
-        }
+        UpdateBodiesPosition();
 
 
     }
+
+    void UpdateBodiesPosition()
+    {
+        for(int i= 0;i<bodies.Count;i++)
+        {
+            bodies[i].Move(i);
+            bodies[i].CheckOverMoved();
+        }
+
+    }
+
+
     public void AlertNewPH(SnakeHead.PosHistory newPH)
     {
+
+
+
+
         foreach (var body in bodies)
         {
             if(body.destination == null)
@@ -71,9 +82,15 @@ public class SnakeBodyManager : MonoBehaviour
         }
         
     }
-    public void AddBody()
+    public void AddBody(SnakeBody newbody)
     {
+        newbody.CopyValue(bodies[bodyCount]);
+
+        bodies[bodyCount] = newbody;
+
         bodyCount++;
-        bodies[bodyCount - 1].Activate();
+
+        //newbody.Activate();
+        //bodies[bodyCount - 1].Activate();
     }
 }

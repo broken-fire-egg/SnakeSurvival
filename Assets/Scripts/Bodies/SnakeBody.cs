@@ -40,75 +40,149 @@ public class SnakeBody : MonoBehaviour
     }
 
 
-    public bool CheckOverMoved()
+    public void CheckOverMoved()
     {
-        if (destination == null) return false;
-        switch (dir)
+        bool res = false;
+        float gap = 0;
+        if (destination == null)
+            res = false;
+        else
         {
-            case SnakeHead.Direction.right:
-                if(transform.position.x > destination.pos.x)
-                {
-                    transform.position = destination.pos;
-                    return true;
-                }
-                break;
-            case SnakeHead.Direction.down:
-                if (transform.position.y < destination.pos.y)
-                {
-                    transform.position = destination.pos;
-                    return true;
-                }
-                break;
-            case SnakeHead.Direction.left:
-                if (transform.position.x < destination.pos.x)
-                {
-                    transform.position = destination.pos;
-                    return true;
-                }
-                break;
-            case SnakeHead.Direction.up:
-                if (transform.position.y > destination.pos.y)
-                {
-                    transform.position = destination.pos;
-                    return true;
-                }
-                break;
+            switch (dir)
+            {
+                case SnakeHead.Direction.right:
+                    if (transform.position.x > destination.pos.x)
+                    {
+                        transform.position = destination.pos;
+                        gap = transform.position.x - destination.pos.x;
+                        res = true;
+                    }
+                    break;
+                case SnakeHead.Direction.down:
+                    if (transform.position.y < destination.pos.y)
+                    {
+                        transform.position = destination.pos;
+
+                        gap = destination.pos.y - transform.position.y;
+                        res = true;
+                    }
+                    break;
+                case SnakeHead.Direction.left:
+                    if (transform.position.x < destination.pos.x)
+                    {
+                        transform.position = destination.pos;
+
+                        gap = destination.pos.x - transform.position.x;
+                        res = true;
+                    }
+                    break;
+                case SnakeHead.Direction.up:
+                    if (transform.position.y > destination.pos.y)
+                    {
+                        transform.position = destination.pos;
+                        gap = transform.position.y - destination.pos.y;
+                        res = true;
+                    }
+                    break;
+            }
         }
-        return false;
+
+        if(res)
+        {
+            SetDestination(gap);
+        }
+
+
     }
-    public void Move()
+    public void Move(int index)
+    {
+        if (destination == null)
+        {
+            switch (dir)
+            {
+                case SnakeHead.Direction.right:
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(1, 0, 0) * (index + 1);
+                    break;
+                case SnakeHead.Direction.down:
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(0, -1, 0) * (index + 1);
+                    break;
+                case SnakeHead.Direction.left:
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(-1, 0, 0) * (index + 1);
+                    break;
+                case SnakeHead.Direction.up:
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(0, 1, 0) * (index + 1);
+                    break;
+            }
+        }
+        else
+        {
+            switch (dir)
+            {
+                case SnakeHead.Direction.right:
+                    sr.flipX = true;
+                    transform.Translate(new Vector3(1, 0) * SnakeHead.instance.Speed);
+                    break;
+                case SnakeHead.Direction.down:
+                    transform.Translate(new Vector3(0, -1) * SnakeHead.instance.Speed);
+                    break;
+                case SnakeHead.Direction.left:
+                    sr.flipX = false;
+                    transform.Translate(new Vector3(-1, 0) * SnakeHead.instance.Speed);
+                    break;
+                case SnakeHead.Direction.up:
+                    transform.Translate(new Vector3(0, 1) * SnakeHead.instance.Speed);
+                    break;
+            }
+        }
+    }
+    void Move(float amount)
     {
         switch (dir)
         {
             case SnakeHead.Direction.right:
                 sr.flipX = true;
-                transform.Translate(new Vector3(1, 0) * SnakeHead.instance.Speed);
+                transform.position = transform.position + new Vector3(amount, 0, 0);
+                //transform.Translate(new Vector3(1, 0) * SnakeHead.instance.Speed);
                 break;
             case SnakeHead.Direction.down:
-                transform.Translate(new Vector3(0, -1) * SnakeHead.instance.Speed);
+                transform.position = transform.position + new Vector3(0, -amount, 0);
+                //transform.Translate(new Vector3(0, -1) * SnakeHead.instance.Speed);
                 break;
             case SnakeHead.Direction.left:
+                transform.position = transform.position + new Vector3(-amount, 0, 0);
                 sr.flipX = false;
-                transform.Translate(new Vector3(-1, 0) * SnakeHead.instance.Speed);
+                //transform.Translate(new Vector3(-1, 0) * SnakeHead.instance.Speed);
                 break;
             case SnakeHead.Direction.up:
-                transform.Translate(new Vector3(0, 1) * SnakeHead.instance.Speed);
+                transform.position = transform.position + new Vector3(0, amount, 0);
+                //transform.Translate(new Vector3(0, 1) * SnakeHead.instance.Speed);
                 break;
         }
     }
-    public void SetDestination()
+    public void CopyValue(SnakeBody from)
+    {
+        dir = from.dir;
+        gameObject.transform.position = from.gameObject.transform.position;
+        sr.flipY = from.sr.flipY;
+        destination = from.destination;
+    }
+
+    public void SetDestination(float amount)
     {
         if (destination.nextPH != null)
         {
             dir = destination.dir;
             destination = destination.nextPH;
+            Move(amount);
             return;
         }
         dir = destination.dir;
         destination = null;
+        Move(amount);
     }
     public void Activate(bool activate = true)
     {
+        SnakeBodyManager.instance.AddBody(this);
         sr.enabled = activate;
         activated = activate;
     }

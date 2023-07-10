@@ -10,8 +10,8 @@ public class UpgradeItem : MonoBehaviour
 
         if (collision.transform.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            SnakeBodyManager.instance.AddBody();
+           // Destroy(gameObject);
+           // SnakeBodyManager.instance.AddBody();
         }
     }
 
