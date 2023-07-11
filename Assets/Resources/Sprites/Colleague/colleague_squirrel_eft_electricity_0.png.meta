@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b7d337f30c762b4896f39401f8827c6
+guid: ae770ec62efc5e341a5b99b02ff6737e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: colleague_squirrel_move_0
+      name: hero_cat_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33
-        height: 36
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e548e5943637ea46856cfd135f0b478
-      internalID: -1519928605
+      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
+      internalID: -1814592372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_squirrel_move_1
+      name: hero_cat_attack_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
-        width: 33
-        height: 36
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd12faa41375504b9c0d625ead096a8
-      internalID: -1286905015
+      spriteID: 59880767aab367b4087e1a58311087d0
+      internalID: -621166624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_squirrel_move_2
+      name: hero_cat_attack_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
-        width: 33
-        height: 36
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35e02602381dc484283a6c6d1f8ec3fa
-      internalID: 1212066335
+      spriteID: ff1f2de7965a97646baaa19f6ac68d14
+      internalID: 1415326770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_squirrel_move_3
+      name: hero_cat_attack_3
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 33
-        height: 36
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eb0a16a5ea9d4f4f84cb03f84a6164c
-      internalID: -154933901
+      spriteID: f111007688c816649b91a9bc5b5533ee
+      internalID: 1468542235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f813b3b59892ac7459d8d13fbaa37410
+      internalID: 1330135104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
+      internalID: -1728348304
       vertices: []
       indices: 
       edges: []
@@ -211,10 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      colleague_squirrel_move_3: -154933901
-      colleague_squirrel_move_1: -1286905015
-      colleague_squirrel_move_2: 1212066335
-      colleague_squirrel_move_0: -1519928605
+      hero_cat_attack_3: 1468542235
+      hero_cat_attack_4: 1330135104
+      hero_cat_attack_1: -621166624
+      hero_cat_attack_2: 1415326770
+      hero_cat_attack_5: -1728348304
+      hero_cat_attack_0: -1814592372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

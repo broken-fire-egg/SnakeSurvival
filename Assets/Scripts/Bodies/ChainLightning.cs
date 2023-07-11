@@ -11,11 +11,14 @@ public class ChainLightning : BodyClass
     int chaincount;
     LineRenderer lineRenderer;
     float Effect;
+    int animationStep;
+    float linetexturecounter;
+    public Texture[] textures;
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
-
-        
+        animationStep = 0;
+        linetexturecounter = 0;
     }
 
 
@@ -52,6 +55,19 @@ public class ChainLightning : BodyClass
         {
             cooltime = shoottime;
             Shoot();
+        }
+
+        linetexturecounter += Time.deltaTime;
+
+        if(linetexturecounter >= 1f / GameInfo.Instance.fps)
+        {
+            animationStep++;
+
+            animationStep %= textures.Length;
+
+            lineRenderer.material.SetTexture("_MainTex", textures[animationStep]);
+
+            linetexturecounter = 0f;
         }
 
 
