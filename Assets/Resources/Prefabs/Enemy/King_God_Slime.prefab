@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5915887835403883708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.23, y: -1.11, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,11 +164,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   SelfRelatedObj: {fileID: 0}
-  maxhp: 0
-  hp: 0
-  Speed: 0
+  maxhp: 10000
+  hp: 10000
+  Speed: 25
   time: 0
-  Attack: 0
+  Attack: 60
   a: {fileID: 0}
   bottomLeft: {x: 0, y: 0}
   topRight: {x: 0, y: 0}

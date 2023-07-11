@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4653907282533268337}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.23, y: -1.11, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,11 +146,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  SelfRelatedObj: {fileID: 4303521512199726959, guid: 46a88217d533f9b4d81c413442f8cf18, type: 3}
-  maxhp: 1
-  hp: 500
-  Speed: 0
+  SelfRelatedObj: {fileID: 3021764765920088729, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+  maxhp: 100
+  hp: 100
+  Speed: 3
   time: 0
+  Attack: 10
   a: {fileID: 0}
   bottomLeft: {x: -100, y: -100}
   topRight: {x: 100, y: 100}

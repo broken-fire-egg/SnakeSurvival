@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour
 
     public Animator Anim;
 
-    float currentLerpTime = 0f;
     public bool DeadBool;
 
 
@@ -69,12 +68,9 @@ public class Enemy : MonoBehaviour
         coroutine = StartCoroutine(MyCoroutine());
         coroutine = StartCoroutine(Move());
         Player = GameObject.Find("Head");
+        TargetReload();
 
         gameObject.transform.position = new Vector2((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
-        bottomLeft = new Vector2Int(-100, -100);
-        topRight = new Vector2Int(100, 100);
-        targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
-        startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
         AStarMove();
 
     }
@@ -122,7 +118,8 @@ public class Enemy : MonoBehaviour
         {
             if(Player != null)
                 AStarMove();
-            yield return new WaitForSeconds(8f); // 1초 대기
+
+            yield return new WaitForSeconds(1f); // 1초 대기
         }
     }
 
@@ -134,12 +131,25 @@ public class Enemy : MonoBehaviour
             {
                 if (FinalNodeList.Count >= 2)
                 {
-                    Debug.Log("Move" + new Vector2(FinalNodeList[MoveNode].x, FinalNodeList[MoveNode].y));
-                    transform.position = new Vector2(FinalNodeList[MoveNode].x, FinalNodeList[MoveNode].y);
+                    if(FinalNodeList[0].x == FinalNodeList[1].x)
+                    {
+                        if(FinalNodeList[0].y > FinalNodeList[1].y)
+                            transform.position = new Vector2(transform.position.x, transform.position.y - (Speed / 2000));
+                        else
+                            transform.position = new Vector2(transform.position.x, transform.position.y + (Speed / 2000));
+                    }
+                    else //if(FinalNodeList[0].y == FinalNodeList[1].y)
+                    {
+                        if (FinalNodeList[0].x > FinalNodeList[1].x)
+                            transform.position = new Vector2(transform.position.x - (Speed / 2000), transform.position.y);
+                        else
+                            transform.position = new Vector2(transform.position.x + (Speed / 2000), transform.position.y);
+                    }
+
                     MoveNode++;
                 }
             }
-            yield return new WaitForSeconds(1f); // 1초 대기
+            yield return new WaitForSeconds(0.005f); // 1초 대기
         }
     }
 
@@ -147,20 +157,24 @@ public class Enemy : MonoBehaviour
     {
         targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
         startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
-        if (targetPos.x > startPos.x)
-        {
-            bottomLeft = new Vector2Int(startPos.x, startPos.y);
-            topRight = new Vector2Int(targetPos.x, targetPos.y);
-        }
-        else
-        {
-            topRight = new Vector2Int(startPos.x, startPos.y);
-            bottomLeft = new Vector2Int(targetPos.x, targetPos.y);
-        }
+
+        bottomLeft = new Vector2Int(startPos.x - 15, startPos.y - 15);
+        topRight = new Vector2Int(startPos.x + 15, startPos.y + 15);
+        //if (targetPos.x > startPos.x)
+        //{
+        //    bottomLeft = new Vector2Int(startPos.x, startPos.y);
+        //    topRight = new Vector2Int(targetPos.x, targetPos.y);
+        //}
+        //else
+        //{
+        //    topRight = new Vector2Int(startPos.x, startPos.y);
+        //    bottomLeft = new Vector2Int(targetPos.x, targetPos.y);
+        //}
     }
 
     void AStarMove()
     {
+        TargetReload();
         MoveNode = 1;
         sizeX = topRight.x - bottomLeft.x + 1;
         sizeY = topRight.y - bottomLeft.y + 1;
@@ -214,38 +228,6 @@ public class Enemy : MonoBehaviour
                 return;
             }
 
-           //for(int i = 0; i < FinalNodeList.Count; i++)//방향 확인
-           //{
-           //    if (i == 0)
-           //    {
-           //        if (FinalNodeList[i].x > (int)Mathf.Round(gameObject.transform.position.x))
-           //            FinalNodeList[i].MoveDirection = Node.Direction.left;
-           //
-           //        else if (FinalNodeList[i].x < (int)Mathf.Round(gameObject.transform.position.x))
-           //            FinalNodeList[i].MoveDirection = Node.Direction.left;
-           //
-           //        else if (FinalNodeList[i].y > (int)Mathf.Round(gameObject.transform.position.y))
-           //            FinalNodeList[i].MoveDirection = Node.Direction.up;
-           //
-           //        else if (FinalNodeList[i].y < (int)Mathf.Round(gameObject.transform.position.y))
-           //            FinalNodeList[i].MoveDirection = Node.Direction.down;
-           //    }
-           //    else
-           //    {
-           //        if (FinalNodeList[i].x > FinalNodeList[i- 1].x)
-           //            FinalNodeList[i].MoveDirection = Node.Direction.right;
-           //
-           //        else if (FinalNodeList[i].x < FinalNodeList[i - 1].x)
-           //            FinalNodeList[i].MoveDirection = Node.Direction.left;
-           //
-           //        else if (FinalNodeList[i].y > FinalNodeList[i - 1].y)
-           //            FinalNodeList[i].MoveDirection = Node.Direction.up;
-           //
-           //        else if (FinalNodeList[i].y < FinalNodeList[i - 1].y)
-           //            FinalNodeList[i].MoveDirection = Node.Direction.down;
-           //    }
-           //}
-
 
             // ↗↖↙↘
             if (allowDiagonal)
@@ -262,6 +244,7 @@ public class Enemy : MonoBehaviour
             OpenListAdd(CurNode.x, CurNode.y - 1);
             OpenListAdd(CurNode.x - 1, CurNode.y);
         }
+
     }
     void OpenListAdd(int checkX, int checkY)
     {

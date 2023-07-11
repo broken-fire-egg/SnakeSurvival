@@ -27,6 +27,7 @@ public class King_God_Slime : Enemy
             Check = !Check;
             Invoke("Stamp", 3.5f);
             box.enabled = false;
+            MoveBool = false;
             GetComponent<SpriteRenderer>().enabled = false;
         }
     }
@@ -39,6 +40,7 @@ public class King_God_Slime : Enemy
         Invoke(() => {
             AttackArea.enabled = false;
             Check = !Check;
+            MoveBool = true;
         }, 0.5f);
         box.enabled = true;
         time = 0f;
