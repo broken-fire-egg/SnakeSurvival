@@ -170,6 +170,11 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
     {
         CheckLevelUp();
         UpdateExpGage();
+
+
+
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+            exp += expMax;
     }
 
     void CheckLevelUp()

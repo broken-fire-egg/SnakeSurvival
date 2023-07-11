@@ -39,7 +39,7 @@ public class SnakeBody : MonoBehaviour
             Activate(false);
     }
 
-
+ 
     public void CheckOverMoved()
     {
         bool res = false;
@@ -101,16 +101,16 @@ public class SnakeBody : MonoBehaviour
             switch (dir)
             {
                 case SnakeHead.Direction.right:
-                    transform.position = SnakeHead.instance.transform.position - new Vector3(1, 0, 0) * (index + 1);
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(1, 0, 0) * (index + 1) * 1.5f;
                     break;
                 case SnakeHead.Direction.down:
-                    transform.position = SnakeHead.instance.transform.position - new Vector3(0, -1, 0) * (index + 1);
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(0, -1, 0) * (index + 1) * 1.5f;
                     break;
                 case SnakeHead.Direction.left:
-                    transform.position = SnakeHead.instance.transform.position - new Vector3(-1, 0, 0) * (index + 1);
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(-1, 0, 0) * (index + 1) * 1.5f;
                     break;
                 case SnakeHead.Direction.up:
-                    transform.position = SnakeHead.instance.transform.position - new Vector3(0, 1, 0) * (index + 1);
+                    transform.position = SnakeHead.instance.transform.position - new Vector3(0, 1, 0) * (index + 1) * 1.5f;
                     break;
             }
         }

@@ -8,8 +8,9 @@ public class Bullet : MonoBehaviour
     public float damage;
     public bool pene;   //°üÅë
     public Collider2D collider2d;
+    public BodyClass from;
     public Rigidbody2D rb2d;
-    private void Start()
+    public virtual void Start()
     {
         collider2d = GetComponent<Collider2D>();
         rb2d = GetComponent<Rigidbody2D>();
@@ -18,8 +19,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            collision.transform.GetComponent<Enemy>().Hit(damage);
-            gameObject.SetActive(pene);
+            Hit(collision.transform.GetComponent<Enemy>());
         }
     }
 
@@ -27,10 +27,18 @@ public class Bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            collision.transform.GetComponent<Enemy>().Hit(damage);
-            gameObject.SetActive(pene);
+            Hit(collision.transform.GetComponent<Enemy>());
         }
     }
+
+    protected virtual void Hit(Enemy target)
+    {
+        target.Hit(damage);
+        if (from)
+            from.PlayHitEffect(target.gameObject);
+        gameObject.SetActive(pene);
+    }
+
 
     public void PhysicsSimulate()
     {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c7db862267a471d4d9c3ec2c159016ed
+guid: 9f92bab19df040c4c907421c5871ab46
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,91 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: colleague_crane_eft_attack_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 72
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c115e93d6b536e249be4ef9ef7b15aa3
-      internalID: 965554512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_crane_eft_attack_1
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 72
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c70d32381c9c702429c0785190a67ed3
-      internalID: 2131409014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_crane_eft_attack_2
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 72
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a270b51287616e64191ed173ed072af4
-      internalID: 738816121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_crane_eft_attack_3
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 72
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e0792fc7fc050549b4d4c628cb98f1a
-      internalID: 1683216623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -210,11 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      colleague_crane_eft_attack_3: 1683216623
-      colleague_crane_eft_attack_0: 965554512
-      colleague_crane_eft_attack_1: 2131409014
-      colleague_crane_eft_attack_2: 738816121
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
