@@ -18,7 +18,13 @@ public class Sawer : BodyClass
     {
         snakeBody = GetComponent<SnakeBody>();
     }
-    
+
+    public void PlayHitEffect(GameObject enemy,GameObject saw)
+    {
+        base.PlayHitEffect(enemy);
+        BeaverHitEffectObjectPool.instance.PlayEffect(saw.transform.position, enemy.transform.position);
+    }
+
     void Update()
     {
         active = snakeBody.activated;

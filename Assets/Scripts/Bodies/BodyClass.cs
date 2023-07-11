@@ -30,7 +30,10 @@ public abstract class BodyClass : MonoBehaviour
 
         snakeBody.Hit(amount);
     }
+    public virtual void PlayHitEffect(GameObject enemy)
+    {
 
+    }
     public IEnumerator DamageBuff(float amount)
     {
         yield return null;

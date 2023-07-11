@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8987434225830316623}
   - component: {fileID: 7734659399198102979}
-  - component: {fileID: 231902042103302336}
+  - component: {fileID: 5192538551070912862}
   - component: {fileID: 5188898877852575786}
   - component: {fileID: 2783904831237115073}
   - component: {fileID: 643842132701517586}
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &231902042103302336
+--- !u!114 &5192538551070912862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,12 +97,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4446492525500696695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a746475e2fb9ec41af42b1ab80b0cde, type: 3}
+  m_Script: {fileID: 11500000, guid: 10cb9ee89c4a0e047b113fe9cc578ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
   pene: 1
   collider2d: {fileID: 0}
+  from: {fileID: 0}
   rb2d: {fileID: 0}
 --- !u!58 &5188898877852575786
 CircleCollider2D:
@@ -171,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3676395286969360381}
   - component: {fileID: 2660482209401634929}
-  - component: {fileID: 5515511423749725554}
+  - component: {fileID: 8730758469323079272}
   - component: {fileID: 557960158943395224}
   - component: {fileID: 7574636169855932787}
   - component: {fileID: 9126453391785168168}
@@ -249,7 +250,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5515511423749725554
+--- !u!114 &8730758469323079272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,12 +259,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8217367979580546501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a746475e2fb9ec41af42b1ab80b0cde, type: 3}
+  m_Script: {fileID: 11500000, guid: 10cb9ee89c4a0e047b113fe9cc578ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
   pene: 1
   collider2d: {fileID: 0}
+  from: {fileID: 0}
   rb2d: {fileID: 0}
 --- !u!58 &557960158943395224
 CircleCollider2D:

@@ -26,7 +26,7 @@ public class Shooter : BodyClass
         if (!snakeBody.activated)
             return;
 
-        Aim();
+        //Aim();
 
        cooltime -= Time.deltaTime;
 
@@ -37,6 +37,13 @@ public class Shooter : BodyClass
 
     }
 
+    public override void PlayHitEffect(GameObject enemy)
+    {
+        base.PlayHitEffect(enemy);
+
+        CraneHitEffectObjectPool.instance.PlayEffect(enemy.transform.position);
+
+    }
     void Aim()
     {
         var nearestEnemy = FindNearestEnemy();
@@ -54,9 +61,13 @@ public class Shooter : BodyClass
         var nearestEnemy = FindNearestEnemy();
         if (nearestEnemy)
         {
+            Vector3 dir = nearestEnemy.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+            transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             cooltime = shoottime;
             var newbullet = Instantiate(bulletpref);
             newbullet.transform.position = gunPoint.position;
+            newbullet.GetComponent<Bullet>().from = this;
             newbullet.GetComponent<Rigidbody2D>().AddForce((nearestEnemy.transform.position - transform.position).normalized * power);
 
             gunflashAnimator.gameObject.SetActive(true);
