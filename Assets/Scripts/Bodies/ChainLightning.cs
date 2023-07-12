@@ -14,11 +14,13 @@ public class ChainLightning : BodyClass
     int animationStep;
     float linetexturecounter;
     public Texture[] textures;
+    Transform attackEffect;
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
         animationStep = 0;
         linetexturecounter = 0;
+        attackEffect = transform.GetChild(0);
     }
 
 
@@ -28,6 +30,13 @@ public class ChainLightning : BodyClass
         base.Start();
         SetBodyInfo("<b>-[람쥐 썬더]-\n\n 적에게 전이되는 번개를 발사합니다</b>", "8타일", Math.Round(15 + GameInfo.Instance.damageUnit / 100 * 75, 2), "0.2/s");
     }
+
+    public override void PlayHitEffect(GameObject enemy)
+    {
+        base.PlayHitEffect(enemy);
+        LightningChainHitEffectObjectPool.instance.PlayEffect(enemy.transform.position);
+    }
+
     void SetAttackList()
     {
         chaincount = maxchaincount;
@@ -83,15 +92,15 @@ public class ChainLightning : BodyClass
     {
         SetAttackList();
         lineRenderer.positionCount = AttackList.Count + 1;
-
+        animationStep = 0;
         Vector3[] poslist = new Vector3[AttackList.Count + 1];
-
+        attackEffect.gameObject.SetActive(true);
         foreach (GameObject go in AttackList)
         {
             var target = go.GetComponent<Enemy>();
             target.Hit(damage);
             DamageTextObjectPool.instance.SpawnText(target.transform.position, damage);
-
+            PlayHitEffect(go);
         }
 
         poslist[0] = transform.position;

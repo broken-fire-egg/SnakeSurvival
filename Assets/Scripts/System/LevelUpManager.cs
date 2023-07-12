@@ -174,7 +174,12 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
 
 
         if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            Time.timeScale = 1;
+            SnakeHead.instance.animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            LevelupUI.SetActive(false);
             exp += expMax;
+        }
     }
 
     void CheckLevelUp()
