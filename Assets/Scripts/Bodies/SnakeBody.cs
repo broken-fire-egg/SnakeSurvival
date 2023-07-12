@@ -182,7 +182,8 @@ public class SnakeBody : MonoBehaviour
     }
     public void Activate(bool activate = true)
     {
-        SnakeBodyManager.instance.AddBody(this);
+        if(activate)
+            SnakeBodyManager.instance.AddBody(this);
         sr.enabled = activate;
         activated = activate;
     }

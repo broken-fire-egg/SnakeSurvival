@@ -104,7 +104,7 @@ public class Alchemist : BodyClass
 
     public override void SetBodyInfo(string discription, params object[] args)
     {
-        bodyName = "페럿 수녀";
+        bodyName = "까마귀 연금술사";
         bodyDescription = " <b>-[특제 까마귀 영약]-\n\n주위 아군들에게 까마귀만의 특제 영약을 투여해 공격력을 증가시킵니다.</b>";
         if (discription != "")
             levelupDescription = discription;
