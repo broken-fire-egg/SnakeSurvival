@@ -29,7 +29,7 @@ public class APractive : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.Lerp(gameObject.transform.position, a.transform.position, 0.1f);
+        Debug.Log(Vector2.Distance(gameObject.transform.position, a.transform.position));
     }
     
 }

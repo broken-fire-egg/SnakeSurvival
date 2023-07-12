@@ -160,16 +160,12 @@ public class Enemy : MonoBehaviour
 
         bottomLeft = new Vector2Int(startPos.x - 15, startPos.y - 15);
         topRight = new Vector2Int(startPos.x + 15, startPos.y + 15);
-        //if (targetPos.x > startPos.x)
-        //{
-        //    bottomLeft = new Vector2Int(startPos.x, startPos.y);
-        //    topRight = new Vector2Int(targetPos.x, targetPos.y);
-        //}
-        //else
-        //{
-        //    topRight = new Vector2Int(startPos.x, startPos.y);
-        //    bottomLeft = new Vector2Int(targetPos.x, targetPos.y);
-        //}
+
+        if(targetPos.x > topRight.x || targetPos.y > topRight.y || targetPos.x < topRight.x || targetPos.y < topRight.y)
+        {
+            bottomLeft = new Vector2Int(startPos.x - (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y - (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+            topRight = new Vector2Int(startPos.x + (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y + (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+        }
     }
 
     void AStarMove()
