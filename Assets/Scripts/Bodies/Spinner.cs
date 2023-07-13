@@ -76,7 +76,7 @@ public class Spinner : BodyClass
                 SetBodyInfo("회전 속도가 증가합니다.", "", "", "");
                 break;
             case 3:
-                speed += 12;
+                speed += 4;
                 SetBodyInfo("조개 크기와 공격력이 증가합니다.", "", "", "0.25/s");
                 break;
             case 4:
@@ -89,7 +89,7 @@ public class Spinner : BodyClass
                 SetBodyInfo("공격력과 회전 속도가 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
             case 6:
-                speed += 12;
+                speed += 4;
                 SetBodyInfo("조개 크기가 커지고 조개를 2개 더 추가합니다.", "", "", "0.5/s");
                 break;
             case 7:
