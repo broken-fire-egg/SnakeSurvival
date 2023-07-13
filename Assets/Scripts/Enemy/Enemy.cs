@@ -158,13 +158,18 @@ public class Enemy : MonoBehaviour
         targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
         startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
 
-        bottomLeft = new Vector2Int(startPos.x - 15, startPos.y - 15);
-        topRight = new Vector2Int(startPos.x + 15, startPos.y + 15);
+        bottomLeft = new Vector2Int(startPos.x - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+        topRight = new Vector2Int(startPos.x + Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y + Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+        Debug.Log(bottomLeft + ", " + topRight);
+        Debug.Log((int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
 
-        if(targetPos.x > topRight.x || targetPos.y > topRight.y || targetPos.x < topRight.x || targetPos.y < topRight.y)
+        if((targetPos.x > topRight.x || targetPos.y > topRight.y))
         {
-            bottomLeft = new Vector2Int(startPos.x - (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y - (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
-            topRight = new Vector2Int(startPos.x + (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y + (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+        }
+        else if (targetPos.x < topRight.x || targetPos.y < topRight.y)
+        {
+            //bottomLeft = new Vector2Int(startPos.x - (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y - (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+            //topRight = new Vector2Int(startPos.x + (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y + (int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
         }
     }
 
