@@ -5,6 +5,23 @@ using UnityEngine;
 
 public class Shaman : BodyClass
 {
+
+
+
+    private void Update()
+    {
+        if (!snakeBody.activated)
+            return;
+
+        cooltime -= Time.deltaTime;
+
+        if (cooltime < 0)
+            CastSpell();
+    }
+    void CastSpell()
+    {
+        
+    }
     public void Activate()
     {
         snakeBody.Activate();
@@ -32,6 +49,8 @@ public class Shaman : BodyClass
                 break;
             case 6:
                 SetBodyInfo("마법진이 발동한 후 같은 자리에 마법진이 생성됩니다", "", "", "0.5/s");
+                break;
+            case 7:
                 break;
         }
     }

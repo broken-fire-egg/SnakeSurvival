@@ -14,6 +14,15 @@ public class AnimationEventCollection : MonoBehaviour
                 transform.GetChild(0).TryGetComponent<Bullet>(out bullet);
         }
     }
+
+    public void DisableChild(int i)
+    {
+        transform.GetChild(i).gameObject.SetActive(false);
+    }
+    public void EnableChild(int i)
+    {
+        transform.GetChild(i).gameObject.SetActive(true);
+    }
     public void Disable()
     {
         gameObject.SetActive(false);
