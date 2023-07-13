@@ -158,10 +158,9 @@ public class Enemy : MonoBehaviour
         targetPos = new Vector2Int((int)Math.Round(Player.transform.position.x), (int)Math.Round(Player.transform.position.y));
         startPos = new Vector2Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
 
-        bottomLeft = new Vector2Int(startPos.x - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
-        topRight = new Vector2Int(startPos.x + Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)), startPos.y + Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
-        Debug.Log(bottomLeft + ", " + topRight);
-        Debug.Log((int)Math.Abs(Vector2.Distance(gameObject.transform.position, Player.transform.position)));
+        topRight = new Vector2Int(startPos.x + Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)) + 1, startPos.y + Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)) + 1);
+
+        bottomLeft = new Vector2Int(startPos.x - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)) - 1, startPos.y - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)) - 1);
 
         if((targetPos.x > topRight.x || targetPos.y > topRight.y))
         {
@@ -177,8 +176,8 @@ public class Enemy : MonoBehaviour
     {
         TargetReload();
         MoveNode = 1;
-        sizeX = topRight.x - bottomLeft.x + 1;
-        sizeY = topRight.y - bottomLeft.y + 1;
+        sizeX = (topRight.x > bottomLeft.x ? topRight.x - bottomLeft.x + 1 : bottomLeft.x - topRight.x + 1);
+        sizeY = (topRight.y > bottomLeft.y ? topRight.y - bottomLeft.y + 1 : bottomLeft.y - topRight.y + 1);
         NodeArray = new Node[sizeX, sizeY];
 
         for (int i = 0; i < sizeX; i++)
@@ -195,9 +194,19 @@ public class Enemy : MonoBehaviour
 
 
         // 시작과 끝 노드, 열린리스트와 닫힌리스트, 마지막리스트 초기화
-        StartNode = NodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
-        TargetNode = NodeArray[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
-
+        try
+        {
+         //StartNode = NodeArray[(startPos.x > bottomLeft.x ? startPos.x - bottomLeft.x : bottomLeft.x - startPos.x), (startPos.y > bottomLeft.y ? startPos.y - bottomLeft.y : bottomLeft.y - startPos.y)];
+         //TargetNode = NodeArray[(targetPos.x > bottomLeft.x ? targetPos.x - bottomLeft.x : bottomLeft.x - targetPos.x), (targetPos.y > bottomLeft.y ? targetPos.y - bottomLeft.y : bottomLeft.y - targetPos.y)];
+            StartNode = NodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
+            TargetNode = NodeArray[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
+        }
+        catch(Exception e)
+        {
+            Debug.Log(gameObject.transform.name);
+            Debug.Log(targetPos.x - bottomLeft.x + " : " + targetPos.x + ", " + bottomLeft.x);
+            Debug.Log(targetPos.y - bottomLeft.y + " : " + targetPos.y + ", " + bottomLeft.y);
+        }
         OpenList = new List<Node>() { StartNode };
         ClosedList = new List<Node>();
         FinalNodeList = new List<Node>();
