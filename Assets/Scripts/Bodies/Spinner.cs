@@ -60,6 +60,8 @@ public class Spinner : BodyClass
         {
             clam.Rotate(-cycle);
         }
+
+        
     }
 
     public override void LevelUp()

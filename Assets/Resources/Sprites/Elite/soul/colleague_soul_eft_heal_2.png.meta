@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff26efeb831c25a44b1e2002921e3aef
+guid: d41f951f108509e40a632ba47ab6e43f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,76 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: colleague_elephant_die_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 58
-        width: 41
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f103d86f87ce5bb478259fd3512e222b
-      internalID: -1132316067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_elephant_die_1
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 58
-        width: 41
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9314aeeb207a5c6409423395f02a601b
-      internalID: 840866208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_elephant_die_2
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 58
-        width: 41
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8b147eb4ac2d904180607d457c3a399
-      internalID: 1064787158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_elephant_die_3
+      name: hero_cat_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 41
-        height: 58
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f69ee0874db7f4d42a95381140837ce9
-      internalID: -89786863
+      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
+      internalID: -1814592372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_elephant_die_4
+      name: hero_cat_attack_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 32
         y: 0
-        width: 41
-        height: 58
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 233f51ba325fc504697f9f9bf35e1d93
-      internalID: 654993944
+      spriteID: 59880767aab367b4087e1a58311087d0
+      internalID: -621166624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_elephant_die_5
+      name: hero_cat_attack_2
       rect:
         serializedVersion: 2
-        x: 82
+        x: 64
         y: 0
-        width: 41
-        height: 58
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +173,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc60e4b56025f7488fa5c967810787d
-      internalID: -1068592681
+      spriteID: ff1f2de7965a97646baaa19f6ac68d14
+      internalID: 1415326770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f111007688c816649b91a9bc5b5533ee
+      internalID: 1468542235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f813b3b59892ac7459d8d13fbaa37410
+      internalID: 1330135104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
+      internalID: -1728348304
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      colleague_elephant_die_5: -1068592681
-      colleague_elephant_die_1: 840866208
-      colleague_elephant_die_3: -89786863
-      colleague_elephant_die_2: 1064787158
-      colleague_elephant_die_0: -1132316067
-      colleague_elephant_die_4: 654993944
+      hero_cat_attack_3: 1468542235
+      hero_cat_attack_4: 1330135104
+      hero_cat_attack_1: -621166624
+      hero_cat_attack_2: 1415326770
+      hero_cat_attack_5: -1728348304
+      hero_cat_attack_0: -1814592372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
