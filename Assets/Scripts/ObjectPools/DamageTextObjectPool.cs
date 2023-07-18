@@ -16,7 +16,7 @@ public class DamageTextObjectPool : ObjectPooling<TMP_Text>
     public void SpawnText(Vector3 pos, float damage)
     {
         var newgo =  GetRestingPoolObject();
-        newgo.component.text = damage.ToString();
+        newgo.component.text = "<sprite=\"ui_font_number_1\" index=" + damage.ToString() + ">";
         newgo.SetPositionAndActive(pos + Vector3.up);
     }
 }

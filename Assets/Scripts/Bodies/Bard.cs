@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bard : BodyClass
 {
-    float stuntime;
+    public float stuntime;
     CircleCollider2D attackRange;
     protected override void Start()
     {
@@ -61,12 +61,17 @@ public class Bard : BodyClass
                 break;
 
             case 5:
+                stuntime += 0.25f;
                 SetBodyInfo("공격 범위와 공격력이 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
 
             case 6:
                 attackRange.radius = 10;
+                damageAmount += 1;
                 SetBodyInfo("기절 시간이 증가하고 치명타일 시 기절 시간이 더 증가합니다", "", "", "0.5/s");
+                break;
+            case 7:
+                stuntime += 0.25f;
                 break;
         }
     }
