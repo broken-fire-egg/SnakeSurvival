@@ -10484,6 +10484,7 @@ MonoBehaviour:
   bodyDescription: 
   args: []
   levelupDescription: 
+  stuntime: 0
 --- !u!61 &1476351912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10795,7 +10796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1496122603}
   maxHP: 100
-  damageUnit: 1
+  damageUnit: 9999
   fps: 0
 --- !u!4 &1496122602
 Transform:

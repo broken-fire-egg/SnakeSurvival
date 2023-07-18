@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_cat_attack_0
+      name: ui_font_number_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 46
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
-      internalID: -1814592372
+      spriteID: 18e8858545f23284395ea66665886fa1
+      internalID: -222377272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_1
+      name: ui_font_number_2_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 25
         y: 0
-        width: 32
-        height: 46
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59880767aab367b4087e1a58311087d0
-      internalID: -621166624
+      spriteID: 7768a29271ca6f24f99cffb44b2b288a
+      internalID: -1975159069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_2
+      name: ui_font_number_2_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 50
         y: 0
-        width: 32
-        height: 46
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff1f2de7965a97646baaa19f6ac68d14
-      internalID: 1415326770
+      spriteID: 23b00fd1090235843a79517d3a1b7f96
+      internalID: -1570517730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_3
+      name: ui_font_number_2_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 75
         y: 0
-        width: 32
-        height: 46
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f111007688c816649b91a9bc5b5533ee
-      internalID: 1468542235
+      spriteID: d01f43778f5ab1b46b45f02a27efb1a3
+      internalID: -342185123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_4
+      name: ui_font_number_2_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 32
-        height: 46
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f813b3b59892ac7459d8d13fbaa37410
-      internalID: 1330135104
+      spriteID: 9dbe9a7b44b76664a899f5ec08c06dc3
+      internalID: -881521125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_cat_attack_5
+      name: ui_font_number_2_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 125
         y: 0
-        width: 32
-        height: 46
+        width: 25
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +236,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
-      internalID: -1728348304
+      spriteID: 4be90ad15a9383645b583711ca58ef0d
+      internalID: 1786669044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_font_number_2_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49132392c141674b9ee65dd4e567c1b
+      internalID: -963691334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_font_number_2_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7611a9673c0de714eae8bb35e6c0150a
+      internalID: -1726136752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_font_number_2_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2dd55010f0cf4e42bf72e29e6b3d14d
+      internalID: -2094702973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_font_number_2_9
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5695972d80ebc904497bb8b100195a90
+      internalID: -1454371059
       vertices: []
       indices: 
       edges: []
@@ -253,12 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hero_cat_attack_3: 1468542235
-      hero_cat_attack_4: 1330135104
-      hero_cat_attack_1: -621166624
-      hero_cat_attack_2: 1415326770
-      hero_cat_attack_5: -1728348304
-      hero_cat_attack_0: -1814592372
+      ui_font_number_2_9: -1454371059
+      ui_font_number_2_1: -1975159069
+      ui_font_number_2_5: 1786669044
+      ui_font_number_2_7: -1726136752
+      ui_font_number_2_4: -881521125
+      ui_font_number_2_8: -2094702973
+      ui_font_number_2_2: -1570517730
+      ui_font_number_2_6: -963691334
+      ui_font_number_2_0: -222377272
+      ui_font_number_2_3: -342185123
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

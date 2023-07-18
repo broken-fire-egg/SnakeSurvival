@@ -13,13 +13,12 @@ public class GameInfo : SingletonParent<GameInfo>
     //인게임 정보 및 캐릭터 정보
     [HideInInspector]
     public float maxHP;
-    [HideInInspector]
+    
     public float damageUnit;
     public int fps;
     private void Start()
     {
         maxHP = 100;
-        damageUnit = 1;
         inventory = GetComponent<PlayerInventory>();
         Invoke("ChangeFPS", 1f);
     }
