@@ -5,6 +5,33 @@ using UnityEngine;
 
 public class Bard : BodyClass
 {
+    float stuntime;
+    CircleCollider2D attackRange;
+    protected override void Start()
+    {
+        base.Start();
+        attackRange = transform.GetChild(0).GetComponent<CircleCollider2D>();
+    }
+    private void Update()
+    {
+        if (!snakeBody.activated)
+            return;
+
+        //Aim();
+
+        cooltime -= Time.deltaTime;
+
+        if (cooltime < 0)
+            Attack();
+
+
+    }
+    public void Attack()
+    {
+        cooltime = shoottime;
+    }
+
+
     public void Activate()
     {
         snakeBody.Activate();
@@ -19,18 +46,26 @@ public class Bard : BodyClass
                 SetBodyInfo("공격 범위가 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;
             case 2:
+                attackRange.radius = 8;
                 SetBodyInfo("공격력이 증가합니다.", "", "", "");
                 break;
             case 3:
+                damageAmount += 1;
                 SetBodyInfo("공격 범위와 공격 속도가 증가합니다.", "", "", "0.25/s");
                 break;
+
             case 4:
+                attackRange.radius = 9;
+                shoottime = 6;
                 SetBodyInfo("기절 시간이 증가합니다.", "", "", "");
                 break;
+
             case 5:
                 SetBodyInfo("공격 범위와 공격력이 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
+
             case 6:
+                attackRange.radius = 10;
                 SetBodyInfo("기절 시간이 증가하고 치명타일 시 기절 시간이 더 증가합니다", "", "", "0.5/s");
                 break;
         }

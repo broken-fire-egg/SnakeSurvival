@@ -11,7 +11,7 @@ public abstract class BodyClass : MonoBehaviour
 
     public float damageMultiplier = 1;
     public float bonusDamage;
-    float damageAmount = 1;
+    public float damageAmount = 1;
     public float damage { get { return (damageAmount + bonusDamage) * damageMultiplier; }set { damageAmount = value; } }
     public float shoottime;
     public float cooltime;
