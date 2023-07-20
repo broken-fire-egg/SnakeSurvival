@@ -70,16 +70,22 @@ public class Sawer : BodyClass
         switch(level)
         {
             case 1:
+                damageCoefficient = 5;
+                bonusDamage = 1;
                 snakeBody.Activate();
                 SetBodyInfo("공격 범위가 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:
+                saw.transform.localScale = new Vector3(1.5f, 1.5f);
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10,2), "");
                 break;
             case 3:
+                bonusDamage = 2;
+                damageCoefficient = 10;
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "6/s");
                 break;
             case 4:
+
                 SetBodyInfo("공격력과 공격 범위가 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:

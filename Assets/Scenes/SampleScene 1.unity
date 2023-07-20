@@ -10846,7 +10846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1496122603}
   maxHP: 100
-  damageUnit: 1
+  damageUnit: 50
   fps: 0
 --- !u!4 &1496122602
 Transform:
