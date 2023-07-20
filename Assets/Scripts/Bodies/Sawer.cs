@@ -8,11 +8,16 @@ public class Sawer : BodyClass
     bool active;
     bool prevActive;
     public GameObject saw;
+    public Saw saw1;
+    public Saw saw2;
     public float distance;
     protected override void Start()
     {
         base.Start();
         SetBodyInfo("","1타일", Math.Round(1 + GameInfo.Instance.damageUnit / 100 * 5, 2), "5/s");
+
+        saw1 = saw.transform.GetChild(0).GetComponent<Saw>();
+        saw2 = saw.transform.GetChild(1).GetComponent<Saw>();
     }
     private void Awake()
     {
@@ -27,6 +32,8 @@ public class Sawer : BodyClass
 
     void Update()
     {
+
+        saw1.damage = saw2.damage = damage;
         active = snakeBody.activated;
         if(active != prevActive)
             saw.SetActive(active);
@@ -72,11 +79,15 @@ public class Sawer : BodyClass
             case 1:
                 damageCoefficient = 5;
                 bonusDamage = 1;
+
+
                 snakeBody.Activate();
                 SetBodyInfo("공격 범위가 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:
                 saw.transform.localScale = new Vector3(1.5f, 1.5f);
+                saw1.transform.localPosition = new Vector3(1.8f, 0, 0);
+                saw2.transform.localPosition = new Vector3(-1.8f, 0, 0);
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10,2), "");
                 break;
             case 3:
@@ -85,14 +96,28 @@ public class Sawer : BodyClass
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "6/s");
                 break;
             case 4:
-
+                saw1.cooltime = 1f / 6f;
                 SetBodyInfo("공격력과 공격 범위가 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:
+                bonusDamage = 3;
+                damageCoefficient = 15;
+                saw1.transform.localPosition = new Vector3(1.6f, 0, 0);
+                saw2.transform.localPosition = new Vector3(-1.6f, 0, 0);
+                saw.transform.localScale = new Vector3(2f, 2f);
                 SetBodyInfo("공격 범위와 공격속도가 증가합니다.", "2.5 타일", "", "7/s");
                 break;
             case 6:
+                saw1.cooltime = 1f / 7f;
+                saw1.transform.localPosition = new Vector3(1.4f, 0, 0);
+                saw2.transform.localPosition = new Vector3(-1.4f, 0, 0);
+                saw.transform.localScale = new Vector3(2.5f, 2.5f);
                 SetBodyInfo("공격 범위가 무지막지하게 증가합니다.", "4 타일", "", "");
+                break;
+            case 7:
+                saw1.transform.localPosition = new Vector3(1.2f, 0, 0);
+                saw2.transform.localPosition = new Vector3(-1.2f, 0, 0);
+                saw.transform.localScale = new Vector3(4f, 4f);
                 break;
         }
     }

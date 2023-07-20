@@ -33,6 +33,7 @@ public class Saw : Bullet
 
         foreach(var hit in hits)
         {
+            if(hit.collider)
             if(hit.collider.CompareTag("Enemy"))
             {
                 Hit(hit.collider.transform.GetComponent<Enemy>());

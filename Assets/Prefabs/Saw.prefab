@@ -105,6 +105,9 @@ MonoBehaviour:
   collider2d: {fileID: 0}
   from: {fileID: 0}
   rb2d: {fileID: 0}
+  cooltime: 0.2
+  attackedtime: 0.2
+  coll2D: {fileID: 0}
 --- !u!58 &5188898877852575786
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -267,6 +270,9 @@ MonoBehaviour:
   collider2d: {fileID: 0}
   from: {fileID: 0}
   rb2d: {fileID: 0}
+  cooltime: 0.2
+  attackedtime: 0.2
+  coll2D: {fileID: 0}
 --- !u!58 &557960158943395224
 CircleCollider2D:
   m_ObjectHideFlags: 0

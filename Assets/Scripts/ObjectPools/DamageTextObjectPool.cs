@@ -16,14 +16,16 @@ public class DamageTextObjectPool : ObjectPooling<TMP_Text>
     public void SpawnText(Vector3 pos, float damage)
     {
         var newgo =  GetRestingPoolObject();
-
-        string damagestr = ((int)damage).ToString();
-        newgo.component.text = "";
-        foreach (var c in damagestr)
+        if (newgo != null)
         {
-            newgo.component.text += "<sprite=\"ui_font_number_3\" index=" + c + ">";
-        }
+            string damagestr = ((int)damage).ToString();
+            newgo.component.text = "";
+            foreach (var c in damagestr)
+            {
+                newgo.component.text += "<sprite=\"ui_font_number_3\" index=" + c + ">";
+            }
 
-        newgo.SetPositionAndActive(pos + Vector3.up);
+            newgo.SetPositionAndActive(pos + Vector3.up);
+        }
     }
 }

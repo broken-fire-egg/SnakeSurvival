@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c48a3e7f214525439e89d5841d9c54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCap: 10
+  defaultCap: 30
   origin: {fileID: 2752838470784262696}
   isUI: 0
   hasPivot: 0
@@ -2152,11 +2152,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -3540,11 +3544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -3605,11 +3613,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -3670,11 +3682,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -3825,11 +3841,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -4098,13 +4118,15 @@ MonoBehaviour:
   damageCoefficient: 0
   bonusDamage: 0
   shoottime: 0
-  cooltime: 0
+  cooltime: 0.2
   level: 0
   bodyName: 
   bodyDescription: 
   args: []
   levelupDescription: 
   saw: {fileID: 1688152820169958683}
+  saw1: {fileID: 0}
+  saw2: {fileID: 0}
   distance: 0
 --- !u!61 &514913591
 BoxCollider2D:
@@ -5446,11 +5468,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -5511,11 +5537,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -7356,11 +7386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -7844,7 +7878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bd81bafccd8ed498a49364e186d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCap: 25
+  defaultCap: 50
   origin: {fileID: 716563644}
   isUI: 0
   hasPivot: 1
@@ -8989,11 +9023,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -12415,11 +12453,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -12783,11 +12825,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: hp
-      value: 15
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
+      propertyPath: Speed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8077101284088995860, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
       propertyPath: maxhp
-      value: 15
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b454a8c7f226e74290721c6bb75ac86, type: 3}
@@ -15094,6 +15140,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 514913589}
     m_Modifications:
+    - target: {fileID: 5192538551070912862, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}
+      propertyPath: cooltime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192538551070912862, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}
+      propertyPath: attackedtime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7546285409094866050, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -15145,6 +15199,14 @@ PrefabInstance:
     - target: {fileID: 8695225875178024227, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730758469323079272, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}
+      propertyPath: cooltime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730758469323079272, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}
+      propertyPath: attackedtime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b81ef66a2d7193448e98fc4cbbf5ce3, type: 3}

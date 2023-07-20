@@ -33,7 +33,7 @@ MonoBehaviour:
   m_fallbackFontAssets: []
   m_matchMaterialPreset: 1
   m_defaultSpriteAsset: {fileID: 11400000, guid: 2499286f496f7224b9d34dd3a4834baa, type: 2}
-  m_defaultSpriteAssetPath: Textures/Sprites/UI/font/
+  m_defaultSpriteAssetPath: Fonts/
   m_enableEmojiSupport: 1
   m_MissingCharacterSpriteUnicode: 0
   m_defaultColorGradientPresetsPath: Color Gradient Presets/
