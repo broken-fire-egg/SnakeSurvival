@@ -16,11 +16,31 @@ public class Saw : Bullet
 
     private void Update()
     {
+
+
+        CheckAttack();
+
+    }
+    public void CheckAttack()
+    {
         attackedtime -= Time.deltaTime;
-        RaycastHit2D[] hits = null;
+        if (attackedtime > 0)
+            return;
+
+        RaycastHit2D[] hits = new RaycastHit2D[7];
 
         coll2D.Cast(Vector2.zero, hits);
+
+        foreach(var hit in hits)
+        {
+            if(hit.collider.CompareTag("Enemy"))
+            {
+                Hit(hit.collider.transform.GetComponent<Enemy>());
+            }
+        }
+        attackedtime = cooltime;
     }
+
 
     public override void Start()
     {
