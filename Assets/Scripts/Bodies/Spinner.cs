@@ -17,6 +17,16 @@ public class Spinner : BodyClass
         clams = new List<Transform>();
         clams.Add(center.GetChild(0));
     }
+
+    public override void PlayHitEffect(GameObject enemy)
+    {
+
+        base.PlayHitEffect(enemy);
+
+        MazeOtterHitEffectObjectPool.instance.PlayEffect(enemy.transform.position);
+
+    }
+
     protected override void Start()
     {
         base.Start();

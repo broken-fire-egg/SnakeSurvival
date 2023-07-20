@@ -10,9 +10,12 @@ public abstract class BodyClass : MonoBehaviour
     public Sprite bodyIcon;
 
     public float damageMultiplier = 1;
+
+    public float damageCoefficient;
+
     public float bonusDamage;
-    public float damageAmount = 1;
-    public float damage { get { return (damageAmount + bonusDamage) * damageMultiplier; }set { damageAmount = value; } }
+    public float damageAmount { get { return GameInfo.Instance.damageUnit * damageCoefficient / 100; } }
+    public float damage { get { return (damageAmount + bonusDamage) * damageMultiplier; } }
     public float shoottime;
     public float cooltime;
 

@@ -50,7 +50,7 @@ public class Bard : BodyClass
                 SetBodyInfo("공격력이 증가합니다.", "", "", "");
                 break;
             case 3:
-                damageAmount += 1;
+                bonusDamage += 1;
                 SetBodyInfo("공격 범위와 공격 속도가 증가합니다.", "", "", "0.25/s");
                 break;
 
@@ -67,7 +67,7 @@ public class Bard : BodyClass
 
             case 6:
                 attackRange.radius = 10;
-                damageAmount += 1;
+                bonusDamage += 1;
                 SetBodyInfo("기절 시간이 증가하고 치명타일 시 기절 시간이 더 증가합니다", "", "", "0.5/s");
                 break;
             case 7:
