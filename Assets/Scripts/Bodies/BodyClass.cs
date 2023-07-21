@@ -10,7 +10,7 @@ public abstract class BodyClass : MonoBehaviour
     public Sprite bodyIcon;
 
     public float damageMultiplier = 1;
-    public float attackpoint;
+
     public float damageCoefficient;
 
     public float bonusDamage;
