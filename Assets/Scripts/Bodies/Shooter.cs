@@ -104,10 +104,16 @@ public class Shooter : BodyClass
         switch (level)
         {
             case 1:
+                bonusDamage = 10;
+                damageCoefficient = 75;
+
                 Activate();
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(15 + GameInfo.Instance.damageUnit / 100 * 25, 2), "");
                 break;
             case 2:
+
+                bonusDamage = 10;
+                damageCoefficient = 75;
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "1.5/s");
                 break;
             case 3:
