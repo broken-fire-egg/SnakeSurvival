@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Bomber : BodyClass
 {
+
+
+    public float mineSize;
     private void Awake()
     {
         snakeBody = GetComponent<SnakeBody>();
@@ -43,6 +46,9 @@ public class Bomber : BodyClass
         {
             case 1:
                 snakeBody.Activate();
+                mineSize = 1;
+                bonusDamage = 20;
+                damageCoefficient = 30;
                 SetBodyInfo("공격 범위가 증가합니다.", "4타일", "", "");
                 break;
             case 2:

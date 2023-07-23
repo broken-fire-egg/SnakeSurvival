@@ -21,27 +21,27 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 1228547015, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.083333336
+    - time: 0.26666668
       value: {fileID: 1950313001, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.16666667
-      value: {fileID: -18906456, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.25
-      value: {fileID: -2016252024, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.33333334
-      value: {fileID: -569802922, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.41666666
-      value: {fileID: 2102816575, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
     - time: 0.5
+      value: {fileID: -18906456, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
+    - time: 0.76666665
+      value: {fileID: -2016252024, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
+    - time: 1
+      value: {fileID: -569802922, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
+    - time: 1.2666667
+      value: {fileID: 2102816575, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
+    - time: 1.5
       value: {fileID: 1468759806, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.5833333
+    - time: 1.7666667
       value: {fileID: 1628917429, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
-    - time: 0.65
+    - time: 1.9666667
       value: {fileID: 1628917429, guid: d8c08023043067340accd324c2fa0d4a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 30
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -70,7 +70,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,21 +90,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5833333
+  - time: 1.7666667
     functionName: EnableChild
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 1.9666667
     functionName: Disable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 1.9666667
     functionName: DisableChild
     data: 
     objectReferenceParameter: {fileID: 0}

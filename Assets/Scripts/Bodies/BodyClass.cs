@@ -13,6 +13,8 @@ public abstract class BodyClass : MonoBehaviour
 
     public float damageCoefficient;
 
+
+    
     public float bonusDamage;
     public float damageAmount { get { return GameInfo.Instance.damageUnit * damageCoefficient / 100; } }
     public float damage { get { return (damageAmount + bonusDamage) * damageMultiplier; } }

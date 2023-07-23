@@ -8,6 +8,7 @@ public class ChainLightning : BodyClass
     public GameObject enemies;
     List<GameObject> AttackList;
     public int maxchaincount;
+    float detectdistance;
     int chaincount;
     LineRenderer lineRenderer;
     float Effect;
@@ -115,7 +116,10 @@ public class ChainLightning : BodyClass
 
     GameObject FindNearestEnemy(GameObject from)
     {
-        float nearestEnemyDistance = 15f;
+        float nearestEnemyDistance = detectdistance;
+
+        if (chaincount == maxchaincount)
+            nearestEnemyDistance = 8f;
 
         float tmp;
         GameObject res = null;
@@ -140,22 +144,39 @@ public class ChainLightning : BodyClass
         {
             case 1:
                 snakeBody.Activate();
+                detectdistance = 4;
+                shoottime = 5f;
+                bonusDamage = 25;
+                damageCoefficient = 30;
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;
             case 2:
+                bonusDamage = 30;
+                damageCoefficient = 35;
                 SetBodyInfo("번개 전이 횟수가 증가합니다.", "", "", "");
                 break;
             case 3:
+                maxchaincount = 5;
                 SetBodyInfo("공격속도가 증가합니다.", "", "", "0.25/s");
                 break;
             case 4:
+                shoottime = 4f;
                 SetBodyInfo("번개 전이 횟수가 증가하고 전이되는 범위가 증가합니다", "", "", "");
                 break;
             case 5:
+                maxchaincount = 6;
+                detectdistance = 5;
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
             case 6:
+
+                bonusDamage = 35;
+                damageCoefficient = 40;
                 SetBodyInfo("공격 속도가 대폭 감소하고 공격에 맞은 적들의 움직임을 잠시 멈춥니다", "", "", "0.5/s");
+                break;
+            case 7:
+                shoottime = 2f;
+                //TODO : STUN;
                 break;
         }
     }

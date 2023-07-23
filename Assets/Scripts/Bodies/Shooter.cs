@@ -81,8 +81,9 @@ public class Shooter : BodyClass
         {
             Vector3 dir = nearestEnemy.transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
-            gunPoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            gunPoint.localPosition = gunPoint.rotation * Vector3.right * eftDistance;
+           
+            gunPoint.rotation = Quaternion.Euler(0, 0, angle);
+            gunPoint.localPosition = dir.normalized * eftDistance;
             cooltime = shoottime;
             var newbullet = Instantiate(bulletpref);
             newbullet.transform.position = gunPoint.position;
@@ -90,6 +91,8 @@ public class Shooter : BodyClass
             nb.damage = damage;
             nb.from = this;
             newbullet.GetComponent<Rigidbody2D>().AddForce((nearestEnemy.transform.position - gunPoint.position).normalized * power);
+
+            Debug.Log(nearestEnemy);
 
             gunflashAnimator.gameObject.SetActive(true);
             gunflashAnimator.Play("GunFire");
@@ -124,8 +127,8 @@ public class Shooter : BodyClass
                 {
                     Vector3 dir = res.transform.position - transform.position;
                     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
-                    gunPoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                    gunPoint.localPosition = gunPoint.rotation * Vector3.right * eftDistance;
+                    gunPoint.rotation = Quaternion.Euler(0, 0, angle);
+                    gunPoint.localPosition = dir.normalized * eftDistance;
                     var newbullet = Instantiate(bulletpref);
                     newbullet.transform.position = gunPoint.position;
                     var nb = newbullet.GetComponent<Bullet>();
@@ -162,8 +165,8 @@ public class Shooter : BodyClass
                 {
                     Vector3 dir = res.transform.position - transform.position;
                     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
-                    gunPoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                    gunPoint.localPosition = gunPoint.rotation * Vector3.right * eftDistance;
+                    gunPoint.rotation = Quaternion.Euler(0, 0, angle);
+                    gunPoint.localPosition = dir.normalized * eftDistance;
                     var newbullet = Instantiate(bulletpref);
                     newbullet.transform.position = gunPoint.position;
                     var nb = newbullet.GetComponent<Bullet>();
