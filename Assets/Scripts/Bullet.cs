@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 {
     public float damage;
     public bool pene;   //°üÅë
+    public float stun;
+
     public Collider2D collider2d;
     public BodyClass from;
     public Rigidbody2D rb2d;

@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     public GameObject Player;
     public GameObject SelfRelatedObj;
 
+    public float stunTime;
     public float maxhp;
     public float hp;
     public float Speed;
@@ -75,10 +76,12 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void Hit(float damage)
+    public void Hit(float damage, float stun = 0f)
     {
         hp -= damage;
-        if(DamageTextObjectPool.instance)
+        time -= stun;
+        stunTime += stun;
+        if (DamageTextObjectPool.instance)
             DamageTextObjectPool.instance.SpawnText(transform.position, damage);
         CheckDead();
     }
@@ -109,14 +112,20 @@ public class Enemy : MonoBehaviour
         }
         if (Player != null)
             TargetReload();
-
+        if (stunTime > 0)
+            stunTime -= Time.deltaTime;
+        if(stunTime < 0)
+            stunTime = 0;
     }
 
     private IEnumerator MyCoroutine()
     {
         while(true)
         {
-            if(Player != null)
+            if (stunTime > 0)
+                yield return new WaitForSeconds(stunTime);
+
+            if (Player != null)
                 AStarMove();
 
             yield return new WaitForSeconds(1f); // 1√  ¥Î±‚

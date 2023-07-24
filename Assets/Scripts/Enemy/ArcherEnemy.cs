@@ -13,7 +13,7 @@ public class ArcherEnemy : Enemy
     {
         time += Time.deltaTime;
             base.Update();
-
+        
         if (Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(Player.transform.position.x, Player.transform.position.y)) <= 10)
         {
             if (time >= 1f)

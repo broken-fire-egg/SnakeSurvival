@@ -6,11 +6,14 @@ using UnityEngine;
 public class Bard : BodyClass
 {
     public float stuntime;
-    CircleCollider2D attackRange;
+    public float range;
+    Transform wave;
+    Bullet waveBullet;
     protected override void Start()
     {
         base.Start();
-        attackRange = transform.GetChild(0).GetComponent<CircleCollider2D>();
+        wave = transform.GetChild(0);
+        waveBullet = wave.GetComponent<Bullet>();
     }
     private void Update()
     {
@@ -28,9 +31,11 @@ public class Bard : BodyClass
     }
     public void Attack()
     {
+        waveBullet.damage = damage;
+        wave.gameObject.SetActive(true);
+        //waveAnimator.Play("Attack");
         cooltime = shoottime;
     }
-
 
     public void Activate()
     {
@@ -43,37 +48,44 @@ public class Bard : BodyClass
         {
             case 1:
                 Activate();
+                bonusDamage = 10;
+                damageCoefficient = 40;
+                shoottime = 8f;
+                range = 3.5f;
                 SetBodyInfo("공격 범위가 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;
             case 2:
-                attackRange.radius = 8;
+                range = 4;
                 SetBodyInfo("공격력이 증가합니다.", "", "", "");
                 break;
             case 3:
-                bonusDamage += 1;
+                bonusDamage = 10;
+                damageCoefficient = 50;
                 SetBodyInfo("공격 범위와 공격 속도가 증가합니다.", "", "", "0.25/s");
                 break;
 
             case 4:
-                attackRange.radius = 9;
-                shoottime = 6;
+                range = 4.5f;
+                shoottime = 6.06f;
                 SetBodyInfo("기절 시간이 증가합니다.", "", "", "");
                 break;
 
             case 5:
-                stuntime += 0.25f;
+                stuntime = 1.25f;
                 SetBodyInfo("공격 범위와 공격력이 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
 
             case 6:
-                attackRange.radius = 10;
-                bonusDamage += 1;
+                range = 5;
+                bonusDamage = 10;
+                damageCoefficient = 60;
                 SetBodyInfo("기절 시간이 증가하고 치명타일 시 기절 시간이 더 증가합니다", "", "", "0.5/s");
                 break;
             case 7:
-                stuntime += 0.25f;
+                stuntime = 1.5f;
                 break;
         }
+        wave.transform.localScale = new Vector3(range, range, 1);
     }
 
     public override void SetBodyInfo(string discription, params object[] args)
