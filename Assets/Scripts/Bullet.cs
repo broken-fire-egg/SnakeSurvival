@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Hit(Enemy target)
     {
-        target.Hit(damage);
+        target.Hit(damage, stun);
         if (from)
             from.PlayHitEffect(target.gameObject);
         gameObject.SetActive(pene);

@@ -12,6 +12,7 @@ public class Bard : BodyClass
     protected override void Start()
     {
         base.Start();
+        SetBodyInfo("");
         wave = transform.GetChild(0);
         waveBullet = wave.GetComponent<Bullet>();
     }

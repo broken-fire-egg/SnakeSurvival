@@ -122,8 +122,6 @@ public class Enemy : MonoBehaviour
     {
         while(true)
         {
-            if (stunTime > 0)
-                yield return new WaitForSeconds(stunTime);
 
             if (Player != null)
                 AStarMove();
@@ -158,6 +156,8 @@ public class Enemy : MonoBehaviour
                     MoveNode++;
                 }
             }
+            if (stunTime > 0)
+                yield return new WaitForSeconds(stunTime);
             yield return new WaitForSeconds(0.005f); // 1√  ¥Î±‚
         }
     }

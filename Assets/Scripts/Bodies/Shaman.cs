@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class Shaman : BodyClass
 {
-
-
+    protected override void Start()
+    {
+        base.Start();
+        SetBodyInfo("");
+    }
 
     private void Update()
     {
