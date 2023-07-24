@@ -7,8 +7,10 @@ public class Bard : BodyClass
 {
     public float stuntime;
     public float range;
+
     Transform wave;
-    Bullet waveBullet;
+    public Bullet waveBullet;
+
     protected override void Start()
     {
         base.Start();
@@ -32,7 +34,6 @@ public class Bard : BodyClass
     }
     public void Attack()
     {
-        waveBullet.damage = damage;
         wave.gameObject.SetActive(true);
         //waveAnimator.Play("Attack");
         cooltime = shoottime;
@@ -52,6 +53,7 @@ public class Bard : BodyClass
                 bonusDamage = 10;
                 damageCoefficient = 40;
                 shoottime = 8f;
+                stuntime = 1;
                 range = 3.5f;
                 SetBodyInfo("공격 범위가 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;
@@ -86,6 +88,8 @@ public class Bard : BodyClass
                 stuntime = 1.5f;
                 break;
         }
+        waveBullet.damage = damage;
+        waveBullet.stun = stuntime;
         wave.transform.localScale = new Vector3(range, range, 1);
     }
 
