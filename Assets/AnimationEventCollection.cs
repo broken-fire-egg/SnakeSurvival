@@ -31,7 +31,20 @@ public class AnimationEventCollection : MonoBehaviour
     {
         transform.parent.GetChild(targetNumber).gameObject.SetActive(true);
     }
-
+    public void DisableSibling(int targetNumber)
+    {
+        transform.parent.GetChild(targetNumber).gameObject.SetActive(false);
+    }
+    public void DisableParentSR()
+    {
+        transform.parent.GetComponent<SpriteRenderer>().enabled = false;
+    }
+    public void DisableParent(int alsoSelf)
+    {
+        transform.parent.gameObject.SetActive(false);
+        if(alsoSelf == 1)
+            transform.gameObject.SetActive(false);
+    }
     public void BulletPhysicSimulate()
     {
         if (bullet)

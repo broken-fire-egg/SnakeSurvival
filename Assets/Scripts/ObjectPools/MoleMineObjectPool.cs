@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoleMineObjectPool : ObjectPooling<GameObject>
+public class MoleMineObjectPool : ObjectPooling<MoleMine>
 {
 
     public static MoleMineObjectPool instance;
@@ -12,10 +12,26 @@ public class MoleMineObjectPool : ObjectPooling<GameObject>
             instance = this;
     }
 
-    public void PlayEffect(Vector3 pos)
+    public void Deploy(Vector3 pos)
     {
-        var po = GetRestingPoolObject();
-        po.gameObject.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
-        po.SetPositionAndActive(pos);
+        var newMine = GetRestingPoolObject();
+
+        if (newMine == null)
+        {
+            newMine = poolObjects[0];
+            newMine.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            newMine.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        newMine.SetPositionAndActive(pos);
+        newMine.component.SetSpriteRendererActive(true);
+    }
+
+
+    public void UpdateMineInfo(float damage, float range, float detectrange, BodyClass from)
+    {
+        foreach (var po in poolObjects)
+        {
+            po.component.UpdateInfo(damage, range, detectrange, from);
+        }
     }
 }
