@@ -6,6 +6,7 @@ public class OptionUICtrl : MonoBehaviour
 {
 
     int num = 60;
+    int num2 = 60;
     public GameObject[] MenuCtrlGame;
     public GameObject[] MenuCtrlButton;
     public GameObject[] BGMGauge;
@@ -101,36 +102,44 @@ public class OptionUICtrl : MonoBehaviour
         if (check)          //+
         {
             num += 20;
+            if (num > 100)
+                num = 100;
         }
         else                //-
         {
             num -= 20;
+            if (num < 0)
+                num = 0;
         }
 
-        GaugeCtrl(BGMGauge);
+        GaugeCtrl(BGMGauge, num);
     }
 
     public void EffmCtrl(bool check)
     {
         if (check)          //+
         {
-            num += 20;
+            num2 += 20;
+            if (num2 > 100)
+                num2 = 100;
         }
         else                //-
         {
-            num -= 20;
+            num2 -= 20;
+            if (num2 < 0)
+                num2 = 0;
         }
 
-        GaugeCtrl(SDEGauge);
+        GaugeCtrl(SDEGauge, num2);
     }
     
-    public void GaugeCtrl(GameObject[] Gauge)
+    public void GaugeCtrl(GameObject[] Gauge, int a)
     {
+        
         for (int i = 0; i < Gauge.Length; i++)
             Gauge[i].SetActive(false);
 
-        for (int i = 0; i < num / 20; i++)
+        for (int i = 0; i < a / 20; i++)
             Gauge[i].SetActive(true);
-
     }
 }
