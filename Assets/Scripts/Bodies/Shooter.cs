@@ -18,7 +18,12 @@ public class Shooter : BodyClass
 
     public float range;
 
-
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        transform.GetChild(0).gameObject.SetActive(true);
+        PlayerInventory.instance.AddColleague(this);
+    }
     protected override void Start()
     {
         base.Start();
@@ -92,7 +97,6 @@ public class Shooter : BodyClass
             nb.from = this;
             newbullet.GetComponent<Rigidbody2D>().AddForce((nearestEnemy.transform.position - gunPoint.position).normalized * power);
 
-            Debug.Log(nearestEnemy);
 
             gunflashAnimator.gameObject.SetActive(true);
             gunflashAnimator.Play("GunFire");
@@ -196,11 +200,6 @@ public class Shooter : BodyClass
             }
         }
         return res;
-    }
-    public void Activate()
-    {
-        snakeBody.Activate();
-        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public override void LevelUp()

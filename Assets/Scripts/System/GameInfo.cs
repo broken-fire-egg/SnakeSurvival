@@ -26,4 +26,8 @@ public class GameInfo : SingletonParent<GameInfo>
     {
         fps = Application.targetFrameRate = 30;
     }
+    private void Update()
+    {
+        print(Application.targetFrameRate);
+    }
 }

@@ -10,7 +10,11 @@ public class Shaman : BodyClass
         base.Start();
         SetBodyInfo("");
     }
-
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
+    }
     private void Update()
     {
         if (!snakeBody.activated)
@@ -24,10 +28,6 @@ public class Shaman : BodyClass
     void CastSpell()
     {
         
-    }
-    public void Activate()
-    {
-        snakeBody.Activate();
     }
     public override void LevelUp()
     {

@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 0ff1f32c362f9584aab4b8a7d1c0bbd0, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 5e94f273351300c4e8df942166a85238, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -1337,6 +1337,8 @@ MonoBehaviour:
   bodyDescription: 
   args: []
   levelupDescription: 
+  frontColleague: {fileID: 0}
+  backColleague: {fileID: 0}
 --- !u!114 &81839952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1501,7 +1503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 3904847229170514952, guid: 200a49685b56d02438544670843d75fd, type: 3}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 94e986367e4ce4149b05fc0b25e0a4bd, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -2531,7 +2533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8156863, g: 0.8719463, b: 0.93333334, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4218,7 +4220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 5d256fad62330694c9e052609f8a0547, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -4924,7 +4926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 1ef57f9cd00aa5c4faab6b2c27216864, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -6073,7 +6075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84247833, g: 0.93333334, b: 0.8156863, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6873,7 +6875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 3087388445946636660, guid: d434481ace420f24c91c9f270a356b28, type: 3}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 0faf6cded937fff42aba33df24642b6f, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -7065,7 +7067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -249.3, y: -100.4}
+  m_AnchoredPosition: {x: -249.3, y: -150}
   m_SizeDelta: {x: 260, y: 47.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002445468
@@ -7338,7 +7340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -249.3, y: -100.4}
+  m_AnchoredPosition: {x: -249.3, y: -150}
   m_SizeDelta: {x: 260, y: 47.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024592428
@@ -8311,7 +8313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 08354ad20a94f20479f2b39c53912303, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -9437,7 +9439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: c6a9fa8aeca843541976b1ac304ffe80, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -10028,7 +10030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9339623, g: 0.81501424, b: 0.81501424, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10515,7 +10517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 1c4674561275d2240a6877dd3e21a405, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -10698,7 +10700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletpref: {fileID: 0}
-  bodyIcon: {fileID: 0}
+  bodyIcon: {fileID: 21300000, guid: 46b8a654543226c40a54eaa8d8e91322, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
   bonusDamage: 0
@@ -11024,7 +11026,7 @@ MonoBehaviour:
   inventory: {fileID: 1496122603}
   maxHP: 100
   damageUnit: 50
-  fps: 0
+  fps: 30
 --- !u!4 &1496122602
 Transform:
   m_ObjectHideFlags: 0
@@ -12304,7 +12306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -249.3, y: -100.4}
+  m_AnchoredPosition: {x: -249.3, y: -150}
   m_SizeDelta: {x: 260, y: 47.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778360250
@@ -13474,6 +13476,7 @@ MonoBehaviour:
   - {fileID: 143902538}
   - {fileID: 690521459}
   - {fileID: 165551684}
+  bodies: []
   prefBody: {fileID: 986529704}
   bodyCount: 0
   maxBodyCount: 6

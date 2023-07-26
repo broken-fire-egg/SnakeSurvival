@@ -143,7 +143,7 @@ public class ChainLightning : BodyClass
         switch (level)
         {
             case 1:
-                snakeBody.Activate();
+                Activate();
                 detectdistance = 4;
                 shoottime = 5f;
                 bonusDamage = 25;
@@ -195,5 +195,11 @@ public class ChainLightning : BodyClass
             else
                 break;
         }
+    }
+
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
     }
 }

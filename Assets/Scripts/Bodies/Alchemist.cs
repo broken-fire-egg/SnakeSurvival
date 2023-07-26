@@ -7,8 +7,13 @@ public class Alchemist : BodyClass
 {
 
     float amount = 1;
-    BodyClass frontColleague;
-    BodyClass backColleague;
+    float speedBuff = 0;
+    public BodyClass frontColleague;
+    public BodyClass backColleague;
+    float ragetime = 0;
+
+    float buffedamountfront;
+    float buffedamountback;
     protected override void Start()
     {
         base.Start();
@@ -16,48 +21,76 @@ public class Alchemist : BodyClass
         frontColleague = null;
         backColleague = null;
     }
-
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
+    }
     void Update()
     {
         if (!snakeBody.activated)
             return;
         cooltime -= Time.deltaTime;
 
-        if (cooltime < 0)
-            ActiveRageSkill();
+
     }
 
-    void PlayAnimation()
+    public void OnDetectNewColleague()
     {
+
     }
 
-    public void ActiveRageSkill()
-    {
-        if (frontColleague)
-            StartCoroutine(Rage(frontColleague));
-        if (backColleague)
-            StartCoroutine(Rage(backColleague));
-    }
-
-    IEnumerator Rage(BodyClass target)
+    IEnumerator Rage()
     {
         while (true)
         {
-
-
-            yield return null;
+            if (frontColleague)
+            {
+                buffedamountfront = frontColleague.shoottime / 100 * speedBuff;
+                frontColleague.shoottime -= buffedamountfront;
+            }
+            if (backColleague)
+            {
+                buffedamountback = backColleague.shoottime / 100 * speedBuff;
+                backColleague.shoottime -= buffedamountback;
+            }
+            yield return new WaitForSeconds(ragetime);
+            if (frontColleague)
+            {
+                frontColleague.shoottime += buffedamountfront;
+                buffedamountfront = 0;
+            }
+            if (backColleague)
+            {
+                backColleague.shoottime += buffedamountback;
+                buffedamountback = 0;
+            }
+            yield return new WaitForSeconds(10f);
         }
     }
 
 
-    void BuffColleagues()
+    public void BuffColleagues()
     {
 
         var colleagues = PlayerInventory.instance.currentColleagues;
 
+        if(level == 7)
+        {
+            foreach(var c in colleagues)
+            {
+                c.damageMultiplier = amount;
+            }
+            return;
+        }
+
+        Debug.Log(colleagues.IndexOf(this));
         if (!frontColleague)
             if (colleagues.IndexOf(this) > 0)
+            {
+                Debug.Log(colleagues[colleagues.IndexOf(this) - 1]);
                 frontColleague = colleagues[colleagues.IndexOf(this) - 1];
+            }
             else
                 frontColleague = null;
 
@@ -68,10 +101,10 @@ public class Alchemist : BodyClass
                 backColleague = null;
 
         if (frontColleague)
-            frontColleague.bonusDamage = amount;
+            frontColleague.damageMultiplier = amount;
 
         if (backColleague)
-            backColleague.bonusDamage = amount;
+            backColleague.damageMultiplier = amount;
 
     }
 
@@ -81,25 +114,43 @@ public class Alchemist : BodyClass
         switch (level)
         {
             case 1:
-                snakeBody.Activate();
+                Activate();
+                SnakeBodyManager.instance.onNewColleagueDetected += BuffColleagues;
+                amount = 10;
                 SetBodyInfo("공격력 증가 효과가 강화됩니다.", "1.5타일", "", "");
                 break;
             case 2:
+                amount = 15;
                 SetBodyInfo("자신의 공격력이 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10, 2), "");
                 break;
             case 3:
+                amount = 20;
                 SetBodyInfo("10초마다 아군을 광분 상태로 만듭니다.", "", "", "6/s");
                 break;
             case 4:
+                ragetime = 3f;
+                speedBuff = 30f;
+                StartCoroutine(Rage());
                 SetBodyInfo("자신의 공격력이 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:
+                amount = 250;
+
+
                 SetBodyInfo("공격력 증가 효과가 강화되고 광분 효과가 강화됩니다", "2.5 타일", "", "7/s");
                 break;
             case 6:
+                amount = 30;
+                ragetime = 5f;
+                speedBuff = 40f;
                 SetBodyInfo("공격력 증가 효과를 모든 아군에게 적용합니다.", "4 타일", "", "");
                 break;
+            case 7:
+
+
+                break;
         }
+        BuffColleagues();
     }
 
     public override void SetBodyInfo(string discription, params object[] args)

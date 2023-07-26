@@ -50,14 +50,18 @@ public class Healer : BodyClass
 
     }
 
-
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
+    }
     public override void LevelUp()
     {
         level++;
         switch (level)
         {
             case 1:
-                snakeBody.Activate();
+                Activate();
                 SetBodyInfo("회복 위력이 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:

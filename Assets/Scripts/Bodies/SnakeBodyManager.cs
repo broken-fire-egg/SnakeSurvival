@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SnakeBodyManager;
 
 public class SnakeBodyManager : MonoBehaviour
 {
     static public SnakeBodyManager instance;
     public List<GameObject> bodiesGO;
-    List<SnakeBody> bodies;
+    public List<SnakeBody> bodies;
     public GameObject prefBody;
     public int bodyCount;
     public int maxBodyCount;
+
+    public delegate void OnNewColleagueDetected();
+
+    public OnNewColleagueDetected onNewColleagueDetected;
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
         bodies = new List<SnakeBody>();
+        onNewColleagueDetected = null;
+        onNewColleagueDetected += DummyMethod;
+    }
+    void DummyMethod()
+    {
+        Debug.Log("NEW COLLEAGUE!!!");
     }
     private void Start()
     {
@@ -41,10 +53,6 @@ public class SnakeBodyManager : MonoBehaviour
 
     public void AlertNewPH(SnakeHead.PosHistory newPH)
     {
-
-
-
-
         foreach (var body in bodies)
         {
             if(body.destination == null)
@@ -85,10 +93,10 @@ public class SnakeBodyManager : MonoBehaviour
     public void AddBody(SnakeBody newbody)
     {
         newbody.CopyValue(bodies[bodyCount]);
-
+       // PlayerInventory.instance.AddColleague(bodies)
         bodies[bodyCount] = newbody;
-
         bodyCount++;
+        onNewColleagueDetected();
 
         //newbody.Activate();
         //bodies[bodyCount - 1].Activate();

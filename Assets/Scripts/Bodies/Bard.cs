@@ -38,10 +38,10 @@ public class Bard : BodyClass
         //waveAnimator.Play("Attack");
         cooltime = shoottime;
     }
-
-    public void Activate()
+    public override void Activate()
     {
         snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
     }
     public override void LevelUp()
     {

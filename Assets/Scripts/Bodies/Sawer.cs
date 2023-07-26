@@ -23,7 +23,11 @@ public class Sawer : BodyClass
     {
         snakeBody = GetComponent<SnakeBody>();
     }
-
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
+    }
     public void PlayHitEffect(GameObject enemy,GameObject saw)
     {
         base.PlayHitEffect(enemy);
@@ -81,7 +85,7 @@ public class Sawer : BodyClass
                 bonusDamage = 1;
 
 
-                snakeBody.Activate();
+                Activate();
                 SetBodyInfo("공격 범위가 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:

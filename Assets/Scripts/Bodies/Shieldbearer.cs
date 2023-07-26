@@ -14,6 +14,11 @@ public class Shieldbearer : BodyClass
     public KnockbackBullet waveBullet;
     public KnockbackBullet backWaveBullet;
     public float range;
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
+    }
     private void Update()
     {
         if (!snakeBody.activated)
@@ -68,10 +73,7 @@ public class Shieldbearer : BodyClass
         waveBullet = wave.GetComponent<KnockbackBullet>();
         backWaveBullet = backwave.GetComponent<KnockbackBullet>();
     }
-    public void Activate()
-    {
-        snakeBody.Activate();
-    }
+
 
 
 

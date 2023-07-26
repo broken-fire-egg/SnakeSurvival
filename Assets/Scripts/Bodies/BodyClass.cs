@@ -50,7 +50,7 @@ public abstract class BodyClass : MonoBehaviour
         for (int i = 0; i < args.Length; i++)
             args[i] = "";
     }
-    
+    public abstract void Activate();
     public abstract void SetBodyInfo(string discription, params object[] args);
     public abstract void LevelUp();
 }

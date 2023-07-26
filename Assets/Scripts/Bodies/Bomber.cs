@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bomber : BodyClass
 {
@@ -10,7 +11,11 @@ public class Bomber : BodyClass
     public float mineSize;
     float detectrange;
     public int extraMine;
-
+    public override void Activate()
+    {
+        snakeBody.Activate();
+        PlayerInventory.instance.AddColleague(this);
+    }
     private void Awake()
     {
         snakeBody = GetComponent<SnakeBody>();
@@ -40,11 +45,11 @@ public class Bomber : BodyClass
     private void Deploy(int n)
     {
         if(extraMine >= n)
-            MoleMineObjectPool.instance.Deploy(transform.position);
+            MoleMineObjectPool.instance.Deploy(transform.position + (new Vector3(Random.Range(0, 1f), Random.Range(0, 1f))).normalized);
     }
     private void Deploy()
     {
-        MoleMineObjectPool.instance.Deploy(transform.position);
+        MoleMineObjectPool.instance.Deploy(transform.position + (new Vector3(Random.Range(0,1f),Random.Range(0,1f))).normalized);
         //Instantiate(bulletpref, transform.position, transform.rotation);
     }
     public override void LevelUp()
@@ -53,7 +58,7 @@ public class Bomber : BodyClass
         switch (level)
         {
             case 1:
-                snakeBody.Activate();
+                Activate();
                 detectrange = 1;
                 mineSize = 1.5f;
                 bonusDamage = 20;
