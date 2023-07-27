@@ -17,6 +17,7 @@ public class Spinner : BodyClass
         center = transform.GetChild(0);
         clams = new List<Transform>();
         clams.Add(center.GetChild(0));
+        clamBullets = new List<Bullet>();
         clamBullets.Add(center.GetChild(0).GetComponent<Bullet>());
     }
     public override void Activate()

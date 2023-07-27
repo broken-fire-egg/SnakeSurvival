@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e6d602aa846924479c73fb9235ff3b7
+guid: 42a202e8a8c4d1246aac217835e8adce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,97 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: colleague_ferret_eft_shield_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 35
-        width: 35
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adf9e7ab7d93abb4388fb4c4278696bd
-      internalID: 880315496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_ferret_eft_shield_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 35
-        width: 35
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7491aa77a2a674540b82bed35eebb6c6
-      internalID: 419574156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_ferret_eft_shield_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 35
-        width: 35
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64dae23ac9f9c854d82e7e2d056e0acf
-      internalID: 65705195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_ferret_eft_shield_3
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 35
-        width: 35
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e27673aa8fea66a45a7be3d99efc4744
-      internalID: -273492034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colleague_ferret_eft_shield_4
+      name: hero_cat_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 35
-        height: 35
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b866c6b7b4f9d8c459ce304d4cd508ab
-      internalID: 43598505
+      spriteID: 2b51d9b1729de6f4a850ea66b6f6033d
+      internalID: -1814592372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_ferret_eft_shield_5
+      name: hero_cat_attack_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 35
-        height: 35
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 916c9836c6b27f64e9fe9a5bcd4b319f
-      internalID: -1370169005
+      spriteID: 59880767aab367b4087e1a58311087d0
+      internalID: -621166624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_ferret_eft_shield_6
+      name: hero_cat_attack_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 64
         y: 0
-        width: 35
-        height: 35
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952e9a47cefe6b044b49ef7b60cb8f3c
-      internalID: -1029405461
+      spriteID: ff1f2de7965a97646baaa19f6ac68d14
+      internalID: 1415326770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colleague_ferret_eft_shield_7
+      name: hero_cat_attack_3
       rect:
         serializedVersion: 2
-        x: 105
+        x: 96
         y: 0
-        width: 35
-        height: 35
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +194,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4af15c62469c7e74995ec33d61ec35d0
-      internalID: -1893488061
+      spriteID: f111007688c816649b91a9bc5b5533ee
+      internalID: 1468542235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f813b3b59892ac7459d8d13fbaa37410
+      internalID: 1330135104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_cat_attack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf8ca0eb0be22046afb42eb26f9a305
+      internalID: -1728348304
       vertices: []
       indices: 
       edges: []
@@ -295,14 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      colleague_ferret_eft_shield_0: 880315496
-      colleague_ferret_eft_shield_4: 43598505
-      colleague_ferret_eft_shield_1: 419574156
-      colleague_ferret_eft_shield_6: -1029405461
-      colleague_ferret_eft_shield_3: -273492034
-      colleague_ferret_eft_shield_2: 65705195
-      colleague_ferret_eft_shield_7: -1893488061
-      colleague_ferret_eft_shield_5: -1370169005
+      hero_cat_attack_3: 1468542235
+      hero_cat_attack_4: 1330135104
+      hero_cat_attack_1: -621166624
+      hero_cat_attack_2: 1415326770
+      hero_cat_attack_5: -1728348304
+      hero_cat_attack_0: -1814592372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

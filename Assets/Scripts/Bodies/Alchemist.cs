@@ -84,7 +84,6 @@ public class Alchemist : BodyClass
             return;
         }
 
-        Debug.Log(colleagues.IndexOf(this));
         if (!frontColleague)
             if (colleagues.IndexOf(this) > 0)
             {
@@ -102,7 +101,8 @@ public class Alchemist : BodyClass
 
         if (frontColleague)
             frontColleague.damageMultiplier = amount;
-
+        else if (colleagues.IndexOf(this) == 0)
+            GameInfo.Instance.damageMultiply = amount;
         if (backColleague)
             backColleague.damageMultiplier = amount;
 
@@ -147,7 +147,7 @@ public class Alchemist : BodyClass
                 break;
             case 7:
 
-
+                //다른곳에서 레벨이 7인지로 분기
                 break;
         }
         BuffColleagues();

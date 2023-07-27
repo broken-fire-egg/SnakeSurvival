@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.TryGetComponent<Enemy>(out Enemy enemy);
-            enemy.Hit(GameInfo.Instance.damageUnit);
+            enemy.Hit(GameInfo.Instance.damageUnit * GameInfo.Instance.damageMultiply);
             
             HitEffectObjectPool.instance.PlayEffect(collision.transform.position + 
                 new Vector3(Random.Range(-collision.bounds.extents.x, collision.bounds.extents.x),

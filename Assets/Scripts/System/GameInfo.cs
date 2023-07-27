@@ -15,10 +15,12 @@ public class GameInfo : SingletonParent<GameInfo>
     public float maxHP;
     
     public float damageUnit;
+    public float damageMultiply;
     public int fps;
     private void Start()
     {
         maxHP = 100;
+        damageMultiply = 1;
         inventory = GetComponent<PlayerInventory>();
         Invoke("ChangeFPS", 1f);
     }
