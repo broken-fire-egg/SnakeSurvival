@@ -76,13 +76,13 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void Hit(float damage, float stun = 0f)
+    public void Hit(float damage, float stun = 0f, bool isCrit = false)
     {
         hp -= damage;
         time -= stun;
         stunTime += stun;
         if (DamageTextObjectPool.instance)
-            DamageTextObjectPool.instance.SpawnText(transform.position, damage);
+            DamageTextObjectPool.instance.SpawnText(transform.position, damage, isCrit);
         CheckDead();
     }
 

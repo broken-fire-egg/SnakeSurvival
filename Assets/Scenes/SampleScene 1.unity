@@ -766,6 +766,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 0ff1f32c362f9584aab4b8a7d1c0bbd0, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0
@@ -774,6 +775,10 @@ MonoBehaviour:
   bodyDescription: 
   args: []
   levelupDescription: 
+  frontColleague: {fileID: 0}
+  backColleague: {fileID: 0}
+  shield: 0
+  shieldUpgraded: 0
 --- !u!95 &27344785
 Animator:
   serializedVersion: 5
@@ -1329,6 +1334,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 5e94f273351300c4e8df942166a85238, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 10
   cooltime: 0
@@ -1506,6 +1512,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 94e986367e4ce4149b05fc0b25e0a4bd, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 4
   cooltime: 4
@@ -4223,6 +4230,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 5d256fad62330694c9e052609f8a0547, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0.2
@@ -4929,6 +4937,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 1ef57f9cd00aa5c4faab6b2c27216864, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 5
   cooltime: 5
@@ -6878,6 +6887,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 0faf6cded937fff42aba33df24642b6f, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 1
   cooltime: 0
@@ -8316,6 +8326,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 08354ad20a94f20479f2b39c53912303, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0
@@ -9442,6 +9453,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: c6a9fa8aeca843541976b1ac304ffe80, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0
@@ -10520,6 +10532,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 1c4674561275d2240a6877dd3e21a405, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0
@@ -10703,6 +10716,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 21300000, guid: 46b8a654543226c40a54eaa8d8e91322, type: 3}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 8
   cooltime: 0
@@ -11026,6 +11040,8 @@ MonoBehaviour:
   inventory: {fileID: 1496122603}
   maxHP: 100
   damageUnit: 50
+  damageMultiply: 0
+  criticalChance: 0
   fps: 30
 --- !u!4 &1496122602
 Transform:

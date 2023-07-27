@@ -83,7 +83,7 @@ public class Sawer : BodyClass
             case 1:
                 damageCoefficient = 5;
                 bonusDamage = 1;
-
+                shoottime = 0.2f;
 
                 Activate();
                 SetBodyInfo("공격 범위가 증가합니다.", "1.5타일", "", "");
@@ -100,7 +100,7 @@ public class Sawer : BodyClass
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "6/s");
                 break;
             case 4:
-                saw1.cooltime = 1f / 6f;
+                shoottime = 1f / 6f;
                 SetBodyInfo("공격력과 공격 범위가 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:
@@ -112,7 +112,7 @@ public class Sawer : BodyClass
                 SetBodyInfo("공격 범위와 공격속도가 증가합니다.", "2.5 타일", "", "7/s");
                 break;
             case 6:
-                saw1.cooltime = 1f / 7f;
+                shoottime = 1f / 7f;
                 saw1.transform.localPosition = new Vector3(1.4f, 0, 0);
                 saw2.transform.localPosition = new Vector3(-1.4f, 0, 0);
                 saw.transform.localScale = new Vector3(2.5f, 2.5f);
