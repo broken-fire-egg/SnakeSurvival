@@ -5,7 +5,7 @@ using UnityEngine;
 public class Saw : Bullet
 {
 
-
+    
     public float cooltime;
     public float attackedtime;
     public Collider2D coll2D;
@@ -39,7 +39,7 @@ public class Saw : Bullet
                 Hit(hit.collider.transform.GetComponent<Enemy>());
             }
         }
-        attackedtime = cooltime;
+        attackedtime = from.shoottime;
     }
 
 
@@ -54,9 +54,17 @@ public class Saw : Bullet
     protected override void Hit(Enemy target)
     {
         attackedtime = cooltime;
-        target.Hit(damage);
+        
+        if (Random.Range(0, 100) < GameInfo.Instance.criticalChance + from.bonusCriticalChance)
+        {
+            target.Hit(damage*2,isCrit:true);
+        }
+        else
+            target.Hit(damage);
         if (from)
-            ((Sawer)from).PlayHitEffect(target.gameObject,gameObject);
+        {
+                ((Sawer)from).PlayHitEffect(target.gameObject, gameObject);
+        }
         gameObject.SetActive(pene);
     }
 }

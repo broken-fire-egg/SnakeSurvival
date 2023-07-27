@@ -35,9 +35,19 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Hit(Enemy target)
     {
-        target.Hit(damage, stun);
+        
         if (from)
-            from.PlayHitEffect(target.gameObject);
+        {
+            if (Random.Range(0, 100) < GameInfo.Instance.criticalChance + from.bonusCriticalChance)
+            {
+                target.Hit(damage * 2f, stun, true);
+            }
+            else
+            {
+                target.Hit(damage, stun);
+            }
+                from.PlayHitEffect(target.gameObject);
+        }
         gameObject.SetActive(pene);
     }
 
