@@ -54,15 +54,15 @@ public class Healer : BodyClass
     {
         if(headTarget)
         {
-
+            SnakeHead.instance.Hit(-damage, gameObject);
         }
         else if(frontColleague)
         {
-
+            frontColleague.Hit(-damage);
         }
         if(backColleague)
         {
-
+            backColleague.Hit(-damage);
         }
     }
     //public void Heal()
@@ -101,15 +101,13 @@ public class Healer : BodyClass
         {
             case 1:
                 shoottime = 10;
-                bonusDamage = 10;
-                damageCoefficient = 10;
+                bonusDamage = 5;
                 Activate();
                 SetBodyInfo("회복 위력이 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:
 
-                bonusDamage = 15;
-                damageCoefficient = 15;
+                bonusDamage = 10;
                 SetBodyInfo("공격 속도가 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10, 2), "");
                 break;
             case 3:
@@ -118,8 +116,7 @@ public class Healer : BodyClass
                 break;
             case 4:
 
-                bonusDamage = 20;
-                damageCoefficient = 20;
+                bonusDamage = 15;
                 SetBodyInfo("20초마다 아군에게 피해를 막아주는 보호막을 생성합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:
@@ -127,6 +124,7 @@ public class Healer : BodyClass
                 SetBodyInfo("회복 위력과 공격 속도가 증가합니다.", "2.5 타일", "", "7/s");
                 break;
             case 6:
+                bonusDamage = 20;
                 shoottime = 6.25f;
                 SetBodyInfo("보호막이 있는 동안 추가효과를 제공하고 자신에게도 보호막을 생성합니다.", "4 타일", "", "");
                 break;
@@ -144,5 +142,10 @@ public class Healer : BodyClass
             levelupDescription = discription;
         else
             levelupDescription = bodyDescription;
+    }
+
+    public override void UpdateDamageInfo()
+    {
+
     }
 }

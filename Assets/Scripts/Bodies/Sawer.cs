@@ -37,7 +37,6 @@ public class Sawer : BodyClass
     void Update()
     {
 
-        saw1.damage = saw2.damage = damage;
         active = snakeBody.activated;
         if(active != prevActive)
             saw.SetActive(active);
@@ -75,6 +74,7 @@ public class Sawer : BodyClass
         }
 
     }
+
     public override void LevelUp()
     {
         level++;
@@ -124,5 +124,11 @@ public class Sawer : BodyClass
                 saw.transform.localScale = new Vector3(4f, 4f);
                 break;
         }
+        UpdateDamageInfo();
+    }
+
+    public override void UpdateDamageInfo()
+    {
+            saw1.damage = saw2.damage = damage;
     }
 }

@@ -67,4 +67,8 @@ public class Shaman : BodyClass
         else
             levelupDescription = bodyDescription;
     }
+    public override void UpdateDamageInfo()
+    {
+
+    }
 }

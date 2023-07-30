@@ -209,7 +209,7 @@ public class Shooter : BodyClass
         {
             case 1:
                 bonusDamage = 10;
-                damageCoefficient = 20;
+                damageCoefficient = 15;
                 shoottime = 1;
                 range = 7;
                 Activate();
@@ -218,7 +218,7 @@ public class Shooter : BodyClass
             case 2:
 
                 bonusDamage = 15;
-                damageCoefficient = 25;
+                damageCoefficient = 20;
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "1.5/s");
                 break;
             case 3:
@@ -237,7 +237,7 @@ public class Shooter : BodyClass
             case 6:
                 shoottime = 2f / 5f;
                 bonusDamage = 20;
-                damageCoefficient = 30;
+                damageCoefficient = 25;
                 SetBodyInfo("공격 속도, 공격 범위가 증가하고 추가타 개수가 증가합니다", "9타일", "", "3/s");
                 break;
             case 7:
@@ -262,5 +262,10 @@ public class Shooter : BodyClass
             else
                 break;
         }
+    }
+
+    public override void UpdateDamageInfo()
+    {
+        throw new NotImplementedException();
     }
 }

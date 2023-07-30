@@ -108,8 +108,8 @@ public class Spinner : BodyClass
                 SetBodyInfo("조개 크기와 공격력이 증가합니다.", "", "", "0.25/s");
                 break;
             case 4:
-                SetClamSize(1.5f);
-                damageCoefficient = 30;
+                SetClamSize(1.25f);
+                damageCoefficient = 25;
                 bonusDamage = 25;
                 //radius += 1;
                 SetBodyInfo("조개를 1개 더 추가하고 밀치는 거리가 증가합니다", "", "", "");
@@ -119,13 +119,13 @@ public class Spinner : BodyClass
                 SetBodyInfo("공격력과 회전 속도가 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
             case 6:
-                damageCoefficient = 35;
+                damageCoefficient = 30;
                 bonusDamage = 30;
                 speed += 4;
                 SetBodyInfo("조개 크기가 커지고 조개를 2개 더 추가합니다.", "", "", "0.5/s");
                 break;
             case 7:
-                SetClamSize(2f);
+                SetClamSize(1.5f);
                 //radius += 1;
                 AddClam();
                 AddClam();
@@ -142,5 +142,10 @@ public class Spinner : BodyClass
             levelupDescription = discription;
         else
             levelupDescription = bodyDescription;
+    }
+
+    public override void UpdateDamageInfo()
+    {
+        UpdateDamage();
     }
 }

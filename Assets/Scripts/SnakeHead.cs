@@ -54,7 +54,7 @@ public class SnakeHead : MonoBehaviour
             return dir - 2;
     }
 
-    public void Hit(GameObject from = null)
+    public void Hit(float amount, GameObject from = null)
     {
         if(from)
         {

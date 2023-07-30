@@ -15,7 +15,7 @@ public abstract class BodyClass : MonoBehaviour
 
 
     public float bonusCriticalChance;
-    public float bonusDamage;
+    public float bonusDamage;   //기본 대미지
     public float damageAmount { get { return GameInfo.Instance.damageUnit * damageCoefficient / 100; } }
     public float damage { get { return (damageAmount + bonusDamage) * damageMultiplier; } }
     public float shoottime;
@@ -50,6 +50,7 @@ public abstract class BodyClass : MonoBehaviour
         for (int i = 0; i < args.Length; i++)
             args[i] = "";
     }
+    public abstract void UpdateDamageInfo(); //자신의 무기에 대미지 수정
     public abstract void Activate();
     public abstract void SetBodyInfo(string discription, params object[] args);
     public abstract void LevelUp();

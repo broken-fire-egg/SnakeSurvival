@@ -62,7 +62,7 @@ public class Bomber : BodyClass
                 detectrange = 1;
                 mineSize = 1.5f;
                 bonusDamage = 20;
-                damageCoefficient = 30;
+                damageCoefficient = 20;
                 shoottime = 4;
                 extraMine = 0;
                 SetBodyInfo("공격 범위가 증가합니다.", "4타일", "", "");
@@ -73,7 +73,7 @@ public class Bomber : BodyClass
                 break;
             case 3:
                 bonusDamage = 25;
-                damageCoefficient = 35;
+                damageCoefficient = 25;
                 SetBodyInfo("한번에 2개의 지뢰를 설치합니다.", "", "", "");
                 break;
             case 4:
@@ -83,7 +83,7 @@ public class Bomber : BodyClass
             case 5:
 
                 bonusDamage = 30;
-                damageCoefficient = 40;
+                damageCoefficient = 30;
                 mineSize = 2.5f;
                 SetBodyInfo("추가로 1개의 지뢰를 더 설치합니다", "", "", "");
                 break;
@@ -96,6 +96,10 @@ public class Bomber : BodyClass
                 extraMine = 3;
                 break;
         }
+        UpdateDamageInfo();
+    }
+    public override void UpdateDamageInfo()
+    {
         MoleMineObjectPool.instance.UpdateMineInfo(damage, mineSize, detectrange, this);
     }
     public override void SetBodyInfo(string discription, params object[] args)

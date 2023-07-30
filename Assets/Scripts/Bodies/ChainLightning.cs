@@ -46,13 +46,13 @@ public class ChainLightning : BodyClass
         AttackList.Add(newgo);
         while(chaincount > 0)
         {
+            chaincount--;
             if (newgo != null)
                 newgo = FindNearestEnemy(newgo);
             if (newgo != null)
                 AttackList.Add(newgo);
             else
                 break;
-            chaincount--;
         }
     }
     private void Update()
@@ -100,7 +100,7 @@ public class ChainLightning : BodyClass
         {
             var target = go.GetComponent<Enemy>();
             target.Hit(damage);
-            DamageTextObjectPool.instance.SpawnText(target.transform.position, damage);
+            //DamageTextObjectPool.instance.SpawnText(target.transform.position, damage);
             PlayHitEffect(go);
         }
 
@@ -119,7 +119,7 @@ public class ChainLightning : BodyClass
         float nearestEnemyDistance = detectdistance;
 
         if (chaincount == maxchaincount)
-            nearestEnemyDistance = 8f;
+            nearestEnemyDistance = 4f;
 
         float tmp;
         GameObject res = null;
@@ -144,16 +144,16 @@ public class ChainLightning : BodyClass
         {
             case 1:
                 Activate();
-                detectdistance = 4;
+                detectdistance = 2;
                 shoottime = 5f;
                 bonusDamage = 25;
-                damageCoefficient = 30;
+                damageCoefficient = 20;
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;
             case 2:
                 bonusDamage = 30;
-                damageCoefficient = 35;
-                SetBodyInfo("번개 전이 횟수가 증가합니다.", "", "", "");
+                damageCoefficient = 25;
+                SetBodyInfo("번개 전이 횟수가 5회로 증가합니다.", "", "", "");
                 break;
             case 3:
                 maxchaincount = 5;
@@ -165,7 +165,7 @@ public class ChainLightning : BodyClass
                 break;
             case 5:
                 maxchaincount = 6;
-                detectdistance = 5;
+                detectdistance = 2.5f;
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
             case 6:
@@ -201,5 +201,9 @@ public class ChainLightning : BodyClass
     {
         snakeBody.Activate();
         PlayerInventory.instance.AddColleague(this);
+    }
+    public override void UpdateDamageInfo()
+    {
+
     }
 }

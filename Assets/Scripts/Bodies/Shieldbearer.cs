@@ -141,4 +141,9 @@ public class Shieldbearer : BodyClass
         else
             levelupDescription = bodyDescription;
     }
+
+    public override void UpdateDamageInfo()
+    {
+        throw new NotImplementedException();
+    }
 }

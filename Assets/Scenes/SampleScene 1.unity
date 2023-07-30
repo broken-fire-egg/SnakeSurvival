@@ -9026,8 +9026,8 @@ GameObject:
   - component: {fileID: 1251347978}
   - component: {fileID: 1251347977}
   - component: {fileID: 1251347976}
-  - component: {fileID: 1251347980}
   - component: {fileID: 1251347979}
+  - component: {fileID: 1251347980}
   m_Layer: 0
   m_Name: SoundWave
   m_TagString: Untagged
@@ -9180,15 +9180,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1251347973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a746475e2fb9ec41af42b1ab80b0cde, type: 3}
+  m_Script: {fileID: 11500000, guid: 126e002c419f2af478b2ca4a0b9fa34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
   pene: 1
   stun: 0
-  collider2d: {fileID: 0}
+  collider2d: {fileID: 1251347975}
   from: {fileID: 1476351911}
-  rb2d: {fileID: 0}
+  rb2d: {fileID: 1251347979}
 --- !u!1 &1257728656
 GameObject:
   m_ObjectHideFlags: 0
@@ -15063,10 +15063,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2119418748}
   - component: {fileID: 2119418750}
-  - component: {fileID: 2119418749}
   - component: {fileID: 2119418751}
   - component: {fileID: 2119418752}
   - component: {fileID: 2119418753}
+  - component: {fileID: 2119418754}
   m_Layer: 0
   m_Name: Clam
   m_TagString: Untagged
@@ -15089,24 +15089,6 @@ Transform:
   m_Father: {fileID: 1602458098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2119418749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119418747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a746475e2fb9ec41af42b1ab80b0cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  pene: 1
-  stun: 0
-  collider2d: {fileID: 2119418752}
-  from: {fileID: 1138197974}
-  rb2d: {fileID: 0}
 --- !u!212 &2119418750
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15216,6 +15198,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2119418754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119418747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f7cb970dfb7c84caad63c02a388b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  pene: 1
+  stun: 0
+  collider2d: {fileID: 2119418752}
+  from: {fileID: 1138197974}
+  rb2d: {fileID: 2119418753}
+  knockback: 0
 --- !u!1 &2123403674
 GameObject:
   m_ObjectHideFlags: 0

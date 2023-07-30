@@ -51,7 +51,7 @@ public class Bard : BodyClass
             case 1:
                 Activate();
                 bonusDamage = 10;
-                damageCoefficient = 40;
+                damageCoefficient = 30;
                 shoottime = 8f;
                 stuntime = 1;
                 range = 3.5f;
@@ -63,7 +63,7 @@ public class Bard : BodyClass
                 break;
             case 3:
                 bonusDamage = 10;
-                damageCoefficient = 50;
+                damageCoefficient = 40;
                 SetBodyInfo("공격 범위와 공격 속도가 증가합니다.", "", "", "0.25/s");
                 break;
 
@@ -81,18 +81,21 @@ public class Bard : BodyClass
             case 6:
                 range = 5;
                 bonusDamage = 10;
-                damageCoefficient = 60;
+                damageCoefficient = 50;
                 SetBodyInfo("기절 시간이 증가하고 치명타일 시 기절 시간이 더 증가합니다", "", "", "0.5/s");
                 break;
             case 7:
                 stuntime = 1.5f;
                 break;
         }
-        waveBullet.damage = damage;
-        waveBullet.stun = stuntime;
+        UpdateDamageInfo();
         wave.transform.localScale = new Vector3(range, range, 1);
     }
-
+    public override void UpdateDamageInfo()
+    {
+        waveBullet.damage = damage;
+        waveBullet.stun = stuntime;
+    }
     public override void SetBodyInfo(string discription, params object[] args)
     {
         bodyName = "방울뱀 음유시인";
