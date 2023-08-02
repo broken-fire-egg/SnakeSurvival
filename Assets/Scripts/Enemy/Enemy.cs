@@ -309,51 +309,81 @@ public class Enemy : MonoBehaviour
     void Move1()
     {
         Direction dir = Direction.none;
-        if (gameObject.transform.position.y < Player.transform.position.y)
-        {
-            if (MathF.Abs(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x)) > MathF.Abs(MathF.Abs(gameObject.transform.position.y) - MathF.Abs(Player.transform.position.y)))
-            {
-                if (gameObject.transform.position.x < Player.transform.position.x)
-                {
-                    Debug.Log("right1");
-                    dir = Direction.right;
-                }
-                else
-                {
 
-                    Debug.Log("left1");
-                    dir = Direction.left;
-                }
+        Vector3 vec3 = Player.transform.position - transform.position;
+
+       if(MathF.Abs(vec3.x) > MathF.Abs(vec3.y))
+        {
+            if(vec3.x > 0)
+            {
+                Debug.Log("right1");
+                dir = Direction.right;
+                //right
             }
             else
             {
-                Debug.Log("up");
-                dir = Direction.up;
+                Debug.Log("left1");
+                dir = Direction.left;
+                //left
             }
         }
-        else
+       else
         {
-            if (MathF.Abs(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x)) > MathF.Abs(MathF.Abs(gameObject.transform.position.y) - MathF.Abs(Player.transform.position.y)))
+            if(vec3.y > 0)
             {
-                if (gameObject.transform.position.x < Player.transform.position.x)
-                {
-                    Debug.Log("right2");
-                    dir = Direction.right;
-                }
-                else
-                {
-
-                    Debug.Log("left2");
-                    dir = Direction.left;
-                }
+                Debug.Log("up");
+                dir = Direction.up;
+                //up
             }
             else
             {
                 Debug.Log("down");
                 dir = Direction.down;
+                //down
             }
         }
-        Debug.Log(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x));
+
+
+        //if (gameObject.transform.position.y < Player.transform.position.y)
+        //{
+        //    if (MathF.Abs(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x)) > MathF.Abs(MathF.Abs(gameObject.transform.position.y) - MathF.Abs(Player.transform.position.y)))
+        //    {
+        //        if (gameObject.transform.position.x < Player.transform.position.x)
+        //        {
+
+        //        }
+        //        else
+        //        {
+
+        //        }
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
+        //else
+        //{
+        //    if (MathF.Abs(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x)) > MathF.Abs(MathF.Abs(gameObject.transform.position.y) - MathF.Abs(Player.transform.position.y)))
+        //    {
+        //        if (gameObject.transform.position.x < Player.transform.position.x)
+        //        {
+        //            Debug.Log("right2");
+        //            dir = Direction.right;
+        //        }
+        //        else
+        //        {
+
+        //            Debug.Log("left2");
+        //            dir = Direction.left;
+        //        }
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
+       // Debug.Log(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x));
         switch (dir)
         {
             case Direction.right:
