@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 
 [System.Serializable]
 public class Node
@@ -15,11 +16,19 @@ public class Node
     public int x, y, G, H;
     public int F { get { return G + H; } }
 }
+
 public class Enemy : MonoBehaviour
 {
 
+    public enum Direction
+    {
+        up,
+        right,
+        down,
+        left,
+        none
+    }
 
-    
 
     public enum Type
     {
@@ -67,12 +76,12 @@ public class Enemy : MonoBehaviour
         MoveBool = true;
         Anim = GetComponent<Animator>();
         coroutine = StartCoroutine(MyCoroutine());
-        coroutine = StartCoroutine(Move());
+        //coroutine = StartCoroutine(Move());
         Player = GameObject.Find("Head");
-        TargetReload();
+        //TargetReload();
 
         gameObject.transform.position = new Vector2((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
-        AStarMove();
+        //AStarMove();
 
     }
 
@@ -111,22 +120,25 @@ public class Enemy : MonoBehaviour
             CheckDead();
         }
         if (Player != null)
-            TargetReload();
-        if (stunTime > 0)
-            stunTime -= Time.deltaTime;
-        if(stunTime < 0)
+        {
+            //TargetReload();
+            if (stunTime > 0)
+                stunTime -= Time.deltaTime;
+        }
+        if (stunTime < 0)
             stunTime = 0;
     }
 
     private IEnumerator MyCoroutine()
     {
-        while(true)
+        while (true)
         {
 
             if (Player != null)
-                AStarMove();
+                Move1();
+            //AStarMove();
 
-            yield return new WaitForSeconds(1f); // 1초 대기
+            yield return new WaitForSeconds(0.1f); // 1초 대기
         }
     }
 
@@ -138,9 +150,9 @@ public class Enemy : MonoBehaviour
             {
                 if (FinalNodeList.Count >= 2)
                 {
-                    if(FinalNodeList[0].x == FinalNodeList[1].x)
+                    if (FinalNodeList[0].x == FinalNodeList[1].x)
                     {
-                        if(FinalNodeList[0].y > FinalNodeList[1].y)
+                        if (FinalNodeList[0].y > FinalNodeList[1].y)
                             transform.position = new Vector2(transform.position.x, transform.position.y - (Speed / 2000));
                         else
                             transform.position = new Vector2(transform.position.x, transform.position.y + (Speed / 2000));
@@ -171,7 +183,7 @@ public class Enemy : MonoBehaviour
 
         bottomLeft = new Vector2Int(startPos.x - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)) - 1, startPos.y - Mathf.RoundToInt(Vector2.Distance(gameObject.transform.position, Player.transform.position)) - 1);
 
-        if((targetPos.x > topRight.x || targetPos.y > topRight.y))
+        if ((targetPos.x > topRight.x || targetPos.y > topRight.y))
         {
         }
         else if (targetPos.x < topRight.x || targetPos.y < topRight.y)
@@ -205,12 +217,12 @@ public class Enemy : MonoBehaviour
         // 시작과 끝 노드, 열린리스트와 닫힌리스트, 마지막리스트 초기화
         try
         {
-         //StartNode = NodeArray[(startPos.x > bottomLeft.x ? startPos.x - bottomLeft.x : bottomLeft.x - startPos.x), (startPos.y > bottomLeft.y ? startPos.y - bottomLeft.y : bottomLeft.y - startPos.y)];
-         //TargetNode = NodeArray[(targetPos.x > bottomLeft.x ? targetPos.x - bottomLeft.x : bottomLeft.x - targetPos.x), (targetPos.y > bottomLeft.y ? targetPos.y - bottomLeft.y : bottomLeft.y - targetPos.y)];
+            //StartNode = NodeArray[(startPos.x > bottomLeft.x ? startPos.x - bottomLeft.x : bottomLeft.x - startPos.x), (startPos.y > bottomLeft.y ? startPos.y - bottomLeft.y : bottomLeft.y - startPos.y)];
+            //TargetNode = NodeArray[(targetPos.x > bottomLeft.x ? targetPos.x - bottomLeft.x : bottomLeft.x - targetPos.x), (targetPos.y > bottomLeft.y ? targetPos.y - bottomLeft.y : bottomLeft.y - targetPos.y)];
             StartNode = NodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
             TargetNode = NodeArray[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.Log(gameObject.transform.name);
             Debug.Log(targetPos.x - bottomLeft.x + " : " + targetPos.x + ", " + bottomLeft.x);
@@ -294,5 +306,68 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   
+    void Move1()
+    {
+        Direction dir = Direction.none;
+        if (gameObject.transform.position.y < Player.transform.position.y)
+        {
+            if (MathF.Abs(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x)) > MathF.Abs(MathF.Abs(gameObject.transform.position.y) - MathF.Abs(Player.transform.position.y)))
+            {
+                if (gameObject.transform.position.x < Player.transform.position.x)
+                {
+                    Debug.Log("right1");
+                    dir = Direction.right;
+                }
+                else
+                {
+
+                    Debug.Log("left1");
+                    dir = Direction.left;
+                }
+            }
+            else
+            {
+                Debug.Log("up");
+                dir = Direction.up;
+            }
+        }
+        else
+        {
+            if (MathF.Abs(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x)) > MathF.Abs(MathF.Abs(gameObject.transform.position.y) - MathF.Abs(Player.transform.position.y)))
+            {
+                if (gameObject.transform.position.x < Player.transform.position.x)
+                {
+                    Debug.Log("right2");
+                    dir = Direction.right;
+                }
+                else
+                {
+
+                    Debug.Log("left2");
+                    dir = Direction.left;
+                }
+            }
+            else
+            {
+                Debug.Log("down");
+                dir = Direction.down;
+            }
+        }
+        Debug.Log(MathF.Abs(gameObject.transform.position.x) - MathF.Abs(Player.transform.position.x));
+        switch (dir)
+        {
+            case Direction.right:
+                transform.Translate(new Vector3(1, 0) * Speed * 0.05f);
+                break;
+            case Direction.down:
+                transform.Translate(new Vector3(0, -1) * Speed * 0.05f);
+                break;
+            case Direction.left:
+                transform.Translate(new Vector3(-1, 0) * Speed * 0.05f);
+                break;
+            case Direction.up:
+                transform.Translate(new Vector3(0, 1) * Speed * 0.05f);
+                break;
+        }
+    }
 }

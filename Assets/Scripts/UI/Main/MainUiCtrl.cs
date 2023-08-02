@@ -9,19 +9,26 @@ public class MainUiCtrl : MonoBehaviour
     public GameObject BackgroundMoveGame;
     float time;
 
-    Vector2 vector;
     public void Start()
-    {
-        vector = BackgroundMoveGame.transform.position;
+    {   
     }
     public void Update()
     {
-        time += Time.deltaTime;
-        BackgroundMoveGame.transform.Translate(Vector2.up * 500.0f * Time.deltaTime);
-        BackgroundMoveGame.transform.Translate(Vector2.right * 500.0f * Time.deltaTime);
-        if(time >= 5.0f)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            BackgroundMoveGame.transform.position = vector;
+            BackgroundMoveGame.transform.position = new Vector2(720, 1600);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            BackgroundMoveGame.transform.position = new Vector2(0, 0);
+        }
+        time += Time.deltaTime;
+        //BackgroundMoveGame.transform.position = new Vector2(BackgroundMoveGame.transform.position.x + 5, BackgroundMoveGame.transform.position.y + 8.55f);
+        BackgroundMoveGame.transform.Translate(Vector2.up * 855f * Time.deltaTime);
+        BackgroundMoveGame.transform.Translate(Vector2.right * 500 * Time.deltaTime);
+        if (time >= 4.5f)
+        {
+            BackgroundMoveGame.transform.position = new Vector2(720, 1600);
             time = 0;
         }
     }

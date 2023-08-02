@@ -559,6 +559,7 @@ MonoBehaviour:
   bulletpref: {fileID: 3904847229170514952, guid: 200a49685b56d02438544670843d75fd, type: 3}
   bodyIcon: {fileID: 0}
   damageMultiplier: 1
+  damageCoefficient: 0
   bonusDamage: 0
   shoottime: 4
   cooltime: 4
@@ -567,6 +568,8 @@ MonoBehaviour:
   bodyDescription: 
   args: []
   levelupDescription: 
+  mineSize: 0
+  extraMine: 0
 --- !u!1 &168278951
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +944,7 @@ MonoBehaviour:
   bulletpref: {fileID: 0}
   bodyIcon: {fileID: 0}
   damageMultiplier: 1
+  damageCoefficient: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0
@@ -950,6 +954,8 @@ MonoBehaviour:
   args: []
   levelupDescription: 
   saw: {fileID: 1688152820169958683}
+  saw1: {fileID: 0}
+  saw2: {fileID: 0}
   distance: 0
 --- !u!1 &519420028
 GameObject:
@@ -1537,6 +1543,7 @@ MonoBehaviour:
   bulletpref: {fileID: 3087388445946636660, guid: d434481ace420f24c91c9f270a356b28, type: 3}
   bodyIcon: {fileID: 0}
   damageMultiplier: 1
+  damageCoefficient: 0
   bonusDamage: 0
   shoottime: 4
   cooltime: 4
@@ -1549,6 +1556,9 @@ MonoBehaviour:
   power: 240
   gunPoint: {fileID: 0}
   gunflashAnimator: {fileID: 0}
+  extraShot: 0
+  eftDistance: 0
+  range: 0
 --- !u!1 &988863041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,7 +4424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1157361084
 Transform:
   m_ObjectHideFlags: 0
@@ -4818,14 +4828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0789ea784bec02947a6add0f827ced6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {fileID: 609001235}
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
-  FinalNodeList: []
-  allowDiagonal: 0
-  dontCrossCorner: 0
 --- !u!1 &1509050915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5086,6 +5088,7 @@ MonoBehaviour:
   - {fileID: 514913585}
   - {fileID: 615758634}
   - {fileID: 23494411}
+  bodies: []
   prefBody: {fileID: 986529704}
   bodyCount: 3
   maxBodyCount: 5
