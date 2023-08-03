@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
     public float Speed;
     public float time;
     public float Attack;
+    public float SpeedCorrection;
 
     public GameObject a;
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
 
     public bool DeadBool;
 
+    Direction dir = Direction.none;
 
     private int MoveNode = 1;
     protected virtual void Start()
@@ -121,6 +123,7 @@ public class Enemy : MonoBehaviour
         }
         if (Player != null)
         {
+            Move();
             //TargetReload();
             if (stunTime > 0)
                 stunTime -= Time.deltaTime;
@@ -135,13 +138,13 @@ public class Enemy : MonoBehaviour
         {
 
             if (Player != null)
-                Move1();
+                SetDirection();
             //AStarMove();
 
             yield return new WaitForSeconds(0.1f); // 1초 대기
         }
     }
-
+    /*
     IEnumerator Move()
     {
         while (true)
@@ -172,7 +175,7 @@ public class Enemy : MonoBehaviour
                 yield return new WaitForSeconds(stunTime);
             yield return new WaitForSeconds(0.005f); // 1초 대기
         }
-    }
+    }*/
 
     void TargetReload()
     {
@@ -306,15 +309,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Move1()
+    void SetDirection()
     {
-        Direction dir = Direction.none;
 
         Vector3 vec3 = Player.transform.position - transform.position;
 
-       if(MathF.Abs(vec3.x) > MathF.Abs(vec3.y))
+        if (MathF.Abs(vec3.x) > MathF.Abs(vec3.y))
         {
-            if(vec3.x > 0)
+            if (vec3.x > 0)
             {
                 Debug.Log("right1");
                 dir = Direction.right;
@@ -327,9 +329,9 @@ public class Enemy : MonoBehaviour
                 //left
             }
         }
-       else
+        else
         {
-            if(vec3.y > 0)
+            if (vec3.y > 0)
             {
                 Debug.Log("up");
                 dir = Direction.up;
@@ -342,6 +344,10 @@ public class Enemy : MonoBehaviour
                 //down
             }
         }
+    }
+
+    void Move()
+    {
 
 
         //if (gameObject.transform.position.y < Player.transform.position.y)
@@ -387,16 +393,16 @@ public class Enemy : MonoBehaviour
         switch (dir)
         {
             case Direction.right:
-                transform.Translate(new Vector3(1, 0) * Speed * 0.05f);
+                transform.Translate(new Vector3(1, 0) * Speed * SpeedCorrection);
                 break;
             case Direction.down:
-                transform.Translate(new Vector3(0, -1) * Speed * 0.05f);
+                transform.Translate(new Vector3(0, -1) * Speed * SpeedCorrection);
                 break;
             case Direction.left:
-                transform.Translate(new Vector3(-1, 0) * Speed * 0.05f);
+                transform.Translate(new Vector3(-1, 0) * Speed * SpeedCorrection);
                 break;
             case Direction.up:
-                transform.Translate(new Vector3(0, 1) * Speed * 0.05f);
+                transform.Translate(new Vector3(0, 1) * Speed * SpeedCorrection);
                 break;
         }
     }

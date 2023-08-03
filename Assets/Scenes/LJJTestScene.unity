@@ -258,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90600258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.46, y: -11.4, z: 0}
+  m_LocalPosition: {x: 3.7, y: -9.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CategoryHash: 0
   m_labelHash: 0
-  m_SpriteKey: 0.14311749
+  m_SpriteKey: 0
 --- !u!50 &90600263
 Rigidbody2D:
   serializedVersion: 4
@@ -560,6 +560,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 0}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 4
   cooltime: 4
@@ -945,6 +946,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 0}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 0
   cooltime: 0
@@ -1544,6 +1546,7 @@ MonoBehaviour:
   bodyIcon: {fileID: 0}
   damageMultiplier: 1
   damageCoefficient: 0
+  bonusCriticalChance: 0
   bonusDamage: 0
   shoottime: 4
   cooltime: 4
