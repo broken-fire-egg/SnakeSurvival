@@ -34,7 +34,7 @@ public class King_God_Slime : Enemy
 
     void Stamp()
     {
-        transform.position = new Vector2(FinalNodeList[FinalNodeList.Count - 3].x, FinalNodeList[FinalNodeList.Count - 3].y);
+        //transform.position = new Vector2(FinalNodeList[FinalNodeList.Count - 3].x, FinalNodeList[FinalNodeList.Count - 3].y);
         GetComponent<SpriteRenderer>().enabled = true;
         AttackArea.enabled = true;
         Invoke(() => {

@@ -7,7 +7,10 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class CatHead : SnakeHead
 {
-
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     public List<Vector3> offsets;//0right, 1down, 2left, 3up
     protected override void Start()
     {

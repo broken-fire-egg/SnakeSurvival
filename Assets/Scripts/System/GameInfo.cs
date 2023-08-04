@@ -18,6 +18,7 @@ public class GameInfo : SingletonParent<GameInfo>
     public float damageMultiply;
     public float criticalChance;
     public int fps;
+    public int map;
     private void Start()
     {
         maxHP = 100;

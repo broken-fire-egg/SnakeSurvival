@@ -13,7 +13,6 @@ public class Airbag : PassiveItem
     private void Awake()
     {
         SetItemInfo("<b>-[쿠션감]-</b>\n\n장애물 충돌 피해를 막아주는 보호막을 생성합니다");
-        maxlevel = 5;
     
     }
 

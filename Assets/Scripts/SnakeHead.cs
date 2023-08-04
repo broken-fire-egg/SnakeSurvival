@@ -69,7 +69,7 @@ public class SnakeHead : MonoBehaviour
 
 
     public Direction dir;
-    private void Awake()
+    protected virtual void Awake()
     {
         if(instance == null)
             instance = this;
