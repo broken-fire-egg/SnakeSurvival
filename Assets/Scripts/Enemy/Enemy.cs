@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -33,7 +31,6 @@ public class Enemy : MonoBehaviour
 
     public GameObject Player;
     public GameObject SelfRelatedObj;
-
     public float stunTime;
     public float maxhp;
     public float hp;
@@ -42,7 +39,10 @@ public class Enemy : MonoBehaviour
     public float time;
     public float Attack;
     const float SpeedCorrection = 0.05555f; //DO NOT MODIFY THIS VALUE
+    public Vector3 vec3;
 
+    ContactPoint2D lastContact;
+    bool isContactWall;
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
     public bool allowDiagonal, dontCrossCorner;
 
@@ -63,8 +63,8 @@ public class Enemy : MonoBehaviour
         Player = SnakeHead.instance.gameObject;
 
         gameObject.transform.position = new Vector2((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
-        
 
+       // rgbd2d = GetComponent<Rigidbody2D>();
     }
 
     public void Hit(float damage, float stun = 0f, bool isCrit = false)
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
             if (Player != null)
                 SetDirection();
 
-            yield return new WaitForSeconds(0.1f); // 1초 대기
+            yield return new WaitForSeconds(0.75f + Random.Range(0, 0.1f)); // 1초 대기
         }
     }
 
@@ -128,7 +128,13 @@ public class Enemy : MonoBehaviour
 
         Vector3 vec3 = Player.transform.position - transform.position;
 
-        if (MathF.Abs(vec3.x) > MathF.Abs(vec3.y))
+        if(isContactWall)
+        {
+            this.vec3 = Vector3.Cross(lastContact.normal, Vector3.back);
+        }
+
+
+        if (Random.Range(0, MathF.Abs(vec3.x)) > Random.Range(0, MathF.Abs(vec3.y)))
         {
             if (vec3.x > 0)
             {
@@ -159,7 +165,23 @@ public class Enemy : MonoBehaviour
     void Move()
     {
 
-        Vector3 vec3 = Vector3.zero;
+
+
+        if (isContactWall)
+        {
+            RaycastHit2D[] raycastHit2D = null;
+
+            Physics2D.Raycast(transform.position, Player.transform.position - transform.position, new ContactFilter2D() , raycastHit2D, Vector3.Distance(Player.transform.position, transform.position));
+
+            foreach(var rh in raycastHit2D)
+            {
+               if(rh.collider.CompareTag("Wall"))
+                {
+
+                }
+            }
+        }
+
         switch (dir)
         {
             case Direction.right:
@@ -175,6 +197,57 @@ public class Enemy : MonoBehaviour
                 vec3 = Vector3.up;
                 break;
         }
+        //if (rgbd2d)
+            //rgbd2d.MovePosition(transform.position + ( vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply));
         transform.Translate(vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+
+
+            vec3 = Vector3.Cross( collision.GetContact(0).normal,Vector3.back);
+            vec3 = Random.Range(0, 2) == 0 ? vec3 : -vec3;
+
+            lastContact = collision.GetContact(0);
+            isContactWall = true;
+        }
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Vector3 v = Vector3.Cross(collision.GetContact(0).normal, Vector3.back);
+            if(v.x > 0.2f)
+            {
+                dir = Direction.right;
+            }
+            else if(v.x < -0.2f)
+            {
+                dir = Direction.left;
+            }
+            else if(v.y > 0.2f)
+            {
+                dir = Direction.up;
+            }
+            else 
+            {
+                dir = Direction.down;
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isContactWall = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isContactWall = false;
+        }
     }
 }

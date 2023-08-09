@@ -69,6 +69,8 @@ public class SnakeHead : MonoBehaviour
 
 
     public Direction dir;
+    Rigidbody2D rb;
+
     protected virtual void Awake()
     {
         if(instance == null)
@@ -81,6 +83,7 @@ public class SnakeHead : MonoBehaviour
         ChangeDirection(Direction.up);
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -121,16 +124,20 @@ public class SnakeHead : MonoBehaviour
         switch (dir)
         {
             case Direction.right:
-                transform.Translate(new Vector3(1, 0) * Speed);
+                rb.MovePosition(transform.position + new Vector3(1, 0) * Speed);
+               // transform.Translate(new Vector3(1, 0) * Speed);
                 break;
             case Direction.down:
-                transform.Translate(new Vector3(0, -1) * Speed);
+                rb.MovePosition(transform.position + new Vector3(0, -1) * Speed);
+               // transform.Translate(new Vector3(0, -1) * Speed);
                 break;
             case Direction.left:
-                transform.Translate(new Vector3(-1, 0) * Speed);
+                rb.MovePosition(transform.position + new Vector3(-1, 0) * Speed);
+              //  transform.Translate(new Vector3(-1, 0) * Speed);
                 break;
             case Direction.up:
-                transform.Translate(new Vector3(0, 1) * Speed);
+                rb.MovePosition(transform.position + new Vector3(0, 1) * Speed);
+               // transform.Translate(new Vector3(0, 1) * Speed);
                 break;
         }
     }
