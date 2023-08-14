@@ -25,6 +25,8 @@ public class SnakeHead : MonoBehaviour
     public List<PosHistory> posHistories;
     public WeaponRange weaponRange;
     public Animator animator;
+
+    public float slowed;
     PosHistory lastPH;
 
     [SerializeField]
@@ -121,25 +123,26 @@ public class SnakeHead : MonoBehaviour
     }
     void Move()
     {
+        var vec = Vector3.zero;
+
         switch (dir)
         {
             case Direction.right:
-                rb.MovePosition(transform.position + new Vector3(1, 0) * Speed);
-               // transform.Translate(new Vector3(1, 0) * Speed);
+                vec = new Vector3(1, 0);
+                
                 break;
             case Direction.down:
-                rb.MovePosition(transform.position + new Vector3(0, -1) * Speed);
-               // transform.Translate(new Vector3(0, -1) * Speed);
+                vec = new Vector3(0, -1);
                 break;
             case Direction.left:
-                rb.MovePosition(transform.position + new Vector3(-1, 0) * Speed);
-              //  transform.Translate(new Vector3(-1, 0) * Speed);
+                vec = new Vector3(-1, 0);
                 break;
             case Direction.up:
-                rb.MovePosition(transform.position + new Vector3(0, 1) * Speed);
-               // transform.Translate(new Vector3(0, 1) * Speed);
+                vec = new Vector3(0, 1);
                 break;
         }
+        vec = transform.position + vec * (Speed - Speed / 100 * slowed);
+        rb.MovePosition(vec);
     }
     protected virtual void ChangeAttackDirection(Direction dir)
     {

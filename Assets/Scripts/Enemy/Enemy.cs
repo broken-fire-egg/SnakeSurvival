@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     bool isContactWall;
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
     public bool allowDiagonal, dontCrossCorner;
-
+    Rigidbody2D rb;
     public bool MoveBool;
 
     public Animator Anim;
@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         MoveBool = true;
         SpeedMultiply = 1;
         Anim = GetComponent<Animator>();
@@ -133,7 +134,7 @@ public class Enemy : MonoBehaviour
             this.vec3 = Vector3.Cross(lastContact.normal, Vector3.back);
         }
 
-
+        //if( MathF.Abs(vec3.x) > MathF.Abs(vec3.y))
         if (Random.Range(0, MathF.Abs(vec3.x)) > Random.Range(0, MathF.Abs(vec3.y)))
         {
             if (vec3.x > 0)
@@ -165,23 +166,6 @@ public class Enemy : MonoBehaviour
     void Move()
     {
 
-
-
-        if (isContactWall)
-        {
-            RaycastHit2D[] raycastHit2D = null;
-
-            Physics2D.Raycast(transform.position, Player.transform.position - transform.position, new ContactFilter2D() , raycastHit2D, Vector3.Distance(Player.transform.position, transform.position));
-
-            foreach(var rh in raycastHit2D)
-            {
-               if(rh.collider.CompareTag("Wall"))
-                {
-
-                }
-            }
-        }
-
         switch (dir)
         {
             case Direction.right:
@@ -198,8 +182,10 @@ public class Enemy : MonoBehaviour
                 break;
         }
         //if (rgbd2d)
-            //rgbd2d.MovePosition(transform.position + ( vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply));
-        transform.Translate(vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply);
+        //rgbd2d.MovePosition(transform.position + ( vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply));
+
+        rb.MovePosition(transform.position + vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply);
+        //transform.Translate(vec3 * Speed * Time.deltaTime * Application.targetFrameRate * SpeedCorrection * SpeedMultiply);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

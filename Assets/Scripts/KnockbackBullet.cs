@@ -24,12 +24,12 @@ public class KnockbackBullet : Bullet
 
 
     public List<Target> targets;
-    private void Awake()
+
+    private void OnEnable()
     {
         targets = new List<Target>();
         StartCoroutine(KnockBack());
     }
-
     bool ContainAlready(Transform t)
     {
        foreach(var target in targets)
@@ -50,10 +50,14 @@ public class KnockbackBullet : Bullet
     }
     protected override void Hit(Enemy target)
     {
-        base.Hit(target);
-        if(target)
-            if(!ContainAlready(target.transform))
+
+        
+        if (target)
+            if (!ContainAlready(target.transform))
+            {
+                base.Hit(target);
                 targets.Add(new Target(target.transform, 5));
+            }
 
     }
     IEnumerator KnockBack()
@@ -70,7 +74,8 @@ public class KnockbackBullet : Bullet
 
                     t.transform.Translate(vec3.normalized * power);
                     targets[targets.IndexOf(t)].remainKnockbackTime -= 1;
-
+                    if(targets[targets.IndexOf(t)].remainKnockbackTime <= 0)
+                        targets.Remove(t);
                 }
             }
             yield return null;
