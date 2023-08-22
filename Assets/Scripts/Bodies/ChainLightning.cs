@@ -59,7 +59,7 @@ public class ChainLightning : BodyClass
     {
         if (!snakeBody.activated)
             return;
-        cooltime -= Time.deltaTime;
+        cooltime -= Time.deltaTime * cooltimeMultiplier;
 
         if (cooltime < 0)
         {

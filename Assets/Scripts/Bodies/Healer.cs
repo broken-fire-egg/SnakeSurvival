@@ -20,7 +20,7 @@ public class Healer : BodyClass
     {
         if (!snakeBody.activated)
             return;
-        cooltime -= Time.deltaTime;
+        cooltime -= Time.deltaTime * cooltimeMultiplier;
 
         if (cooltime < 0)
             Heal();
@@ -52,7 +52,10 @@ public class Healer : BodyClass
     }
     public void Heal()
     {
-        if(headTarget)
+        cooltime = shoottime;
+
+
+        if (headTarget)
         {
             SnakeHead.instance.Hit(-damage, gameObject);
         }
@@ -132,6 +135,7 @@ public class Healer : BodyClass
                 shieldUpgraded = true;
                 break;
         }
+        UpdateDamageInfo();
     }
 
     public override void SetBodyInfo(string discription, params object[] args)

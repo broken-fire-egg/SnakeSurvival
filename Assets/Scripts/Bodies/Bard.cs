@@ -25,7 +25,7 @@ public class Bard : BodyClass
 
         //Aim();
 
-        cooltime -= Time.deltaTime;
+        cooltime -= Time.deltaTime * cooltimeMultiplier;
 
         if (cooltime < 0)
             Attack();

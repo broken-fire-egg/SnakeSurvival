@@ -6,7 +6,7 @@ using UnityEngine;
 public class Alchemist : BodyClass
 {
 
-    float amount = 1;
+    Multiplier amount;
     float speedBuff = 0;
     public BodyClass frontColleague;
     public BodyClass backColleague;
@@ -18,19 +18,21 @@ public class Alchemist : BodyClass
     {
         base.Start();
         SetBodyInfo("");
+        amount = new Multiplier();
         frontColleague = null;
         backColleague = null;
     }
     public override void Activate()
     {
         snakeBody.Activate();
+        GameInfo.Instance.damageMultiply += amount;
         PlayerInventory.instance.AddColleague(this);
     }
     void Update()
     {
         if (!snakeBody.activated)
             return;
-        cooltime -= Time.deltaTime;
+        cooltime -= Time.deltaTime * cooltimeMultiplier;
 
 
     }
@@ -70,14 +72,13 @@ public class Alchemist : BodyClass
 
         var colleagues = PlayerInventory.instance.currentColleagues;
 
-        if(level == 7)
+        if (level == 7)
         {
-            foreach(var c in colleagues)
+            foreach (var c in colleagues)
             {
                 c.damageMultiplier = amount;
                 c.UpdateDamageInfo();
             }
-            GameInfo.Instance.damageMultiply = amount;
             return;
         }
 
@@ -98,17 +99,15 @@ public class Alchemist : BodyClass
 
         if (frontColleague)
         {
-            
             frontColleague.damageMultiplier = amount;
             frontColleague.UpdateDamageInfo();
         }
         else if (colleagues.IndexOf(this) == 0)
-            GameInfo.Instance.damageMultiply = amount;
-        if (backColleague)
-        {
-            backColleague.damageMultiplier = amount;
-            backColleague.UpdateDamageInfo();
-        }
+            if (backColleague)
+            {
+                backColleague.damageMultiplier = amount;
+                backColleague.UpdateDamageInfo();
+            }
     }
 
     public override void LevelUp()
@@ -117,17 +116,17 @@ public class Alchemist : BodyClass
         switch (level)
         {
             case 1:
-                amount = 1.5f;
+                amount.multiplier = 1.5f;
                 Activate();
                 SnakeBodyManager.instance.onNewColleagueDetected += BuffColleagues;
                 SetBodyInfo("공격력 증가 효과가 강화됩니다.", "1.5타일", "", "");
                 break;
             case 2:
-                amount = 1.6f;
+                amount.multiplier = 1.6f;
                 SetBodyInfo("자신의 공격력이 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10, 2), "");
                 break;
             case 3:
-                amount = 1.7f;
+                amount.multiplier = 1.7f;
                 SetBodyInfo("10초마다 아군을 광분 상태로 만듭니다.", "", "", "6/s");
                 break;
             case 4:
@@ -137,19 +136,19 @@ public class Alchemist : BodyClass
                 SetBodyInfo("자신의 공격력이 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
             case 5:
-                amount = 1.8f;
+                amount.multiplier = 1.8f;
 
 
                 SetBodyInfo("공격력 증가 효과가 강화되고 광분 효과가 강화됩니다", "2.5 타일", "", "7/s");
                 break;
             case 6:
-                amount = 1.9f;
+                amount.multiplier = 1.9f;
                 ragetime = 5f;
                 speedBuff = 40f;
                 SetBodyInfo("공격력 증가 효과를 모든 아군에게 적용합니다.", "4 타일", "", "");
                 break;
             case 7:
-                amount = 2f;
+                amount.multiplier = 2f;
                 //다른곳에서 레벨이 7인지로 분기
                 break;
         }

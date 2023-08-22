@@ -31,11 +31,12 @@ public class SnakeHead : MonoBehaviour
 
     [SerializeField]
     SnakeBodyManager sbManager;
-    const float SPEEDMULTIPLY = 0.033333f; //Don't Modify!
+    const float SPEEDRatio = 0.033333f; //Don't Modify!
 
+    public float speedMultiplier = 1;
     public enum Direction { right, down, left, up }
     public float speed;
-    public float Speed { get { return speed * SPEEDMULTIPLY * Time.deltaTime * 30 * 1.666667f; } }
+    public float Speed { get { return speed * SPEEDRatio * speedMultiplier * Time.deltaTime * 30 * 1.666667f; } }
     public float maxHP;
     public float HP;
 
@@ -60,12 +61,30 @@ public class SnakeHead : MonoBehaviour
     {
         if(from)
         {
-            //normal hit
+           switch(from.tag)
+            {
+                case "Wall":
+                    ObserverPatternManager.instance.WallHit();
+                    break;
+                case "Enemy":
+                    ObserverPatternManager.instance.EnemyContact(from.GetComponent<Enemy>());
+                    break;
+                case "EnemyBullet":
+
+                    break;
+                case "Colleague":
+
+                    break;
+            }
+            
         }
-        // TODO : wall hit branch
-        // TODO : enemy hit branch
-        // TODO : bullet hit branch
-        // TODO : colleague hit branch
+
+
+
+
+        HP -= amount;
+
+
     }
 
 
@@ -152,6 +171,7 @@ public class SnakeHead : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        CheckDead();
         Move();
         if (CheckAttack())
             Attack();
@@ -166,5 +186,32 @@ public class SnakeHead : MonoBehaviour
     protected virtual void Attack()
     {
         attackCT = attackDT;
+    }
+
+    void CheckDead()
+    {
+        if (HP <= 0)
+        {
+            ObserverPatternManager.instance.ColleagueOrHeroDied(false);
+
+            if(HP <= 0)
+                GameOver();
+        }
+    }
+    void GameOver()
+    {
+
+        gameObject.SetActive(false);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Wall"))
+        {
+            Hit(collision.transform.GetComponent<Wall>().contactDamage, collision.gameObject);
+        }
+        else if(collision.transform.CompareTag("Enemy"))
+        {
+            Hit(collision.transform.GetComponent<Enemy>().contactDamage, collision.gameObject);
+        }
     }
 }

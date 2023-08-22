@@ -27,7 +27,7 @@ public class Shieldbearer : BodyClass
     {
         if (!snakeBody.activated)
             return;
-        cooltime -= Time.deltaTime;
+        cooltime -= Time.deltaTime * cooltimeMultiplier;
         if (cooltime < 0)
             Attack();
     }

@@ -36,7 +36,13 @@ public class SnakeBody : MonoBehaviour
         if(HP > maxHP)
             HP = maxHP;
         if (HP <= 0)
-            Activate(false);
+        {
+            ObserverPatternManager.instance.ColleagueOrHeroDied(true,this);
+
+
+            if (HP <= 0)
+                Activate(false);
+        }
     }
 
  

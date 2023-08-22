@@ -19,4 +19,6 @@ public abstract class PassiveItem : MonoBehaviour
     abstract public void SetItemInfo(string discription, params object[] args);
     abstract public void LevelUp();
 
+   
+
 }

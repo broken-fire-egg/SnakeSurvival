@@ -41,7 +41,7 @@ public class Shooter : BodyClass
 
         //Aim();
 
-        cooltime -= Time.deltaTime;
+        cooltime -= Time.deltaTime * cooltimeMultiplier;
 
         if (cooltime < 0)
             Shoot();

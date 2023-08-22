@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
     public float SpeedMultiply;
     public float time;
     public float Attack;
+
+    public float contactDamage;
+
     const float SpeedCorrection = 0.05555f; //DO NOT MODIFY THIS VALUE
     public Vector3 vec3;
 
