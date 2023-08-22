@@ -12,6 +12,8 @@ public class WorldCtrlUI : MonoBehaviour
     public GameObject InformationText;
     public GameObject UnlockGame;
     public GameObject ClearGame;
+
+    public GameObject[] ChangeButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,6 @@ public class WorldCtrlUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void Input()
@@ -43,17 +44,29 @@ public class WorldCtrlUI : MonoBehaviour
         if (check)
         {
             StageNum++;
-            if (StageInformation.Count <= StageNum)
-                StageNum = 0;
+            if (StageInformation.Count - 1 <= StageNum)
+                StageNum = StageInformation.Count - 1;
         }
         else
         {
             StageNum--;
-            if (0 > StageNum)
-                StageNum = StageInformation.Count - 1;
+            if (0 >= StageNum)
+                StageNum = 0;
         }
+
+        if (StageNum >= 1 && StageNum <= StageInformation.Count - 2)
+        {
+            Debug.Log("!");
+            ChangeButton[0].GetComponent<Button>().enabled = true;
+            ChangeButton[1].GetComponent<Button>().enabled = true;
+        }
+        else if (StageNum == 0)
+            ChangeButton[0].GetComponent<Button>().enabled = false;
+
+        else if (StageNum == StageInformation.Count - 1)
+            ChangeButton[1].GetComponent<Button>().enabled = false;
+
         StageInfor();
-        Debug.Log(StageInformation[StageNum][0] + " " + StageInformation[StageNum][1] + "" + StageNum);
     }
 
 

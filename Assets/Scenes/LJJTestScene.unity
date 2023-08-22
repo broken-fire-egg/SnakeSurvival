@@ -5355,6 +5355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: corrosion
       objectReference: {fileID: 0}
+    - target: {fileID: 201386660600655845, guid: deb74a49242465e4eac79754688bfb2f, type: 3}
+      propertyPath: SpeedCorrection
+      value: 0.00014
+      objectReference: {fileID: 0}
     - target: {fileID: 201386660600655846, guid: deb74a49242465e4eac79754688bfb2f, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 public class MainUiCtrl : MonoBehaviour
 {
     public GameObject Singleton;
-    public GameObject Option;
+    public GameObject MainGame;
+    public GameObject OptionGame;
+    public GameObject WorldGame;
+    public GameObject CharacterGame;
     public GameObject BackgroundMoveGame;
     float time;
 
@@ -14,14 +17,6 @@ public class MainUiCtrl : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            BackgroundMoveGame.transform.position = new Vector2(720, 1600);
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            BackgroundMoveGame.transform.position = new Vector2(0, 0);
-        }
         time += Time.deltaTime;
         //BackgroundMoveGame.transform.position = new Vector2(BackgroundMoveGame.transform.position.x + 5, BackgroundMoveGame.transform.position.y + 8.55f);
         BackgroundMoveGame.transform.Translate(Vector2.up * 855f * Time.deltaTime);
@@ -40,17 +35,20 @@ public class MainUiCtrl : MonoBehaviour
 
     public void OptionButton()
     {
-        Option.SetActive(true);
+        OptionGame.SetActive(true);
+        MainGame.SetActive(false);
     }
 
     public void WorldButton()
     {
-
+        WorldGame.SetActive(true);
+        MainGame.SetActive(false);
     }
 
     public void CharacterButton()
     {
-
+        CharacterGame.SetActive(true);
+        MainGame.SetActive(false);
     }
 
     public void ShopButton()
@@ -63,4 +61,8 @@ public class MainUiCtrl : MonoBehaviour
 
     }
     
+    public void ToggleActive()
+    {
+
+    }
 }
