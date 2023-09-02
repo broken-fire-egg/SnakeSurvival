@@ -108,7 +108,7 @@ public class Shieldbearer : BodyClass
                 range = 2.5f;
                 bonusDamage = 30;
                 damageCoefficient = 20;
-                shoottime = 3;
+                shoottime.baseValue = 3;
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;
             case 2:
@@ -130,7 +130,7 @@ public class Shieldbearer : BodyClass
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "");
                 break;
             case 5:
-                shoottime = 2;
+                shoottime.baseValue = 2;
                 SetBodyInfo("공격한 반대 방향에도 충격파를 발사합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
             case 6:

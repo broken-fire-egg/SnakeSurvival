@@ -33,7 +33,7 @@ public class SnakeHead : MonoBehaviour
     SnakeBodyManager sbManager;
     const float SPEEDRatio = 0.033333f; //Don't Modify!
 
-    public float speedMultiplier = 1;
+    public MultipleMultiplierValue speedMultiplier;
     public enum Direction { right, down, left, up }
     public float speed;
     public float Speed { get { return speed * SPEEDRatio * speedMultiplier * Time.deltaTime * 30 * 1.666667f; } }
@@ -41,10 +41,11 @@ public class SnakeHead : MonoBehaviour
     public float HP;
 
     protected float attackCT;   //현재 남은 쿨타임
-    protected float attackDT;   //전체 쿨타임
+    protected MultipleMultiplierValue attackDT;   //전체 쿨타임
     protected SpriteRenderer sr;
 
-
+    public float invincibilityTime;
+    public float remain_invincibilityTime;
 
     public delegate void OnDirectionChanged(bool b);
 
@@ -59,12 +60,17 @@ public class SnakeHead : MonoBehaviour
 
     public void Hit(float amount, GameObject from = null)
     {
-        if(from)
+ 
+
+
+
+        if (from)
         {
-           switch(from.tag)
+            switch (from.tag)
             {
                 case "Wall":
                     ObserverPatternManager.instance.WallHit();
+                    WallHit();
                     break;
                 case "Enemy":
                     ObserverPatternManager.instance.EnemyContact(from.GetComponent<Enemy>());
@@ -76,11 +82,12 @@ public class SnakeHead : MonoBehaviour
 
                     break;
             }
-            
+
         }
 
-
-
+        if (remain_invincibilityTime > 0)
+            return;
+        remain_invincibilityTime = invincibilityTime;
 
         HP -= amount;
 
@@ -94,7 +101,7 @@ public class SnakeHead : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
     }
     protected void Init()
@@ -105,6 +112,8 @@ public class SnakeHead : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        speedMultiplier = new MultipleMultiplierValue(1f);
+        attackDT = new MultipleMultiplierValue();
     }
 
     // Start is called before the first frame update
@@ -116,6 +125,28 @@ public class SnakeHead : MonoBehaviour
     {
         //모바일 플랫폼 타겟 프레임 생각하면 이거 쓰면 안될듯
     }
+
+    void WallHit()
+    {
+        switch (dir)
+        {
+            case Direction.right:
+            case Direction.left:
+                if (transform.position.y > 0)
+                    ChangeDirection(Direction.down);
+                else
+                    ChangeDirection(Direction.up);
+                break;
+            case Direction.down:
+            case Direction.up:
+                if (transform.position.x > 0)
+                    ChangeDirection(Direction.left);
+                else
+                    ChangeDirection(Direction.right);
+                break;
+        }
+    }
+
     public virtual void ChangeDirection(Direction _dir)
     {
         if (GetOppositeDir(dir) == _dir || dir == _dir)
@@ -148,7 +179,7 @@ public class SnakeHead : MonoBehaviour
         {
             case Direction.right:
                 vec = new Vector3(1, 0);
-                
+
                 break;
             case Direction.down:
                 vec = new Vector3(0, -1);
@@ -173,14 +204,15 @@ public class SnakeHead : MonoBehaviour
     {
         CheckDead();
         Move();
+        remain_invincibilityTime -= Time.deltaTime;
         if (CheckAttack())
             Attack();
-        
+
     }
     protected virtual bool CheckAttack()
     {
         attackCT -= Time.deltaTime;
-        
+
         return attackCT <= 0 && weaponRange.EnemySpoted;
     }
     protected virtual void Attack()
@@ -194,7 +226,7 @@ public class SnakeHead : MonoBehaviour
         {
             ObserverPatternManager.instance.ColleagueOrHeroDied(false);
 
-            if(HP <= 0)
+            if (HP <= 0)
                 GameOver();
         }
     }
@@ -205,11 +237,11 @@ public class SnakeHead : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("Wall"))
+        if (collision.transform.CompareTag("Wall"))
         {
             Hit(collision.transform.GetComponent<Wall>().contactDamage, collision.gameObject);
         }
-        else if(collision.transform.CompareTag("Enemy"))
+        else if (collision.transform.CompareTag("Enemy"))
         {
             Hit(collision.transform.GetComponent<Enemy>().contactDamage, collision.gameObject);
         }

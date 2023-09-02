@@ -7,7 +7,7 @@ public class Alchemist : BodyClass
 {
 
     Multiplier amount;
-    float speedBuff = 0;
+    Multiplier speedBuff;
     public BodyClass frontColleague;
     public BodyClass backColleague;
     float ragetime = 0;
@@ -19,13 +19,14 @@ public class Alchemist : BodyClass
         base.Start();
         SetBodyInfo("");
         amount = new Multiplier();
+        speedBuff = new Multiplier();
         frontColleague = null;
         backColleague = null;
     }
     public override void Activate()
     {
         snakeBody.Activate();
-        GameInfo.Instance.damageMultiply += amount;
+        //GameInfo.Instance.damageMultiply += amount;
         PlayerInventory.instance.AddColleague(this);
     }
     void Update()
@@ -41,27 +42,9 @@ public class Alchemist : BodyClass
     {
         while (true)
         {
-            if (frontColleague)
-            {
-                buffedamountfront = frontColleague.shoottime / 100 * speedBuff;
-                frontColleague.shoottime -= buffedamountfront;
-            }
-            if (backColleague)
-            {
-                buffedamountback = backColleague.shoottime / 100 * speedBuff;
-                backColleague.shoottime -= buffedamountback;
-            }
+            speedBuff.Active = true;
             yield return new WaitForSeconds(ragetime);
-            if (frontColleague)
-            {
-                frontColleague.shoottime += buffedamountfront;
-                buffedamountfront = 0;
-            }
-            if (backColleague)
-            {
-                backColleague.shoottime += buffedamountback;
-                buffedamountback = 0;
-            }
+            speedBuff.Active = false;
             yield return new WaitForSeconds(10f);
         }
     }
@@ -76,7 +59,7 @@ public class Alchemist : BodyClass
         {
             foreach (var c in colleagues)
             {
-                c.damageMultiplier = amount;
+                c.damageMultiplier += amount;
                 c.UpdateDamageInfo();
             }
             return;
@@ -99,13 +82,18 @@ public class Alchemist : BodyClass
 
         if (frontColleague)
         {
-            frontColleague.damageMultiplier = amount;
+            frontColleague.damageMultiplier += amount;
+            frontColleague.shoottime += speedBuff;
             frontColleague.UpdateDamageInfo();
         }
         else if (colleagues.IndexOf(this) == 0)
+        {
+            GameInfo.Instance.damageMultiply += amount;
+            SnakeHead.instance.speedMultiplier += speedBuff;
+        }
             if (backColleague)
             {
-                backColleague.damageMultiplier = amount;
+                backColleague.damageMultiplier += amount;
                 backColleague.UpdateDamageInfo();
             }
     }
@@ -131,7 +119,7 @@ public class Alchemist : BodyClass
                 break;
             case 4:
                 ragetime = 3f;
-                speedBuff = 30f;
+                speedBuff.multiplier = 1.3f;
                 StartCoroutine(Rage());
                 SetBodyInfo("자신의 공격력이 증가합니다.", "2타일", Math.Round(2 + GameInfo.Instance.damageUnit / 100 * 15, 2), "");
                 break;
@@ -144,7 +132,7 @@ public class Alchemist : BodyClass
             case 6:
                 amount.multiplier = 1.9f;
                 ragetime = 5f;
-                speedBuff = 40f;
+                speedBuff.multiplier = 1.4f;
                 SetBodyInfo("공격력 증가 효과를 모든 아군에게 적용합니다.", "4 타일", "", "");
                 break;
             case 7:

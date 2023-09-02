@@ -103,7 +103,7 @@ public class Healer : BodyClass
         switch (level)
         {
             case 1:
-                shoottime = 10;
+                shoottime.baseValue = 10;
                 bonusDamage = 5;
                 Activate();
                 SetBodyInfo("회복 위력이 증가합니다.", "1.5타일", "", "");
@@ -114,7 +114,7 @@ public class Healer : BodyClass
                 SetBodyInfo("공격 속도가 증가합니다.", "", Math.Round(2 + GameInfo.Instance.damageUnit / 10, 2), "");
                 break;
             case 3:
-                shoottime = 8;
+                shoottime.baseValue = 8;
                 SetBodyInfo("자신의 공격력이 증가합니다.", "", "", "6/s");
                 break;
             case 4:
@@ -128,7 +128,7 @@ public class Healer : BodyClass
                 break;
             case 6:
                 bonusDamage = 20;
-                shoottime = 6.25f;
+                shoottime.baseValue = 6.25f;
                 SetBodyInfo("보호막이 있는 동안 추가효과를 제공하고 자신에게도 보호막을 생성합니다.", "4 타일", "", "");
                 break;
             case 7:

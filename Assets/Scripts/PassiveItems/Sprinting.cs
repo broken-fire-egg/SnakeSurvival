@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sprinting : PassiveItem
 {
 
-    public float amount;
+    public Multiplier amount;
 
     private void Awake()
     {
@@ -24,23 +24,24 @@ public class Sprinting : PassiveItem
             case 1:
                 activated = true;
                 StartCoroutine(SetValue());
-                amount = 1.1f;
+                amount.multiplier = 1.1f; 
+                SnakeHead.instance.speedMultiplier += amount;
                 itemDescription = "이동속도와 공격속도가 상승합니다.";
                 break;
             case 2:
-                amount = 1.15f;
+                amount.multiplier = 1.15f;
                 itemDescription = "이동속도와 공격속도가 더욱 상승합니다.";
                 break;
             case 3:
-                amount = 1.2f;
+                amount.multiplier = 1.2f;
                 itemDescription = "이동속도와 공격속도가 더더욱 상승합니다.";
                 break;
             case 4:
-                amount = 1.25f;
+                amount.multiplier = 1.25f;
                 itemDescription = "이동속도와 공격속도가 매우 상승합니다.";
                 break;
             case 5:
-                amount = 1.3f;
+                amount.multiplier = 1.3f;
                 break;
 
         }
@@ -57,7 +58,7 @@ public class Sprinting : PassiveItem
 
         while(true)
         {
-            SnakeHead.instance.speedMultiplier = amount;
+            
             var list = PlayerInventory.instance.currentColleagues;
             foreach (var c in list)
             {

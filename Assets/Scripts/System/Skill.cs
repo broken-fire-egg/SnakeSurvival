@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Skill : SingletonParent<Skill>
 {
     public Image skillIcon;
+    public Image cooltimeImage;
     public float leftCoolTime;
     public float totalCoolTime;
     // Update is called once per frame
@@ -16,7 +17,7 @@ public class Skill : SingletonParent<Skill>
         if (leftCoolTime < 0)
             leftCoolTime = 0f;
 
-        skillIcon.fillAmount = 1 - leftCoolTime / totalCoolTime;
+        cooltimeImage.fillAmount = leftCoolTime / totalCoolTime;
     }
     public void PauseWorldForCutscene()
     {

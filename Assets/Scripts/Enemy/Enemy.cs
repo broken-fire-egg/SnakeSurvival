@@ -35,10 +35,10 @@ public class Enemy : MonoBehaviour
     public float maxhp;
     public float hp;
     public float Speed;
-    public float SpeedMultiply;
+    public MultipleMultiplierValue SpeedMultiply;
     public float time;
     public float Attack;
-
+    public DebuffList debuffList;
     public float contactDamage;
 
     const float SpeedCorrection = 0.05555f; //DO NOT MODIFY THIS VALUE
@@ -59,9 +59,10 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
+        debuffList = new DebuffList();
         rb = GetComponent<Rigidbody2D>();
         MoveBool = true;
-        SpeedMultiply = 1;
+        SpeedMultiply = new MultipleMultiplierValue(1);
         Anim = GetComponent<Animator>();
         StartCoroutine(MyCoroutine());
         Player = SnakeHead.instance.gameObject;

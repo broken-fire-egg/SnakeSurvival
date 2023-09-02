@@ -7,19 +7,23 @@ using UnityEngine;
 
 public class Multiplier
 {
-    bool isActive;
+    public bool Active;
     public int priority;
     public float multiplier;
-    public float value { get { return isActive ? multiplier : 1f; } }
+    public float value { get { return Active ? multiplier : 1f; } }
     public Multiplier(float multiplier, int priority)
     {
         this.priority = priority;
         this.multiplier = multiplier;
     }
-
     public static implicit operator float(Multiplier m)
     {
-        return m.multiplier;
+        return m.value;
+    }
+    public Multiplier(float defaultvalue)
+    {
+        multiplier = defaultvalue;
+        priority = 0;
     }
     public Multiplier()
     {
@@ -42,7 +46,8 @@ public class MultipleMultiplierValue
 
         for (int i = 0; i < multipliers.Count; i++)
         {
-            value *= multipliers[i].multiplier;
+            if (multipliers[i] != null)
+                value *= multipliers[i].multiplier;
         }
 
         return value;
@@ -51,8 +56,11 @@ public class MultipleMultiplierValue
 
     public MultipleMultiplierValue AddMultiplier(Multiplier m)
     {
-        multipliers.Add(m);
-        multipliers = multipliers.OrderBy((x => x.priority)).ToList();
+        if (!multipliers.Contains(m))
+        {
+            multipliers.Add(m);
+            multipliers = multipliers.OrderBy((x => x.priority)).ToList();
+        }
         return this;
     }
 
@@ -74,11 +82,14 @@ public class MultipleMultiplierValue
         return res;
     }
 
-    public static MultipleMultiplierValue operator + (MultipleMultiplierValue mmv,Multiplier m)
+    public static MultipleMultiplierValue operator + (MultipleMultiplierValue mmv, Multiplier m)
     {
         return mmv.AddMultiplier(m);
     }
-
+    public static MultipleMultiplierValue operator +(MultipleMultiplierValue mmv, float m)
+    {
+        return mmv.AddMultiplier(new Multiplier(m,0));
+    }
     public MultipleMultiplierValue()
     {
         multipliers = new List<Multiplier>();

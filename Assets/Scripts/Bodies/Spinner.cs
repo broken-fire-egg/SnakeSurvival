@@ -95,7 +95,7 @@ public class Spinner : BodyClass
             case 1:
                 damageCoefficient = 20;
                 bonusDamage = 20;
-                shoottime = 1f;
+                shoottime.baseValue = 1f;
                 Activate();
                 SetBodyInfo("조개를 1개 추가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
                 break;

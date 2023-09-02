@@ -63,7 +63,7 @@ public class Bomber : BodyClass
                 mineSize = 1.5f;
                 bonusDamage = 20;
                 damageCoefficient = 20;
-                shoottime = 4;
+                shoottime.baseValue = 4;
                 extraMine = 0;
                 SetBodyInfo("공격 범위가 증가합니다.", "4타일", "", "");
                 break;

@@ -63,7 +63,7 @@ public class ChainLightning : BodyClass
 
         if (cooltime < 0)
         {
-            cooltime = shoottime;
+            
             Shoot();
         }
 
@@ -92,6 +92,9 @@ public class ChainLightning : BodyClass
     void Shoot()
     {
         SetAttackList();
+        if (AttackList.Count > 0)
+            return;
+        cooltime = shoottime;
         lineRenderer.positionCount = AttackList.Count + 1;
         animationStep = 0;
         Vector3[] poslist = new Vector3[AttackList.Count + 1];
@@ -145,7 +148,7 @@ public class ChainLightning : BodyClass
             case 1:
                 Activate();
                 detectdistance = 2;
-                shoottime = 5f;
+                shoottime.baseValue = 5f;
                 bonusDamage = 25;
                 damageCoefficient = 20;
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
@@ -160,7 +163,7 @@ public class ChainLightning : BodyClass
                 SetBodyInfo("공격속도가 증가합니다.", "", "", "0.25/s");
                 break;
             case 4:
-                shoottime = 4f;
+                shoottime.baseValue = 4f;
                 SetBodyInfo("번개 전이 횟수가 증가하고 전이되는 범위가 증가합니다", "", "", "");
                 break;
             case 5:
@@ -175,7 +178,7 @@ public class ChainLightning : BodyClass
                 SetBodyInfo("공격 속도가 대폭 감소하고 공격에 맞은 적들의 움직임을 잠시 멈춥니다", "", "", "0.5/s");
                 break;
             case 7:
-                shoottime = 2f;
+                shoottime.baseValue = 2f;
                 //TODO : STUN;
                 break;
         }

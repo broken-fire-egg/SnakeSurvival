@@ -16,10 +16,10 @@ public class CatHead : SnakeHead
     {
         // Debug.Log(handPivot.GetChild(0));
         //hand = handPivot.GetChild(0);
-        attackDT = 4f/3f;
-        attackCT = attackDT;
+        //attackDT = 4f/3f;
         sr = GetComponent<SpriteRenderer>();
         base.Init();
+        attackCT = attackDT;
     }
     protected override void Update()
     {

@@ -52,7 +52,7 @@ public class Bard : BodyClass
                 Activate();
                 bonusDamage = 10;
                 damageCoefficient = 30;
-                shoottime = 8f;
+                shoottime.baseValue = 8f;
                 stuntime = 1;
                 range = 3.5f;
                 SetBodyInfo("공격 범위가 증가합니다.", "", Math.Round(30 + GameInfo.Instance.damageUnit / 100 * 35, 2), "");
@@ -69,7 +69,7 @@ public class Bard : BodyClass
 
             case 4:
                 range = 4.5f;
-                shoottime = 6.06f;
+                shoottime.baseValue = 6.06f;
                 SetBodyInfo("기절 시간이 증가합니다.", "", "", "");
                 break;
 

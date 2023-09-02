@@ -210,7 +210,7 @@ public class Shooter : BodyClass
             case 1:
                 bonusDamage = 10;
                 damageCoefficient = 15;
-                shoottime = 1;
+                shoottime.baseValue = 1;
                 range = 7;
                 Activate();
                 SetBodyInfo("공격력이 증가합니다.", "", Math.Round(15 + GameInfo.Instance.damageUnit / 100 * 25, 2), "");
@@ -222,11 +222,11 @@ public class Shooter : BodyClass
                 SetBodyInfo("공격 속도가 증가합니다.", "", "", "1.5/s");
                 break;
             case 3:
-                shoottime = 2f / 3f;
+                shoottime.baseValue = 2f / 3f;
                 SetBodyInfo("공격력과 공격 범위가 증가합니다.", "8타일", "", "2/s");
                 break;
             case 4:
-                shoottime = 1f / 2f;
+                shoottime.baseValue = 1f / 2f;
                 range = 8;
                 SetBodyInfo("확률적으로 추가타를 발사합니다.", "", "", "");
                 break;
@@ -235,14 +235,14 @@ public class Shooter : BodyClass
                 SetBodyInfo("공격속도와 공격력이 증가합니다.", "", Math.Round(20 + GameInfo.Instance.damageUnit / 100 * 30, 2), "2.5/s");
                 break;
             case 6:
-                shoottime = 2f / 5f;
+                shoottime.baseValue = 2f / 5f;
                 bonusDamage = 20;
                 damageCoefficient = 25;
                 SetBodyInfo("공격 속도, 공격 범위가 증가하고 추가타 개수가 증가합니다", "9타일", "", "3/s");
                 break;
             case 7:
                 range = 9;
-                shoottime = 1f / 3f;
+                shoottime.baseValue = 1f / 3f;
                 extraShot = 2;
                 break;
         }
@@ -266,6 +266,7 @@ public class Shooter : BodyClass
 
     public override void UpdateDamageInfo()
     {
-        throw new NotImplementedException();
+
+        //throw new NotImplementedException();
     }
 }

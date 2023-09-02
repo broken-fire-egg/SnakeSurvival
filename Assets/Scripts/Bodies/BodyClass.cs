@@ -9,7 +9,7 @@ public abstract class BodyClass : MonoBehaviour
 
     public Sprite bodyIcon;
 
-    public float damageMultiplier = 1;
+    public MultipleMultiplierValue damageMultiplier;
     
     public float damageCoefficient;
 
@@ -18,7 +18,7 @@ public abstract class BodyClass : MonoBehaviour
     public float bonusDamage;   //기본 대미지
     public float damageAmount { get { return GameInfo.Instance.damageUnit * damageCoefficient / 100; } }
     public float damage { get { return (damageAmount + bonusDamage) * damageMultiplier; } }
-    public float shoottime;
+    public MultipleMultiplierValue shoottime;
     public float cooltime;
     public float cooltimeMultiplier = 1f;
     public int level;
@@ -47,7 +47,8 @@ public abstract class BodyClass : MonoBehaviour
     {
         snakeBody = GetComponent<SnakeBody>();
         args = new string[3];
-
+        shoottime = new MultipleMultiplierValue();
+        damageMultiplier = new MultipleMultiplierValue();
 
         for (int i = 0; i < args.Length; i++)
             args[i] = "";

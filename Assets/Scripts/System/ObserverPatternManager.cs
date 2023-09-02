@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using static ObserverPatternManager;
 
 public class ObserverPatternManager : MonoBehaviour
 {
     public static ObserverPatternManager instance;
+
+    public UnityEvent OnColleagueOrHeroHitUE;
+
+
+
+
     private void Awake()
     {
         instance = this;

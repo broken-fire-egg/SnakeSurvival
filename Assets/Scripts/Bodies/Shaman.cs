@@ -56,7 +56,7 @@ public class Shaman : BodyClass
                 Activate();
                 size = 3;
                 spellNum = 0;
-                shoottime = 8;
+                shoottime.baseValue = 8;
                 bindtime = 3;
                 bonusDamage = 30;
                 damageCoefficient = 30;
@@ -81,7 +81,7 @@ public class Shaman : BodyClass
                 SetBodyInfo("공격 속도와 마법진 발동 속도가 증가합니다.", "", Math.Round(35 + GameInfo.Instance.damageUnit / 100 * 40, 2), "");
                 break;
             case 6:
-                shoottime = 5;
+                shoottime.baseValue = 5;
                 spellNum = 1;
                 SetBodyInfo("마법진이 발동한 후 같은 자리에 마법진이 생성됩니다", "", "", "0.5/s");
                 break;
