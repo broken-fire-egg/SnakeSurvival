@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     public bool allowDiagonal, dontCrossCorner;
     Rigidbody2D rb;
     public bool MoveBool;
-
+    Collider2D _collider;
     public Animator Anim;
 
     public bool DeadBool;
@@ -59,18 +59,28 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        debuffList = new DebuffList();
+
         rb = GetComponent<Rigidbody2D>();
-        MoveBool = true;
-        SpeedMultiply = new MultipleMultiplierValue(1);
+        _collider = GetComponent<Collider2D>();
         Anim = GetComponent<Animator>();
         StartCoroutine(MyCoroutine());
         Player = SnakeHead.instance.gameObject;
 
+        Init();
         gameObject.transform.position = new Vector2((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y));
 
        // rgbd2d = GetComponent<Rigidbody2D>();
     }
+
+    public void Init()
+    {
+        debuffList = new DebuffList();
+        MoveBool = true;
+        DeadBool = false;
+        SpeedMultiply = new MultipleMultiplierValue(1);
+        _collider.enabled = true;
+    }
+
 
     public void Hit(float damage, float stun = 0f, bool isCrit = false)
     {
@@ -88,6 +98,8 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             MoveBool = false;
+            DeadBool = true;
+            _collider.enabled = false;
             Anim.SetBool("Die", true);
             Invoke("ObjectDestroy", 0.35f);
         }
@@ -169,7 +181,8 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
-
+        if (!MoveBool)
+            return;
         switch (dir)
         {
             case Direction.right:

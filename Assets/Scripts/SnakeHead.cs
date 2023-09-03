@@ -20,7 +20,7 @@ public class SnakeHead : MonoBehaviour
     public delegate void OnSomethingHandler();
 
     public OnSomethingHandler OnHitHandler;
-
+    Collider2D _collider;
     public static SnakeHead instance;
     public List<PosHistory> posHistories;
     public WeaponRange weaponRange;
@@ -35,6 +35,25 @@ public class SnakeHead : MonoBehaviour
 
     public MultipleMultiplierValue speedMultiplier;
     public enum Direction { right, down, left, up }
+
+    public static Vector2 DirectionToVector2(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.right:
+                return Vector2.right;
+            case Direction.down:
+                return Vector2.down;
+            case Direction.left:
+                return Vector2.left;
+            case Direction.up:
+                return Vector2.up;
+            default:
+                return Vector2.zero;
+        }
+    }
+
+
     public float speed;
     public float Speed { get { return speed * SPEEDRatio * speedMultiplier * Time.deltaTime * 30 * 1.666667f; } }
     public float maxHP;
@@ -45,7 +64,9 @@ public class SnakeHead : MonoBehaviour
     protected SpriteRenderer sr;
 
     public float invincibilityTime;
-    public float remain_invincibilityTime;
+    public float flashtime;
+    float remain_flashtime;
+    float remain_invincibilityTime;
 
     public delegate void OnDirectionChanged(bool b);
 
@@ -58,38 +79,69 @@ public class SnakeHead : MonoBehaviour
             return dir - 2;
     }
 
-    public void Hit(float amount, Collision2D collision = null)
+
+    void Hit(string tag)
     {
- 
+
+    }
+
+    public void Hit(float amount, Collision2D collision = null, Collider2D collider = null)
+    {
 
 
-
-        if (collision.gameObject)
-        {
-            switch (collision.gameObject.tag)
+        //////*아래 수정할때 다른쪽도 수정해줄것*///
+        //////*아래 수정할때 다른쪽도 수정해줄것*///
+        //////*아래 수정할때 다른쪽도 수정해줄것*///
+        ///
+        if (collision != null)
+            if (collision.gameObject)
             {
-                case "Wall":
-                    ObserverPatternManager.instance.WallHit();
-                    WallHit(collision.contacts[0].normal);
-                    break;
-                case "Enemy":
-                    ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
-                    break;
-                case "EnemyBullet":
+                switch (collision.gameObject.tag)
+                {
+                    case "Wall":
+                        ObserverPatternManager.instance.WallHit();
+                        WallHit(collision.contacts[0].normal);
+                        break;
+                    case "Enemy":
+                        ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
+                        break;
+                    case "EnemyBullet":
 
-                    break;
-                case "Colleague":
+                        break;
+                    case "Colleague":
 
-                    break;
+                        break;
+                }
+
             }
+            else if (collider != null)
+                if (collider.gameObject)
+                {
+                    switch (collision.gameObject.tag)
+                    {
+                        case "Wall":
+                            ObserverPatternManager.instance.WallHit();
+                            WallHit(DirectionToVector2(dir));
+                            break;
+                        case "Enemy":
+                            ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
+                            break;
+                        case "EnemyBullet":
 
-        }
+                            break;
+                        case "Colleague":
+
+                            break;
+                    }
+                }
 
         if (remain_invincibilityTime > 0 && amount > 0f)
             return;
-        if(amount > 0f)
+        if (amount > 0f)
+        {
             remain_invincibilityTime = invincibilityTime;
-
+            _collider.isTrigger = true;
+        }
         HP -= amount;
 
 
@@ -115,6 +167,7 @@ public class SnakeHead : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         speedMultiplier = new MultipleMultiplierValue(1f);
         attackDT = new MultipleMultiplierValue();
+        _collider = GetComponent<Collider2D>();
     }
 
     // Start is called before the first frame update
@@ -129,17 +182,17 @@ public class SnakeHead : MonoBehaviour
 
     void WallHit(Vector2 normal = default(Vector2))
     {
-        if(normal != default(Vector2))
+        if (normal != default(Vector2))
         {
-            if(Mathf.Abs(normal.x) > 0)
+            if (Mathf.Abs(normal.x) > 0)
             {
-                if(transform.position.y > 0f)
+                if (transform.position.y > 0f)
                     ChangeDirection(Direction.down);
                 else
                     ChangeDirection(Direction.up);
 
-            }   
-            else if(Mathf.Abs(normal.y) > 0)
+            }
+            else if (Mathf.Abs(normal.y) > 0)
             {
                 if (transform.position.x > 0)
                     ChangeDirection(Direction.left);
@@ -223,7 +276,24 @@ public class SnakeHead : MonoBehaviour
     {
         CheckDead();
         Move();
-        remain_invincibilityTime -= Time.deltaTime;
+        if (remain_invincibilityTime > 0)
+        {
+            remain_flashtime -= Time.deltaTime;
+            remain_invincibilityTime -= Time.deltaTime;
+            if(remain_flashtime < 0)
+            {
+                sr.enabled = !sr.enabled;
+                remain_flashtime = flashtime;
+            }
+
+            if (remain_invincibilityTime < 0)
+            {
+                _collider.isTrigger = false;
+                sr.enabled = true;
+            }
+        }
+
+
         if (CheckAttack())
             Attack();
 
@@ -264,6 +334,14 @@ public class SnakeHead : MonoBehaviour
         else if (collision.transform.CompareTag("Enemy"))
         {
             Hit(collision.transform.GetComponent<Enemy>().contactDamage, collision);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.transform.CompareTag("Wall"))
+        {
+            Hit(collider.transform.GetComponent<Wall>().contactDamage, collider: collider);
         }
     }
 }

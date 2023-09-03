@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChainLightning : BodyClass
 {
     public GameObject enemies;
-    List<GameObject> AttackList;
+    public List<GameObject> AttackList;
     public int maxchaincount;
     float detectdistance;
     int chaincount;
@@ -92,7 +92,7 @@ public class ChainLightning : BodyClass
     void Shoot()
     {
         SetAttackList();
-        if (AttackList.Count > 0)
+        if (AttackList.Count == 0)
             return;
         cooltime = shoottime;
         lineRenderer.positionCount = AttackList.Count + 1;
