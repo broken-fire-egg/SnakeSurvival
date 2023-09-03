@@ -38,6 +38,5 @@ public class GameInfo : SingletonParent<GameInfo>
     }
     private void Update()
     {
-        print(Application.targetFrameRate);
     }
 }

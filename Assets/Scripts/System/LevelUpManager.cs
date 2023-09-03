@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class LevelUpManager : SingletonParent<LevelUpManager>
 {
-
+    public bool reroll;
+    public GameObject rerollbtn;
     //NOTE TODO : 아이템 최대레벨은 각각 다 다름
     //Review : LevelupOption을 interface로 구현하는게 더 나았을것 같다.
     public class LevelUpOption
@@ -82,44 +83,38 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
             options.Add(new LevelUpOption(colleague));
         }
     }
-
-
-    public void LevelUp()
+    public void SetRerollStatus(bool b)
+    {
+        reroll = b;
+        rerollbtn.SetActive(b);
+    }
+    public void RollOption()
     {
         selectableOptions = GetRandomOptions();
-        exp -= expMax;
 
         for (int i = 0; i < 3; i++)
         {
 
-            if(selectableOptions[i].isItem)
+            if (selectableOptions[i].isItem)
             {
                 optionImages[i].sprite = selectableOptions[i].passiveItem.itemSprite;
                 optionName[i].text = selectableOptions[i].passiveItem.itemName;
-                //optionText[i].text += "\n\n";
                 optionText[i].text = selectableOptions[i].passiveItem.itemDescription;
-
-                //for(int j=0;j<3;j++)
-                    //optionArgs[i].args[j].text = selectableOptions[i].passiveItem;
 
             }
             else
             {
                 optionImages[i].sprite = selectableOptions[i].colleague.bodyIcon;
                 optionName[i].text = selectableOptions[i].colleague.bodyName;
-                //optionText[i].text += "\n\n";
                 optionText[i].text = selectableOptions[i].colleague.levelupDescription;
-                //for (int j = 0; j < 3; j++)
-                //{
-                //    if (selectableOptions[i].colleague.args[j] != "" && selectableOptions[i].colleague.level != 0)
-                //        optionArgs[i].args[j].color = Color.green;
-                //    else
-                //        optionArgs[i].args[j].color = Color.black;
-                //    optionArgs[i].args[j].text = selectableOptions[i].colleague.args[j];
-                //}
             }
 
         }
+    }
+    public void LevelUp()
+    {
+        exp -= expMax;
+        RollOption();
         LevelupUI.SetActive(true);
         SnakeHead.instance.animator.updateMode = AnimatorUpdateMode.Normal;
         Time.timeScale = 0;
@@ -188,6 +183,7 @@ public class LevelUpManager : SingletonParent<LevelUpManager>
             return;
         if (exp >= expMax)
         {
+            SetRerollStatus(true);
             LevelUp();
             expMax += expMax / 2;
         }
