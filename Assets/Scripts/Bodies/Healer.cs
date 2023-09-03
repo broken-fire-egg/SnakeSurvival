@@ -57,7 +57,7 @@ public class Healer : BodyClass
 
         if (headTarget)
         {
-            SnakeHead.instance.Hit(-damage, gameObject);
+            SnakeHead.instance.Hit(-damage);
         }
         else if(frontColleague)
         {

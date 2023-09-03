@@ -12,30 +12,45 @@ public class Weapon : MonoBehaviour
         head = SnakeHead.instance;
         col = GetComponent<Collider2D>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    void Attack(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
+            if(Random.Range(0f,100f) < GameInfo.Instance.criticalChance)
+            {
+                collision.TryGetComponent<Enemy>(out Enemy unluckyenemy);                               
+                unluckyenemy.Hit(GameInfo.Instance.damageUnit * GameInfo.Instance.damageMultiply * GameInfo.Instance.criticalMultiplier,isCrit:true);
+
+                HitEffectObjectPool.instance.PlayEffect(collision.transform.position +
+                    new Vector3(Random.Range(-collision.bounds.extents.x, collision.bounds.extents.x),
+                    Random.Range(-collision.bounds.extents.y, collision.bounds.extents.y)));
+                return;
+            }
+
+
             collision.TryGetComponent<Enemy>(out Enemy enemy);
             enemy.Hit(GameInfo.Instance.damageUnit * GameInfo.Instance.damageMultiply);
-            
-            HitEffectObjectPool.instance.PlayEffect(collision.transform.position + 
+
+            HitEffectObjectPool.instance.PlayEffect(collision.transform.position +
                 new Vector3(Random.Range(-collision.bounds.extents.x, collision.bounds.extents.x),
                 Random.Range(-collision.bounds.extents.y, collision.bounds.extents.y)));
-            //방어력 있을시 밑에 수정111111
-            //DamageTextObjectPool.instance.SpawnText(collision.transform.position, GameInfo.Instance.damageUnit);
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Attack(collision);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            collision.collider.TryGetComponent<Enemy>(out Enemy enemy);
-            enemy.Hit(GameInfo.Instance.damageUnit);
-            HitEffectObjectPool.instance.PlayEffect(collision.transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)));
-            //방어력 있을시 밑에 수정222222
-            //DamageTextObjectPool.instance.SpawnText(collision.transform.position, GameInfo.Instance.damageUnit);
-        }
+        //if (collision.collider.CompareTag("Enemy"))
+        //{
+        //    collision.collider.TryGetComponent<Enemy>(out Enemy enemy);
+        //    enemy.Hit(GameInfo.Instance.damageUnit);
+        //    HitEffectObjectPool.instance.PlayEffect(collision.transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)));
+        // }
     }
 }

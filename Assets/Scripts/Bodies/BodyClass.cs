@@ -13,7 +13,8 @@ public abstract class BodyClass : MonoBehaviour
     
     public float damageCoefficient;
 
-    public MultipleMultiplierValue mmv;
+    public DebuffList debuffList;
+
     public float bonusCriticalChance;
     public float bonusDamage;   //기본 대미지
     public float damageAmount { get { return GameInfo.Instance.damageUnit * damageCoefficient / 100; } }

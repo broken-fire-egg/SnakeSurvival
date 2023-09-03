@@ -18,9 +18,18 @@ public class StackValue
         stack = 0;
     }
 
+    public void ReduceStack(int amount = 1)
+    {
+        stack -= amount;
+        if(stack < 0)
+            stack = 0;
+    }
+
     public void AddStack(int amount = 1)
     {
         stack += amount;
+        if(stack > maxStack)
+            stack = maxStack;
     }
 
     public StackValue(int maxStack, float amountPerStack)

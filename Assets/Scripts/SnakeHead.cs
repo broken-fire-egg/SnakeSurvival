@@ -58,22 +58,22 @@ public class SnakeHead : MonoBehaviour
             return dir - 2;
     }
 
-    public void Hit(float amount, GameObject from = null)
+    public void Hit(float amount, Collision2D collision = null)
     {
  
 
 
 
-        if (from)
+        if (collision.gameObject)
         {
-            switch (from.tag)
+            switch (collision.gameObject.tag)
             {
                 case "Wall":
                     ObserverPatternManager.instance.WallHit();
-                    WallHit();
+                    WallHit(collision.contacts[0].normal);
                     break;
                 case "Enemy":
-                    ObserverPatternManager.instance.EnemyContact(from.GetComponent<Enemy>());
+                    ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
                     break;
                 case "EnemyBullet":
 
@@ -85,9 +85,10 @@ public class SnakeHead : MonoBehaviour
 
         }
 
-        if (remain_invincibilityTime > 0)
+        if (remain_invincibilityTime > 0 && amount > 0f)
             return;
-        remain_invincibilityTime = invincibilityTime;
+        if(amount > 0f)
+            remain_invincibilityTime = invincibilityTime;
 
         HP -= amount;
 
@@ -126,25 +127,43 @@ public class SnakeHead : MonoBehaviour
         //모바일 플랫폼 타겟 프레임 생각하면 이거 쓰면 안될듯
     }
 
-    void WallHit()
+    void WallHit(Vector2 normal = default(Vector2))
     {
-        switch (dir)
+        if(normal != default(Vector2))
         {
-            case Direction.right:
-            case Direction.left:
-                if (transform.position.y > 0)
+            if(Mathf.Abs(normal.x) > 0)
+            {
+                if(transform.position.y > 0f)
                     ChangeDirection(Direction.down);
                 else
                     ChangeDirection(Direction.up);
-                break;
-            case Direction.down:
-            case Direction.up:
+
+            }   
+            else if(Mathf.Abs(normal.y) > 0)
+            {
                 if (transform.position.x > 0)
                     ChangeDirection(Direction.left);
                 else
                     ChangeDirection(Direction.right);
-                break;
+            }
         }
+        //switch (dir)
+        //{
+        //    case Direction.right:
+        //    case Direction.left:
+        //        if (transform.position.y > 0)
+        //            ChangeDirection(Direction.down);
+        //        else
+        //            ChangeDirection(Direction.up);
+        //        break;
+        //    case Direction.down:
+        //    case Direction.up:
+        //        if (transform.position.x > 0)
+        //            ChangeDirection(Direction.left);
+        //        else
+        //            ChangeDirection(Direction.right);
+        //        break;
+        //}
     }
 
     public virtual void ChangeDirection(Direction _dir)
@@ -237,13 +256,14 @@ public class SnakeHead : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.transform.CompareTag("Wall"))
         {
-            Hit(collision.transform.GetComponent<Wall>().contactDamage, collision.gameObject);
+            Hit(collision.transform.GetComponent<Wall>().contactDamage, collision);
         }
         else if (collision.transform.CompareTag("Enemy"))
         {
-            Hit(collision.transform.GetComponent<Enemy>().contactDamage, collision.gameObject);
+            Hit(collision.transform.GetComponent<Enemy>().contactDamage, collision);
         }
     }
 }

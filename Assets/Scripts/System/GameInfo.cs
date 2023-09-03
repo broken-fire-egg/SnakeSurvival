@@ -16,6 +16,7 @@ public class GameInfo : SingletonParent<GameInfo>
     
     public float damageUnit;
     public float criticalChance;
+    public Multiplier criticalMultiplier;
 
     public MultipleMultiplierValue damageMultiply;
     public MultipleMultiplierValue damageReduce;
@@ -26,6 +27,9 @@ public class GameInfo : SingletonParent<GameInfo>
     private void Start()
     {
         maxHP = 100;
+
+        criticalMultiplier = new Multiplier(1.5f);
+
         damageMultiply = new MultipleMultiplierValue(1f);
         criticalChance = 10;
         inventory = GetComponent<PlayerInventory>();

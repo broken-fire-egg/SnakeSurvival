@@ -22,11 +22,13 @@ public class Multiplier
     }
     public Multiplier(float defaultvalue)
     {
+        Active = true;
         multiplier = defaultvalue;
         priority = 0;
     }
     public Multiplier()
     {
+        Active = true;
         multiplier = 1.0f;
         priority = 0;
     }
