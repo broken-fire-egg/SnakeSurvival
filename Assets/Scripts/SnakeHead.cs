@@ -141,6 +141,7 @@ public class SnakeHead : MonoBehaviour
         {
             remain_invincibilityTime = invincibilityTime;
             _collider.isTrigger = true;
+            animator.SetTrigger("Hit");
         }
         HP -= amount;
 

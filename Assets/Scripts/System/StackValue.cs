@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class StackValue
 {
     public int stack;
     public bool activate;
+    public float defaultValue;
     public int maxStack;
     public float amountPerStack;
 
 
-    public float result { get {return stack * amountPerStack; } }
-
+    public float result { get {return stack * amountPerStack + defaultValue; } }
+    public static implicit operator float(StackValue sv)
+    {
+        return sv.result;
+    }
 
 
     public void ResetStack()
@@ -37,9 +38,10 @@ public class StackValue
             stack = maxStack;
     }
 
-    public StackValue(int maxStack, float amountPerStack)
+    public StackValue(int maxStack, float amountPerStack, float defaultValue = 0)
     {
         this.maxStack = maxStack;
         this.amountPerStack = amountPerStack;
+        this.defaultValue = defaultValue;
     }
 }

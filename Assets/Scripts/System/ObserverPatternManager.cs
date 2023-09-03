@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static ObserverPatternManager;
 
 public class ObserverPatternManager : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class ObserverPatternManager : MonoBehaviour
         OnColleagueOrHeroDied = Dummy2;
         OnWallHit = Dummy1;
         OnEnemyContact = Dummy4;
-        OnHeal = Dummy3;
+        OnHealed = Dummy3;
         OnEnemyDied = Dummy1;
         OnGetEXP = Dummy3;
         OnColleagueOrHeroHit = Dummy5;
@@ -74,14 +73,42 @@ public class ObserverPatternManager : MonoBehaviour
     public delegate void onEnemyDied();
     public event onEnemyDied OnEnemyDied;
 
-    public delegate void onHeal(float amount);
-    public event onHeal OnHeal;
+    public void EnemyDied()
+    {
+        OnEnemyDied.Invoke();
+    }
+
+
+
+    public delegate void onHealed(float amount);
+    public event onHealed OnHealed;
+
+    public void Healed(float amount)
+    {
+        OnHealed.Invoke(amount);
+        //서순형 함수로 구현예정?? 아님 말고??
+    }
+
 
 
     public delegate float onColleagueOrHeroHit(bool isbody = false, BodyClass body = null, float amount = 0);
     public event onColleagueOrHeroHit OnColleagueOrHeroHit;
 
+    public float ColleagueOrHeroHit(bool isbody = false, BodyClass body = null, float amount = 0)
+    {
+        return OnColleagueOrHeroHit.Invoke(isbody, body, amount);
+        //서순형 함수로 구현예정?? 아님 말고??
+    }
+
+
+
     public delegate void onGetEXP(float amount);
     public event onGetEXP OnGetEXP;
 
+    public void GetEXP(float amount)
+    {
+        OnGetEXP.Invoke(amount);
+
+        //서순형 함수로 구현예정?? 아님 말고??
+    }
 }
