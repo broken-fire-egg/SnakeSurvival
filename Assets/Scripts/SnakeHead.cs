@@ -85,70 +85,6 @@ public class SnakeHead : MonoBehaviour
 
     }
 
-    public void Hit(float amount, Collision2D collision = null, Collider2D collider = null)
-    {
-
-
-        //////*아래 수정할때 다른쪽도 수정해줄것*///
-        //////*아래 수정할때 다른쪽도 수정해줄것*///
-        //////*아래 수정할때 다른쪽도 수정해줄것*///
-        ///
-        if (collision != null)
-            if (collision.gameObject)
-            {
-                switch (collision.gameObject.tag)
-                {
-                    case "Wall":
-                        ObserverPatternManager.instance.WallHit();
-                        WallHit(collision.contacts[0].normal);
-                        break;
-                    case "Enemy":
-                        ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
-                        break;
-                    case "EnemyBullet":
-
-                        break;
-                    case "Colleague":
-
-                        break;
-                }
-
-            }
-            else if (collider != null)
-                if (collider.gameObject)
-                {
-                    switch (collision.gameObject.tag)
-                    {
-                        case "Wall":
-                            ObserverPatternManager.instance.WallHit();
-                            WallHit(DirectionToVector2(dir));
-                            break;
-                        case "Enemy":
-                            ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
-                            break;
-                        case "EnemyBullet":
-
-                            break;
-                        case "Colleague":
-
-                            break;
-                    }
-                }
-
-        if (remain_invincibilityTime > 0 && amount > 0f)
-            return;
-        if (amount > 0f)
-        {
-            remain_invincibilityTime = invincibilityTime;
-            _collider.isTrigger = true;
-            animator.SetTrigger("Hit");
-        }
-        HP -= amount;
-
-
-    }
-
-
 
     public Direction dir;
     Rigidbody2D rb;
@@ -183,6 +119,9 @@ public class SnakeHead : MonoBehaviour
 
     void WallHit(Vector2 normal = default(Vector2))
     {
+
+        print(normal);
+
         if (normal != default(Vector2))
         {
             if (Mathf.Abs(normal.x) > 0)
@@ -325,6 +264,75 @@ public class SnakeHead : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+
+    public void Hit(float amount, Collision2D collision = null, Collider2D collider = null)
+    {
+
+
+        //////*아래 수정할때 다른쪽도 수정해줄것*///
+        //////*아래 수정할때 다른쪽도 수정해줄것*///
+        //////*아래 수정할때 다른쪽도 수정해줄것*///
+        ///
+        if (collision != null)
+        {
+            if (collision.gameObject)
+            {
+                switch (collision.gameObject.tag)
+                {
+                    case "Wall":
+                        ObserverPatternManager.instance.WallHit();
+                        WallHit(collision.contacts[0].normal);
+                        break;
+                    case "Enemy":
+                        ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
+                        break;
+                    case "EnemyBullet":
+
+                        break;
+                    case "Colleague":
+
+                        break;
+                }
+
+            }
+        }
+        else if (collider != null)
+            if (collider.gameObject)
+            {
+                switch (collider.gameObject.tag)
+                {
+                    case "Wall":
+                        ObserverPatternManager.instance.WallHit();
+                        WallHit(DirectionToVector2(dir));
+                        break;
+                    case "Enemy":
+                        ObserverPatternManager.instance.EnemyContact(collider.gameObject.GetComponent<Enemy>());
+                        break;
+                    case "EnemyBullet":
+
+                        break;
+                    case "Colleague":
+
+                        break;
+                }
+            }
+
+        if (remain_invincibilityTime > 0 && amount > 0f)
+            return;
+        if (amount > 0f)
+        {
+            remain_invincibilityTime = invincibilityTime;
+            _collider.isTrigger = true;
+            animator.SetTrigger("Hit");
+        }
+        HP -= amount;
+
+
+    }
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -342,6 +350,7 @@ public class SnakeHead : MonoBehaviour
     {
         if (collider.transform.CompareTag("Wall"))
         {
+            print("trwall");
             Hit(collider.transform.GetComponent<Wall>().contactDamage, collider: collider);
         }
     }

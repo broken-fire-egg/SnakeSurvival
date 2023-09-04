@@ -68,29 +68,7 @@ public class Healer : BodyClass
             backColleague.Hit(-damage);
         }
     }
-    //public void Heal()
-    //{
-    //    BodyClass frontColleague;
-    //    BodyClass backColleague;
-    //    var colleagues = PlayerInventory.instance.currentColleagues;
 
-    //    if(colleagues.IndexOf(this) > 0)
-    //        frontColleague = colleagues[colleagues.IndexOf(this) - 1];
-    //    else
-    //        frontColleague = null;
-    //    if (colleagues.IndexOf(this) < colleagues.Count-1)
-    //        backColleague = colleagues[colleagues.IndexOf(this) + 1] ?? null;
-    //    else
-    //        backColleague = null;
-
-    //    if(frontColleague)
-    //        frontColleague.Hit(damage);
-        
-    //    if(backColleague)
-    //        backColleague.Hit(damage);
-        
-
-    //}
 
     public override void Activate()
     {

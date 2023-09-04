@@ -2,33 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+
 public class LinkedFunctionList<T>
 {
+
     public LinkedFunctionList<T> prev;
     public LinkedFunctionList<T> next;
-    public delegate T FuncP(object[] args);
+    public delegate T FuncP(T args);
     FuncP function;
 
-    public T Func(object[] args)
+
+    public T Function(T args)
     {
 
         if (next != null)
-        {
-            function(args);
-            return next.Func(args);
-        }
+            return next.Function(function(args));
         else
-        {
             return function(args);
-        }
+        
     }
 
 
 
-    public void AddFunction(LinkedFunctionList<T> newFunc)
+    public LinkedFunctionList<T> AppendFunction(FuncP newFuncP)
     {
-        this.next = newFunc;
-        newFunc.prev = this;
+        LinkedFunctionList<T> newFunc = new LinkedFunctionList<T>(newFuncP);
+
+
+        if (next == null)
+        {
+            next = newFunc;
+            newFunc.prev = this;
+        }
+        else
+            next.AppendFunction(newFuncP);
+        return this;
     }
 
 
@@ -38,5 +49,7 @@ public class LinkedFunctionList<T>
         prev = null;
         next = null;
     }
+
+
 
 }
