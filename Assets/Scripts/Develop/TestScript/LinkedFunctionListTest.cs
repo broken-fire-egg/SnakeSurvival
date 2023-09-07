@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class LinkedFunctionListTest : MonoBehaviour
 {
-    public LinkedFunctionList<float> LFL;
-    // Start is called before the first frame update
+    public LinkedFunctionList<float> LFL1;
+    public LinkedFunctionList<float> LFL2;
     void Start()
     {
-       LFL = new LinkedFunctionList<float>(firstFunc).AppendFunction(secondFunc).AppendFunction(thirdFunc);
+        LFL1 = new LinkedFunctionList<float>(FirstFunc).AppendFunction(SecondFunc).AppendFunction(ThirdFunc);
+        Debug.Log("LFL1 result : " + LFL1.Function(8f));
 
-       Debug.Log(LFL.Function(8f));
+        LFL2 = LFL1;
     }
-
-    public float firstFunc(float args)
+     
+    public float FirstFunc(float args)
     {
-        Debug.Log("first" + args.ToString());
+        Debug.Log("first function parameter : " + args.ToString());
         return (float)args + 1f;
     }
-    public float secondFunc(float args)
+    public float SecondFunc(float args)
     {
-        Debug.Log("second" + args.ToString());
+        Debug.Log("second function parameter : " + args.ToString());
         return (float)args * 2f;
     }
-    public float thirdFunc(float args)
+    public float ThirdFunc(float args)
     {
-        Debug.Log("third" + args.ToString());
+        Debug.Log("third function parameter : " + args.ToString());
         return (float)args - 3f;
     }
 }

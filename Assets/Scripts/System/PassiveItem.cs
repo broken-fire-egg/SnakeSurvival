@@ -11,7 +11,6 @@ public abstract class PassiveItem : MonoBehaviour
 
     public Sprite itemSprite;
 
-
     public bool activated;
 
     public int level;

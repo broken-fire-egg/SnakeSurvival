@@ -211,7 +211,7 @@ public class SnakeHead : MonoBehaviour
         Debug.Log("parentCAD");
     }
 
-    // Update is called once per frame
+
     protected virtual void Update()
     {
         CheckDead();
@@ -238,12 +238,14 @@ public class SnakeHead : MonoBehaviour
             Attack();
 
     }
+
     protected virtual bool CheckAttack()
     {
         attackCT -= Time.deltaTime;
 
         return attackCT <= 0 && weaponRange.EnemySpoted;
     }
+
     protected virtual void Attack()
     {
         attackCT = attackDT;
@@ -259,6 +261,7 @@ public class SnakeHead : MonoBehaviour
                 GameOver();
         }
     }
+
     void GameOver()
     {
 
@@ -268,7 +271,7 @@ public class SnakeHead : MonoBehaviour
 
     public void Hit(float amount, Collision2D collision = null, Collider2D collider = null)
     {
-
+        bool wall = false;
 
         //////*아래 수정할때 다른쪽도 수정해줄것*///
         //////*아래 수정할때 다른쪽도 수정해줄것*///
@@ -283,9 +286,11 @@ public class SnakeHead : MonoBehaviour
                     case "Wall":
                         ObserverPatternManager.instance.WallHit();
                         WallHit(collision.contacts[0].normal);
+                        wall = true;
                         break;
                     case "Enemy":
                         ObserverPatternManager.instance.EnemyContact(collision.gameObject.GetComponent<Enemy>());
+
                         break;
                     case "EnemyBullet":
 
@@ -305,6 +310,7 @@ public class SnakeHead : MonoBehaviour
                     case "Wall":
                         ObserverPatternManager.instance.WallHit();
                         WallHit(DirectionToVector2(dir));
+                        wall = true;
                         break;
                     case "Enemy":
                         ObserverPatternManager.instance.EnemyContact(collider.gameObject.GetComponent<Enemy>());
@@ -318,6 +324,21 @@ public class SnakeHead : MonoBehaviour
                 }
             }
 
+        if(!wall)
+            HPDecrease(amount);
+        else
+        {
+            //장애물 피격 판정
+            if (Airbag.instance.BlockDamage())
+                return;
+
+            HPDecrease(amount);
+        }
+
+
+    }
+    public void HPDecrease(float amount)
+    {
         if (remain_invincibilityTime > 0 && amount > 0f)
             return;
         if (amount > 0f)
@@ -327,9 +348,8 @@ public class SnakeHead : MonoBehaviour
             animator.SetTrigger("Hit");
         }
         HP -= amount;
-
-
     }
+
 
 
 

@@ -10,7 +10,7 @@ public class Healer : BodyClass
     public BodyClass backColleague;
     public bool shield;
     public bool shieldUpgraded;
-    bool headTarget;
+    public bool headTarget;
     protected override void Start()
     {
         base.Start();
@@ -73,6 +73,7 @@ public class Healer : BodyClass
     public override void Activate()
     {
         snakeBody.Activate();
+        SetTarget();
         PlayerInventory.instance.AddColleague(this);
     }
     public override void LevelUp()
@@ -84,6 +85,7 @@ public class Healer : BodyClass
                 shoottime.baseValue = 10;
                 bonusDamage = 5;
                 Activate();
+                SnakeBodyManager.instance.onNewColleagueDetected += SetTarget;
                 SetBodyInfo("회복 위력이 증가합니다.", "1.5타일", "", "");
                 break;
             case 2:
