@@ -1,20 +1,83 @@
 {
-  "PlayerName": "Player",
-  "Inventory": [
-    {
-      "Id": 1,
-      "Value": 10,
-      "Boolean": false
-    },
-    {
-      "Id": 2,
-      "Value": 20,
-      "Boolean": true
-    },
-    {
-      "Id": 3,
-      "Value": 30,
-      "Boolean": false
-    }
-  ]
+  "Money": 3,
+  "Level": 0,
+  "CatJson": {
+    "Unlock": true,
+    "Level": false,
+    "Attack": [ true, false, false ],
+    "Skill": [ true, false, false ],
+    "Clan": 1
+  },
+  "BirdJson": {
+    "Unlock": true,
+    "Level": false,
+    "Attack": [ true, false, false ],
+    "Skill": [ true, false, false ],
+    "Clan": 1
+  },
+  "CowJson": {
+    "Unlock": true,
+    "Level": false,
+    "Attack": [ true, false, false ],
+    "Skill": [ true, false, false ],
+    "Clan": 1
+  },
+  "FoxJson": {
+    "Unlock": true,
+    "Level": false,
+    "Attack": [ true, false, false ],
+    "Skill": [ true, false, false ],
+    "Clan": 1
+  },
+  "LizardJson": {
+    "Unlock": true,
+    "Level": false,
+    "Attack": [ true, false, false ],
+    "Skill": [ true, false, false ],
+    "Clan": 1
+  },
+  "Colleague": {
+    "Crow": true,
+    "Beaver": true,
+    "Mole": false,
+    "Ferret": false,
+    "Crane": false,
+    "Otter": false,
+    "Elepahnt": false,
+    "Squirrel": false,
+    "RattleSnake": false,
+    "Rhino": false
+  },
+  "Enforce": {
+    "Health": 1,
+    "Speed": 1,
+    "CritacalRate": 0,
+    "CollectionRange": 1,
+    "Exp": 1,
+    "CriticalDamage": 1,
+    "SkillCoolTime": 1
+  },
+  "Stage1": {
+    "Progress": 0,
+    "Clear": false,
+    "Unlock": false
+  },
+  "Stage2": {
+    "Progress": 0,
+    "Clear": false,
+    "Unlock": false
+  },
+  "Stage3": {
+    "Progress": 0,
+    "Clear": false,
+    "Unlock": false
+  },
+  "UI": {
+    "HowSkill": true,
+    "CharQual": 0,
+    "BakcQual": 0,
+    "Bgm": 60,
+    "Efm": 60,
+    "Account": ""
+  }
 }

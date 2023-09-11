@@ -30,7 +30,6 @@ public class MainUiCtrl : MonoBehaviour
     public void a()
     {
         Singleton.GetComponent<test>().i++;
-        SceneManager.LoadScene("ValueSettingScene");
     }
 
     public void OptionButton()
