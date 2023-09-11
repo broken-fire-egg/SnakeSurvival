@@ -30,8 +30,8 @@ public class Shaman : BodyClass
     }
     public override void Activate()
     {
-        snakeBody.Activate();
         PlayerInventory.instance.AddColleague(this);
+        snakeBody.Activate();
     }
     private void Update()
     {

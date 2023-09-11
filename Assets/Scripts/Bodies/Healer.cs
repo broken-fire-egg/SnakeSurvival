@@ -72,9 +72,9 @@ public class Healer : BodyClass
 
     public override void Activate()
     {
+        PlayerInventory.instance.AddColleague(this);
         snakeBody.Activate();
         SetTarget();
-        PlayerInventory.instance.AddColleague(this);
     }
     public override void LevelUp()
     {

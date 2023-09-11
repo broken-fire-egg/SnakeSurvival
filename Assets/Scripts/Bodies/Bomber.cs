@@ -13,8 +13,8 @@ public class Bomber : BodyClass
     public int extraMine;
     public override void Activate()
     {
-        snakeBody.Activate();
         PlayerInventory.instance.AddColleague(this);
+        snakeBody.Activate();
     }
     private void Awake()
     {

@@ -20,9 +20,9 @@ public class Shooter : BodyClass
 
     public override void Activate()
     {
+        PlayerInventory.instance.AddColleague(this);
         snakeBody.Activate();
         transform.GetChild(0).gameObject.SetActive(true);
-        PlayerInventory.instance.AddColleague(this);
     }
     protected override void Start()
     {

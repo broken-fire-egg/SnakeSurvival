@@ -25,8 +25,8 @@ public class Sawer : BodyClass
     }
     public override void Activate()
     {
-        snakeBody.Activate();
         PlayerInventory.instance.AddColleague(this);
+        snakeBody.Activate();
     }
     public void PlayHitEffect(GameObject enemy,GameObject saw)
     {

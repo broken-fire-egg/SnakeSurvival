@@ -25,9 +25,9 @@ public class Alchemist : BodyClass
     }
     public override void Activate()
     {
+        PlayerInventory.instance.AddColleague(this);
         snakeBody.Activate();
         //GameInfo.Instance.damageMultiply += amount;
-        PlayerInventory.instance.AddColleague(this);
     }
     void Update()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class SnakeBody : MonoBehaviour
 
     public virtual void SetBodyInfo()
     {
-        
+
     }
     private void Start()
     {
@@ -25,7 +26,7 @@ public class SnakeBody : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
-    
+
     public void Hit(float amount)
     {
         HP -= amount;
@@ -33,11 +34,11 @@ public class SnakeBody : MonoBehaviour
     }
     void HPCheck()
     {
-        if(HP > maxHP)
+        if (HP > maxHP)
             HP = maxHP;
         if (HP <= 0)
         {
-            ObserverPatternManager.instance.ColleagueOrHeroDied(true,this);
+            ObserverPatternManager.instance.ColleagueOrHeroDied(true, this);
 
 
             if (HP <= 0)
@@ -45,7 +46,7 @@ public class SnakeBody : MonoBehaviour
         }
     }
 
- 
+
     public void CheckOverMoved()
     {
         bool res = false;
@@ -93,7 +94,7 @@ public class SnakeBody : MonoBehaviour
             }
         }
 
-        if(res)
+        if (res)
         {
             SetDestination(gap);
         }
@@ -188,9 +189,16 @@ public class SnakeBody : MonoBehaviour
     }
     public void Activate(bool activate = true)
     {
-        if(activate)
+        if (activate)
             SnakeBodyManager.instance.AddBody(this);
         sr.enabled = activate;
         activated = activate;
+    }
+
+    public void Revive(float hp)
+    {
+        HP = hp;
+        sr.enabled = true;
+        activated = true;
     }
 }

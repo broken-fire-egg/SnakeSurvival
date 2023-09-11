@@ -40,8 +40,8 @@ public class Bard : BodyClass
     }
     public override void Activate()
     {
-        snakeBody.Activate();
         PlayerInventory.instance.AddColleague(this);
+        snakeBody.Activate();
     }
     public override void LevelUp()
     {

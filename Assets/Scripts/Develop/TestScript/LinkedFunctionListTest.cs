@@ -8,10 +8,6 @@ public class LinkedFunctionListTest : MonoBehaviour
     public LinkedFunctionList<float> LFL2;
     void Start()
     {
-        LFL1 = new LinkedFunctionList<float>(FirstFunc).AppendFunction(SecondFunc).AppendFunction(ThirdFunc);
-        Debug.Log("LFL1 result : " + LFL1.Function(8f));
-
-        LFL2 = LFL1;
     }
      
     public float FirstFunc(float args)

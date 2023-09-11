@@ -60,7 +60,7 @@ public class SnakeHead : MonoBehaviour
     public float HP;
 
     protected float attackCT;   //현재 남은 쿨타임
-    protected MultipleMultiplierValue attackDT;   //전체 쿨타임
+    public MultipleMultiplierValue attackDT;   //전체 쿨타임
     protected SpriteRenderer sr;
 
     public float invincibilityTime;

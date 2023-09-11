@@ -22,10 +22,10 @@ public class Spinner : BodyClass
     }
     public override void Activate()
     {
+        PlayerInventory.instance.AddColleague(this);
         snakeBody.Activate(); 
         center.gameObject.SetActive(true);
         SetClamsPosition();
-        PlayerInventory.instance.AddColleague(this);
     }
     public override void PlayHitEffect(GameObject enemy)
     {

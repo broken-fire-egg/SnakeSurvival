@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof (SnakeBody))]
 public abstract class BodyClass : MonoBehaviour
 {
-    protected SnakeBody snakeBody; 
+    public SnakeBody snakeBody; 
     public GameObject bulletpref;
 
     public Sprite bodyIcon;

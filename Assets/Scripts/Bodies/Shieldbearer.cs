@@ -20,8 +20,8 @@ public class Shieldbearer : BodyClass
     public float range;
     public override void Activate()
     {
-        snakeBody.Activate();
         PlayerInventory.instance.AddColleague(this);
+        snakeBody.Activate();
     }
     private void Update()
     {
