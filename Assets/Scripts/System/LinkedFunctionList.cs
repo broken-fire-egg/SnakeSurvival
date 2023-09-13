@@ -14,7 +14,7 @@ public class LinkedFunctionList<T>
     public delegate T FuncP(T args);
     FuncP function;
 
-
+    //TODO : 매개변수 T 대신 object[]같은걸로
     public T Function(T args)
     {
         if (function == null)
